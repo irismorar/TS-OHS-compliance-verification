@@ -1,7 +1,15 @@
 import "./App.css";
+import { HomePage } from "./HomePage";
+import { ListsPage } from "./ListsPage";
+import { useComplianceVerificationState } from "./useComplianceVerificationState";
 
-function App() {
-  return <div>Du-te te culca!</div>;
+export default function App() {
+  const complianceVerificationState = useComplianceVerificationState();
+
+  return (
+    <>
+      <HomePage {...complianceVerificationState} />
+      <ListsPage {...complianceVerificationState} />
+    </>
+  );
 }
-
-export default App;
