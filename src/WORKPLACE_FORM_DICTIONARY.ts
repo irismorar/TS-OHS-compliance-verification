@@ -1,417 +1,423 @@
-export const workplaceFormDictionary = [
+type WorkplaceForm = {
+  question: string;
+  safety_measure: string;
+  generic_answer: string;
+}[];
+
+export const WORKPLACE_FORM_DICTIONARY: WorkplaceForm = [
   {
     question:
       "Există desemnat lucrător/serviciu intern/extern de prevenire și protecție?",
-    safetyMeasure:
+    safety_measure:
       "Se vor numi lucrătorii SSM și cei cu atribuții în domeniul SSM conform dispozițiilor legale, se va apela la servicii externe după caz.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Sunt afișate responsabilitățile SSM (lucrători, conducători loc de muncă)?",
-    safetyMeasure:
+    safety_measure:
       "Se vor aduce la cunostință lucrătorilor prin afișare sau încărcare în sistem informatic accesibil, sarcinile pe care le au aceștia.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Instruirea periodică este efectuată conform programului?",
-    safetyMeasure:
+    safety_measure:
       "Se va verifica periodicitatea efectuării instruirii. Se propune analiza calității instruirii, periodicitatea și timpul aferent acesteia.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Sunt comunicate procedurile și instrucțiunile proprii SSM?",
-    safetyMeasure:
+    safety_measure:
       "Procedurile și IPSSM se vor comunica lucrătorilor prin sistem de date încărcat în server cu acces din orice loc de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Există planul de prevenire și protecție actualizat?",
-    safetyMeasure:
+    safety_measure:
       "P.P.P. se va analiza periodic și, în funcție de modificarile structurale, în baza rezultatelor evaluării riscurilor se va adapta la noile cerințe.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Există planul de evacuare în situații de urgență și este afișat?",
-    safetyMeasure:
+    safety_measure:
       "Se va actualiza planul de evacuare și se va afișa la locurile de muncă din cadrul unității.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Există trusa medicală de prim ajutor, verificată și completă?",
-    safetyMeasure:
+    safety_measure:
       "Se vor verifica lunar trusele de prim ajutor, se vor completa cu necesarul medical.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Evaluarea riscurilor este realizată pentru toate locurile de muncă?",
-    safetyMeasure:
+    safety_measure:
       "Se propune reevaluarea riscurilor în SSM, ținându-se cont de sistemele de muncă existente, riscurile specifice și GSR.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Documentul de evaluare este actualizat (anual sau la schimbări)?",
-    safetyMeasure:
+    safety_measure:
       "Se propune reevaluarea riscurilor în SSM, ținându-se cont de sistemele de muncă existente, riscurile specifice și GSR.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Sunt identificate riscurile generale și specifice?",
-    safetyMeasure:
+    safety_measure:
       "În procedura de evaluare se vor identifica riscurile generale și cele specifice sistemelor de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Se cunosc măsurile de prevenire stabilite în evaluare?",
-    safetyMeasure:
+    safety_measure:
       "Măsurile din PPP se vor defalca pe categorii - lucrători și conducători ai locurilor de muncă, se vor informa lucrătorii despre acestea.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Măsurile sunt implementate și monitorizate?",
-    safetyMeasure: "Se impune verificarea implementării măsurilor din PPP.",
-    genericAnswer:
+    safety_measure: "Se impune verificarea implementării măsurilor din PPP.",
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Există registre de accidente ușoare/incidente?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea registrelor de evidență a evenimentelor, verificarea consemnării fiecărui eveniment în aceste registre.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Se efectuează analiza periodică a riscurilor reziduale?",
-    safetyMeasure:
+    safety_measure:
       "Efectuarea reevaluărilor riscurilor după implementarea programelor de prevenire din PPP.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Căile de acces sunt libere, marcate și în stare bună?",
-    safetyMeasure:
+    safety_measure:
       "Se vor marca și semnaliza căile de acces. Se interzice depozitatea de sarcini pe aceste căi de acces și se va verifica calitatea acestora.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Iluminatul este corespunzător, natural/artificial?",
-    safetyMeasure:
+    safety_measure:
       "Se va efectua cel puțin anual măsurarea fluxului luminos la locurile de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Ventilația/aerisirea este adecvată?",
-    safetyMeasure:
+    safety_measure:
       "Se va nominaliza lucrătorul responsabil cu sistemul de ventilație/climatizare pe categorii de locuri de muncă. Se raportează imediat și se remediază deficiențele.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Temperatura este corespunzătoare activității desfășurate?",
-    safetyMeasure:
+    safety_measure:
       "Se va verifica periodic temperatura mediului de muncă. Se vor aplica măsuri de protecție corespunzătoare.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Posturile de lucru sunt ergonomice (poziție corectă, mobilier adecvat)?",
-    safetyMeasure:
+    safety_measure:
       "Se propune efectuarea evaluării ergonomiei locurilor de muncă existente.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Starea generală de curățenie și ordine este satisfăcătoare?",
-    safetyMeasure:
+    safety_measure:
       "Se solicită verificarea săptămânală a locurilor de muncă. Conducătorul direct va verifica zilnic curățenia și ordinea la începutul și sfârșitul schimbului de lucru.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Zgomotul, vibrațiile, praful, substanțele chimice sunt menținute în limite?",
-    safetyMeasure:
+    safety_measure:
       "Pentru măsuri eficiente se vor realiza măsurători oficiale și se vor implementa măsurile specifice indicate.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Echipamentele tehnice sunt verificate și autorizate (ISCIR, dacă se aplică)?",
-    safetyMeasure:
+    safety_measure:
       "Se va verifica autorizarea și certificarea fiecărui echipament de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Instalațiile electrice sunt protejate, inscripționate și verificate periodic?",
-    safetyMeasure:
+    safety_measure:
       "Se vor efectua verificările periodice specifice acestor instalații.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Există protecții pentru părțile în mișcare ale utilajelor?",
-    safetyMeasure:
+    safety_measure:
       "Se vor verifica toate dispozitivele și sistemele de protecție, precum și mentenanța acestora.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Locurile periculoase sunt identificate și marcate corespunzător?",
-    safetyMeasure:
+    safety_measure:
       "Se va efectua expertiza de identificare a zonelor periculoase.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Zonele cu risc de cădere sunt protejate (balustrade, plase, platforme)?",
-    safetyMeasure: "Se vor verifica mijloacele de protecție colectivă.",
-    genericAnswer:
+    safety_measure: "Se vor verifica mijloacele de protecție colectivă.",
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Substanțele periculoase sunt depozitate conform fișelor de securitate (SDS)?",
-    safetyMeasure:
+    safety_measure:
       "Se va efectua verificarea specifică a folosirii și depozitării substanțelor chimice folosite.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Există fișele cu date de securitate (SDS) pentru agenți chimici?",
-    safetyMeasure:
+    safety_measure:
       "Se va verifica existența fișelor și expunerea acestora la locurile de muncă vizate.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Lucrările la înălțime sunt organizate cu măsuri specifice (ham, schele verificate)?",
-    safetyMeasure:
+    safety_measure:
       "Se va revizui procedeul de lucru la înălțime, dotarea și verificările obligatorii.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Locurile cu risc de incendiu sunt dotate cu extinctoare și semnalizate?",
-    safetyMeasure:
+    safety_measure:
       "Se va efectua verificarea specifică, dotarea cu stingătoare, semnalizarea și verificarea stingătoarelor.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Zonele cu risc de electrocutare sunt semnalizate?",
-    safetyMeasure:
+    safety_measure:
       "Se va reface semnalizarea de atenționare a pericolului de electrocutare.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Lucrările în spații închise au proceduri speciale?",
-    safetyMeasure: "Se va revizui procedura de lucru în spații izolate.",
-    genericAnswer:
+    safety_measure: "Se va revizui procedura de lucru în spații izolate.",
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "EIP este distribuit conform fișei de acordare?",
-    safetyMeasure:
+    safety_measure:
       "Periodic, LDSSM va verifica folosirea EIP de către lucrători, conducătorii direcți ai locurilor de muncă vor pune în practică procedura zilnică de verificare a purtării EIP.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "EIP este adecvat riscurilor (cască, ochelari, bocanci, veste, etc.)?",
-    safetyMeasure:
+    safety_measure:
       "Se va verifica modul de acordare și categoriile de echipament aprobat.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Lucrătorii poartă EIP în mod corect?",
-    safetyMeasure:
+    safety_measure:
       "Periodic, LDSSM va verifica folosirea EIP de către lucrători, conducătorii direcți ai locurilor de muncă vor pune în practică procedura zilnică de verificare a purtării EIP.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Stocul de EIP este suficient și monitorizat?",
-    safetyMeasure: "Stocul de EIP se va verifica periodic de către LDSSM.",
-    genericAnswer:
+    safety_measure: "Stocul de EIP se va verifica periodic de către LDSSM.",
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Există instrucțiunile de utilizare a EIP?",
-    safetyMeasure:
+    safety_measure:
       "Revizuirea tematicii de instruire și a referatului de informare asupra rolului EIP acordat.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Executantul este apt medical pentru activitatea desfășurată?",
-    safetyMeasure: "Supravegherea efectuării vizitelor medicale periodice.",
-    genericAnswer:
+    safety_measure: "Supravegherea efectuării vizitelor medicale periodice.",
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Executantul a primit instruire SSM completă și la zi?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea modului de instruire și verificarea capacității și a cunoștințelor dobândite de lucrători prin interviu la locul de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Executantul are calificarea necesară pentru utilizarea echipamentelor?",
-    safetyMeasure:
+    safety_measure:
       "Efectuarea formării profesionale interne prin procedura proprie.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Executantul cunoaște instrucțiunile proprii și procedurile de lucru?",
-    safetyMeasure:
+    safety_measure:
       "Testarea cunoștințelor lucrătorilor prin intervievare directă la locul de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Executantul respectă regulile SSM și poartă EIP?",
-    safetyMeasure: "Verificarea periodică a respectării regulilor SSM.",
-    genericAnswer:
+    safety_measure: "Verificarea periodică a respectării regulilor SSM.",
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Sarcina este clar definită și comunicată lucrătorilor?",
-    safetyMeasure: "Verificarea conținutului fișei de post.",
-    genericAnswer:
+    safety_measure: "Verificarea conținutului fișei de post.",
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Procedurile de lucru sunt afișate sau accesibile?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea afițării procedurilor de lucru și a celor de ssm la locurile de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Există suprasolicitare fizică sau psihică?",
-    safetyMeasure:
+    safety_measure:
       "Efectuarea evaluărilor pentru mânuiri și a celei psihosociale specifice.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Volumul și ritmul de muncă sunt adecvate?",
-    safetyMeasure:
+    safety_measure:
       "Stabilirea de catre tehnolog a volumului de muncă în procesul tehnologic.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Sarcina implică doar operațiuni autorizate?",
-    safetyMeasure:
+    safety_measure:
       "Verificări a structurii sarcinilor de muncă coroborate cu procedurile de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Echipamentele de muncă sunt în stare bună de funcționare?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea planului de mentenanță și a procedurii de solicitare reparații și verificări.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Echipamentele de muncă au verificări periodice la zi?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea registrului de activitate de mentenanță pe echipament de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Echipamentele de muncă au manuale/instrucțiuni de utilizare disponibile?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea existenței în arhiva tehnică a manualelor tehnice/echipemente.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Echipamentele de muncă au protecții funcționale și complete?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea specifică a dispozitivelor și protecțiilor din dotarea echipamentului de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Echipamentele de muncă sunt utilizate doar de personal instruit?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea aptitudinilor lucrătorilor cu reprezentanții RU.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Mediul are condiții corespunzătoare de temperatură, lumină, zgomot?",
-    safetyMeasure:
+    safety_measure:
       "Efectuarea măsurătorilor specifice periodic la cel puțin un an, sau ori de câte ori este nevoie.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "Mediul nu prezintă obstacole, pericole ascunse sau suprafețe alunecoase?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea surselor de pericole potentiale in desfasurarea activitatii la locurile de muncă.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Mediul are sisteme de ventilație și evacuare adecvate?",
-    safetyMeasure:
+    safety_measure:
       "Numirea responsabilului cu aceste sisteme, verificarea zilnică a funcționării corecte a sistemelor.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question: "Mediul este semnalizat corespunzător?",
-    safetyMeasure:
+    safety_measure:
       "Verificarea semnalizării și aplicarea de semnalizări a mediilor de lucru potențial periculoase.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
   {
     question:
       "În acest mediu nu există expuneri la agenți periculoși peste limite?",
-    safetyMeasure:
+    safety_measure:
       "Efectuarea măsurătorilor specifice periodic la cel puțin un an, sau ori de câte ori este nevoie.",
-    genericAnswer:
+    generic_answer:
       "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.",
   },
 ];

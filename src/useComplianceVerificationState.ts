@@ -1,5 +1,13 @@
 import { useCallback, useState } from "react";
 
+type QuestionItem = {
+  isAnswerTrue: boolean;
+  severity: 1 | 2 | 3 | 4;
+  probability: 1 | 2 | 3 | 4;
+  riskFactor: "EXTREM" | "MEDIU" | "SCĂZUT";
+  priority: "MĂSURI IMEDIATE" | "MĂSURI PRIORITARE" | "MENȚINEREA MĂSURILOR";
+};
+
 export function useComplianceVerificationState() {
   const [page, setPage] = useState<
     | "homePage"
@@ -17,6 +25,8 @@ export function useComplianceVerificationState() {
     userInputForRegisteredOfficeAdress,
     setUserInputForRegisteredOfficeAdress,
   ] = useState("");
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [questionItems, setQuestionItems] = useState<QuestionItem[]>([]);
 
   const changeUserInputForUnitName = useCallback((newText: string) => {
     setUserInputForUnitName(newText);
@@ -61,6 +71,10 @@ export function useComplianceVerificationState() {
     setPage("generalQuestionsPage");
   };
 
+  const getNextQuestionIndex = useCallback(() => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+  }, []);
+
   console.log(unitName);
   console.log(jName);
   console.log(registeredOfficeAdress);
@@ -76,9 +90,14 @@ export function useComplianceVerificationState() {
     getWorkplaceFormPage,
     getWorkshopFormPage,
     getGeneralQuestionsPage,
+    getNextQuestionIndex,
     page,
+    unitName,
+    jName,
+    registeredOfficeAdress,
     userInputForUnitName,
     userInputForJName,
     userInputForRegisteredOfficeAdress,
+    currentQuestionIndex,
   };
 }
