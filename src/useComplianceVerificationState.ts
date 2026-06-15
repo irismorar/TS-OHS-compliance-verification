@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
+import { RISK_FACTOR_COMBINATIONS } from "./RISK_FACTOR_COMBINATIONS_DICTIONARY";
 
-type QuestionItem = {
+export type QuestionItem = {
   isAnswerTrue: boolean;
   severity: 1 | 2 | 3 | 4;
   probability: 1 | 2 | 3 | 4;
@@ -26,6 +27,15 @@ export function useComplianceVerificationState() {
     setUserInputForRegisteredOfficeAdress,
   ] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [severity, setSeverity] = useState<QuestionItem["severity"] | 0>(0);
+  const [probability, setProbability] = useState<
+    QuestionItem["probability"] | 0
+  >(0);
+  const [isAnswerTrue, setIsAnswerTrue] = useState(false);
+  const [riskFactor, setRiskFactor] = useState<QuestionItem["riskFactor"] | "">(
+    "",
+  );
+  const [priority, setPriority] = useState<QuestionItem["priority"] | "">("");
   const [questionItems, setQuestionItems] = useState<QuestionItem[]>([]);
 
   const changeUserInputForUnitName = useCallback((newText: string) => {
@@ -75,6 +85,48 @@ export function useComplianceVerificationState() {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   }, []);
 
+  const getSeverity = useCallback((severityValue: QuestionItem["severity"]) => {
+    setSeverity(severityValue);
+  }, []);
+
+  const getProbability = useCallback(
+    (probabilityValue: QuestionItem["probability"]) => {
+      setProbability(probabilityValue);
+    },
+    [],
+  );
+
+  const getRiskFactor = useCallback(
+    (
+      probabilityValue: QuestionItem["probability"],
+      severityValue: QuestionItem["severity"],
+    ) => {
+      const match = RISK_FACTOR_COMBINATIONS.find((item) => {
+        return (
+          item.probability === probabilityValue &&
+          item.severity === severityValue
+        );
+      });
+      if (!match) {
+        return;
+      }
+      setRiskFactor(match.riskFactor);
+    },
+    [],
+  );
+
+  const getPriority = useCallback((riskFactor: QuestionItem["riskFactor"]) => {
+    if (riskFactor === "SCĂZUT") {
+      setPriority("MENȚINEREA MĂSURILOR");
+    }
+    if (riskFactor === "MEDIU") {
+      setPriority("MĂSURI PRIORITARE");
+    }
+    if (riskFactor === "EXTREM") {
+      setPriority("MĂSURI IMEDIATE");
+    }
+  }, []);
+
   console.log(unitName);
   console.log(jName);
   console.log(registeredOfficeAdress);
@@ -91,6 +143,10 @@ export function useComplianceVerificationState() {
     getWorkshopFormPage,
     getGeneralQuestionsPage,
     getNextQuestionIndex,
+    getSeverity,
+    getProbability,
+    getRiskFactor,
+    getPriority,
     page,
     unitName,
     jName,
@@ -99,5 +155,9 @@ export function useComplianceVerificationState() {
     userInputForJName,
     userInputForRegisteredOfficeAdress,
     currentQuestionIndex,
+    severity,
+    probability,
+    riskFactor,
+    priority,
   };
 }

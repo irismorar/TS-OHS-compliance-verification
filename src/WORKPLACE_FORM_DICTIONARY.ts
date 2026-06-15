@@ -1,8 +1,10 @@
-type WorkplaceForm = {
+type WorkplaceFormItem = {
   question: string;
   safety_measure: string;
   generic_answer: string;
-}[];
+};
+
+type WorkplaceForm = WorkplaceFormItem[];
 
 export const WORKPLACE_FORM_DICTIONARY: WorkplaceForm = [
   {

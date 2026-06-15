@@ -1,8 +1,11 @@
-type RiskFactor = {
-  probability: 1 | 2 | 3 | 4;
-  severity: 1 | 2 | 3 | 4;
-  riskFactor: "EXTREM" | "MEDIU" | "SCĂZUT";
-}[];
+import type { QuestionItem } from "./useComplianceVerificationState";
+
+type RiskFactorItem = Pick<
+  QuestionItem,
+  "probability" | "severity" | "riskFactor"
+>;
+
+type RiskFactor = RiskFactorItem[];
 
 export const RISK_FACTOR_COMBINATIONS: RiskFactor = [
   {
