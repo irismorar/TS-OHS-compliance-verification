@@ -7,9 +7,9 @@ export default function App() {
   const complianceVerificationState = useComplianceVerificationState();
 
   return (
-    <>
+    <section className="bg-gray-500">
       <HomePage {...complianceVerificationState} />
       <ListsPage {...complianceVerificationState} />
-    </>
+    </section>
   );
 }

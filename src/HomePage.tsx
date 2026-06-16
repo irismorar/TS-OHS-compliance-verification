@@ -1,4 +1,5 @@
 import { UserInputItem } from "./UserInputItem";
+import backgroundImage from "./assets/OHS-backgroundImage.png";
 
 type Props = {
   page: string;
@@ -30,10 +31,29 @@ export function HomePage({
   return (
     <>
       {page === "homePage" && (
-        <main>
-          <section>
-            <h1>MMS PRO</h1>
-            <h3>Prevenire. Reglementare. Optimizare</h3>
+        <main
+          className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+          }}
+        >
+          <section className="absolute top-30 left-1/2 -translate-x-1/2 text-center">
+            <h1
+              className="text-6xl font-extrabold tracking-wider text-white"
+              style={{
+                textShadow: "0 2px 10px rgba(0,0,0,0.4)",
+              }}
+            >
+              MMS PRO
+            </h1>
+            <h3
+              className="mt-2 text-2xl font-semibold text-white/90 tracking-wider"
+              style={{
+                textShadow: "0 2px 8px rgba(0,0,0,0.25)",
+              }}
+            >
+              Prevenire. Reglementare. Optimizare.
+            </h3>
           </section>
           <section>
             <UserInputItem

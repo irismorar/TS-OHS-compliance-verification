@@ -26,17 +26,13 @@ export function useComplianceVerificationState() {
     userInputForRegisteredOfficeAdress,
     setUserInputForRegisteredOfficeAdress,
   ] = useState("");
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [severity, setSeverity] = useState<QuestionItem["severity"] | 0>(0);
   const [probability, setProbability] = useState<
     QuestionItem["probability"] | 0
   >(0);
-  const [isAnswerTrue, setIsAnswerTrue] = useState(false);
-  const [riskFactor, setRiskFactor] = useState<QuestionItem["riskFactor"] | "">(
-    "",
-  );
-  const [priority, setPriority] = useState<QuestionItem["priority"] | "">("");
-  const [questionItems, setQuestionItems] = useState<QuestionItem[]>([]);
+  // const [isAnswerTrue, setIsAnswerTrue] = useState(false);
+
+  // const [questionItems, setQuestionItems] = useState<QuestionItem[]>([]);
 
   const changeUserInputForUnitName = useCallback((newText: string) => {
     setUserInputForUnitName(newText);
@@ -81,10 +77,6 @@ export function useComplianceVerificationState() {
     setPage("generalQuestionsPage");
   };
 
-  const getNextQuestionIndex = useCallback(() => {
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-  }, []);
-
   const getSeverity = useCallback((severityValue: QuestionItem["severity"]) => {
     setSeverity(severityValue);
   }, []);
@@ -110,20 +102,20 @@ export function useComplianceVerificationState() {
       if (!match) {
         return;
       }
-      setRiskFactor(match.riskFactor);
+      return match.riskFactor;
     },
     [],
   );
 
   const getPriority = useCallback((riskFactor: QuestionItem["riskFactor"]) => {
     if (riskFactor === "SCĂZUT") {
-      setPriority("MENȚINEREA MĂSURILOR");
+      return "MENȚINEREA MĂSURILOR";
     }
     if (riskFactor === "MEDIU") {
-      setPriority("MĂSURI PRIORITARE");
+      return "MĂSURI PRIORITARE";
     }
     if (riskFactor === "EXTREM") {
-      setPriority("MĂSURI IMEDIATE");
+      return "MĂSURI IMEDIATE";
     }
   }, []);
 
@@ -142,7 +134,6 @@ export function useComplianceVerificationState() {
     getWorkplaceFormPage,
     getWorkshopFormPage,
     getGeneralQuestionsPage,
-    getNextQuestionIndex,
     getSeverity,
     getProbability,
     getRiskFactor,
@@ -154,10 +145,7 @@ export function useComplianceVerificationState() {
     userInputForUnitName,
     userInputForJName,
     userInputForRegisteredOfficeAdress,
-    currentQuestionIndex,
     severity,
     probability,
-    riskFactor,
-    priority,
   };
 }
