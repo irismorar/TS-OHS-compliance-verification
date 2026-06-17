@@ -94,7 +94,12 @@ export function HomePage({
                 Continuă
               </button>
             </section>
-            <section className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-xs">
+            <section
+              className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-xs text-white/90 tracking-wider"
+              style={{
+                textShadow: "0 2px 8px rgba(0,0,0,0.25)",
+              }}
+            >
               <p>Creat de MMS CONSULTING SRL</p>
               <p>Marcă înregistrată OSIM nr.</p>
             </section>
