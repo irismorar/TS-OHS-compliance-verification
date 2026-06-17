@@ -16,8 +16,13 @@ export function UserInputItem({
   handleCreateDomainValue,
 }: Props) {
   return (
-    <>
-      <label htmlFor="domain">{domainName}</label>
+    <section className="w-full max-w-2xl flex items-center gap-6">
+      <label
+        htmlFor="domain"
+        className="w-48 text-left text-xl font-semibold text-slate-800 select-none"
+      >
+        {domainName}
+      </label>
       <input
         type="text"
         id="domain"
@@ -33,7 +38,8 @@ export function UserInputItem({
             handleCreateDomainValue();
           }
         }}
+        className="flex-1 rounded-xl border border-slate-300 bg-white/80 px-4 py-3 text-lg shadow-sm transition-all duration-200 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
       />
-    </>
+    </section>
   );
 }

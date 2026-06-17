@@ -7,7 +7,7 @@ export default function App() {
   const complianceVerificationState = useComplianceVerificationState();
 
   return (
-    <section className="bg-gray-500">
+    <section className="max-h-dvh select-none">
       <HomePage {...complianceVerificationState} />
       <ListsPage {...complianceVerificationState} />
     </section>
