@@ -4,14 +4,12 @@ type Props = {
   page: string;
   getWorkplaceFormPage: () => void;
   getWorkshopFormPage: () => void;
-  getGeneralQuestionsPage: () => void;
 };
 
 export function ListsPage({
   page,
   getWorkplaceFormPage,
   getWorkshopFormPage,
-  getGeneralQuestionsPage,
 }: Props) {
   return (
     <>
@@ -27,24 +25,6 @@ export function ListsPage({
             </p>
 
             <ol className="mt-10 space-y-4">
-              <li
-                onClick={getGeneralQuestionsPage}
-                className="group flex items-center justify-between text-xl rounded-2xl border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md"
-              >
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900">SSM</h3>
-
-                  <p className="text-slate-500">
-                    Întrebări generale despre SSM
-                  </p>
-                </div>
-                <button className="rounded-xl p-2 text-slate-500 transition-all duration-400 group-hover:text-blue-500">
-                  <SquareArrowRightEnter
-                    size={25}
-                    className="transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110"
-                  />
-                </button>
-              </li>
               <li
                 onClick={getWorkshopFormPage}
                 className="group flex items-center justify-between text-xl rounded-2xl border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md"
