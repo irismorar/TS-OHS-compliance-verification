@@ -1,15 +1,15 @@
 import "./App.css";
 import { HomePage } from "./HomePage";
-import { ListsPage } from "./ListsPage";
+import { VerificationChecklistsPage } from "./VerificationChecklistsPage";
 import { useComplianceVerificationState } from "./useComplianceVerificationState";
 
 export default function App() {
-  const complianceVerificationState = useComplianceVerificationState();
+  const complianceVerificationData = useComplianceVerificationState();
 
   return (
     <section className="max-h-dvh select-none">
-      <HomePage {...complianceVerificationState} />
-      <ListsPage {...complianceVerificationState} />
+      <HomePage {...complianceVerificationData} />
+      <VerificationChecklistsPage {...complianceVerificationData} />
     </section>
   );
 }

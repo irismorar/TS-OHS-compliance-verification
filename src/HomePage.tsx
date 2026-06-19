@@ -2,35 +2,35 @@ import { UserInputItem } from "./UserInputItem";
 import backgroundImage from "./assets/OHS-backgroundImage.png";
 
 type Props = {
-  page: string;
-  userInputForUnitName: string;
-  changeUserInputForUnitName: (argument: string) => void;
-  userInputForJName: string;
-  changeUserInputForJName: (argument: string) => void;
-  userInputForRegisteredOfficeAdress: string;
-  changeUserInputForRegisteredOfficeAdress: (argument: string) => void;
-  getListsPage: () => void;
-  createUnitName: (argument: string) => void;
-  createJName: (argument: string) => void;
-  createRegisteredOfficeAdress: (argument: string) => void;
+  currentRoute:
+    | "home"
+    | "verificationChecklists"
+    | "workshopChecklist"
+    | "workplaceChecklist";
+  getVerificationChecklistsPage: () => void;
+  unitName: string;
+  setUnitName: React.Dispatch<React.SetStateAction<string>>;
+  unitIdentificationNumber: string;
+  setUnitIdentificationNumber: React.Dispatch<React.SetStateAction<string>>;
+  unitRegisteredOfficeAddress: string;
+  setUnitRegisteredOfficeAddress: React.Dispatch<React.SetStateAction<string>>;
+  areUnitDetailsFilled: boolean;
 };
 
 export function HomePage({
-  page,
-  userInputForUnitName,
-  changeUserInputForUnitName,
-  userInputForJName,
-  changeUserInputForJName,
-  userInputForRegisteredOfficeAdress,
-  changeUserInputForRegisteredOfficeAdress,
-  getListsPage,
-  createUnitName,
-  createJName,
-  createRegisteredOfficeAdress,
+  currentRoute,
+  getVerificationChecklistsPage,
+  unitName,
+  setUnitName,
+  unitIdentificationNumber,
+  setUnitIdentificationNumber,
+  unitRegisteredOfficeAddress,
+  setUnitRegisteredOfficeAddress,
+  areUnitDetailsFilled,
 }: Props) {
   return (
     <>
-      {page === "homePage" && (
+      {currentRoute === "home" && (
         <main
           className="relative min-h-screen bg-cover bg-center bg-no-repeat"
           style={{
@@ -59,37 +59,37 @@ export function HomePage({
             <section className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center flex flex-col justify-center items-center space-y-4">
               <UserInputItem
                 domainName="Nume unitate"
-                inputText={userInputForUnitName}
+                inputText={unitName}
                 minLengthText={4}
                 maxLengthText={37}
-                handleChange={changeUserInputForUnitName}
-                handleCreateDomainValue={() =>
-                  createUnitName(userInputForUnitName)
-                }
+                handleChange={setUnitName}
               />
               <UserInputItem
                 domainName="J/Ro"
-                inputText={userInputForJName}
+                inputText={unitIdentificationNumber}
                 minLengthText={4}
                 maxLengthText={13}
-                handleChange={changeUserInputForJName}
-                handleCreateDomainValue={() => createJName(userInputForJName)}
+                handleChange={setUnitIdentificationNumber}
               />
               <UserInputItem
                 domainName="Adresă sediu"
-                inputText={userInputForRegisteredOfficeAdress}
+                inputText={unitRegisteredOfficeAddress}
                 minLengthText={4}
                 maxLengthText={40}
-                handleChange={changeUserInputForRegisteredOfficeAdress}
-                handleCreateDomainValue={() =>
-                  createRegisteredOfficeAdress(
-                    userInputForRegisteredOfficeAdress,
-                  )
-                }
+                handleChange={setUnitRegisteredOfficeAddress}
               />
               <button
-                onClick={getListsPage}
-                className="text-md mt-5 text-slate-400 transform-all duration-200 hover:underline hover:text-blue-500"
+                onClick={() => {
+                  if (areUnitDetailsFilled) {
+                    getVerificationChecklistsPage();
+                  }
+                }}
+                disabled={!areUnitDetailsFilled}
+                className={`text-md mt-5 ${
+                  areUnitDetailsFilled
+                    ? "text-slate-400 transition-all duration-200 hover:underline hover:text-blue-500"
+                    : "text-slate-400 cursor-not-allowed"
+                }`}
               >
                 Continuă
               </button>

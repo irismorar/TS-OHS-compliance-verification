@@ -1,19 +1,19 @@
 import { SquareArrowRightEnter } from "lucide-react";
 
 type Props = {
-  page: string;
-  getWorkplaceFormPage: () => void;
-  getWorkshopFormPage: () => void;
+  currentRoute: string;
+  getWorkplaceChecklistPage: () => void;
+  getWorkshopChecklistPage: () => void;
 };
 
-export function ListsPage({
-  page,
-  getWorkplaceFormPage,
-  getWorkshopFormPage,
+export function VerificationChecklistsPage({
+  currentRoute,
+  getWorkshopChecklistPage,
+  getWorkplaceChecklistPage,
 }: Props) {
   return (
     <>
-      {page === "listsPage" && (
+      {currentRoute === "verificationChecklists" && (
         <main className="min-h-screen flex items-center justify-center bg-slate-150">
           <section className="w-full max-w-4xl rounded-3xl bg-slate-200 p-10 shadow-xl select-none">
             <h1 className="text-4xl font-black text-slate-900">
@@ -26,7 +26,7 @@ export function ListsPage({
 
             <ol className="mt-10 space-y-4">
               <li
-                onClick={getWorkshopFormPage}
+                onClick={getWorkshopChecklistPage}
                 className="group flex items-center justify-between text-xl rounded-2xl border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md"
               >
                 <div>
@@ -46,7 +46,7 @@ export function ListsPage({
                 </button>
               </li>
               <li
-                onClick={getWorkplaceFormPage}
+                onClick={getWorkplaceChecklistPage}
                 className="group flex items-center justify-between text-xl rounded-2xl border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md"
               >
                 <div>

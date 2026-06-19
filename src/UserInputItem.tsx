@@ -4,7 +4,6 @@ type Props = {
   minLengthText: number;
   maxLengthText: number;
   handleChange: (argument: string) => void;
-  handleCreateDomainValue: () => void;
 };
 
 export function UserInputItem({
@@ -13,7 +12,6 @@ export function UserInputItem({
   minLengthText,
   maxLengthText,
   handleChange,
-  handleCreateDomainValue,
 }: Props) {
   return (
     <section className="w-full max-w-2xl flex items-center gap-6">
@@ -32,11 +30,6 @@ export function UserInputItem({
         value={inputText}
         onChange={(event) => {
           handleChange(event.target.value);
-        }}
-        onKeyUp={(event) => {
-          if (event.key === "Enter" && inputText.trim() !== "") {
-            handleCreateDomainValue();
-          }
         }}
         className="flex-1 rounded-xl border border-slate-300 bg-white/80 px-4 py-3 text-lg shadow-sm transition-all duration-200 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
       />

@@ -8,8 +8,22 @@ export function useCurrentRoute() {
     | "workplaceChecklist"
   >("home");
 
+  const getVerificationChecklistsPage = () => {
+    setCurrentRoute("verificationChecklists");
+  };
+
+  const getWorkshopChecklistPage = () => {
+    setCurrentRoute("workshopChecklist");
+  };
+
+  const getWorkplaceChecklistPage = () => {
+    setCurrentRoute("workplaceChecklist");
+  };
+
   return {
     currentRoute,
-    setCurrentRoute,
+    getVerificationChecklistsPage,
+    getWorkshopChecklistPage,
+    getWorkplaceChecklistPage,
   };
 }

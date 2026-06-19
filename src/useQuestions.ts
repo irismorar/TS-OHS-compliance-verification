@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 type Question = {
   questionText: string;
   questionAnswer: boolean | null;
+  safetyMeasure: string;
   severity: 1 | 2 | 3 | 4 | null;
   probability: 1 | 2 | 3 | 4 | null;
   additionalNotes: string;
