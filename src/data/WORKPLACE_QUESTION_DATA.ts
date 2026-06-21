@@ -1,4 +1,6 @@
-export const WORKPLACE_QUESTION_DATA = [
+import type { QuestionData } from "../useQuestions";
+
+export const WORKPLACE_QUESTION_DATA: QuestionData = [
   {
     categoryName: "Organizarea SSM",
     questions: [
@@ -350,6 +352,3 @@ export const WORKPLACE_QUESTION_DATA = [
     ],
   },
 ];
-
-export const genericAnswer =
-  "Nu sunt necesare măsuri suplimentare, menținerea conformității și verificările lor periodice fiind propuse a se continua. Măsurile asigură condițiile minime de siguranță impuse, acestea putându-se îmbunătăți.";

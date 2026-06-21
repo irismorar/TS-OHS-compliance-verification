@@ -5,9 +5,9 @@ import { useQuestions } from "./useQuestions";
 export function useComplianceVerificationState() {
   const {
     currentRoute,
-    getVerificationChecklistsPage,
-    getWorkshopChecklistPage,
-    getWorkplaceChecklistPage,
+    setVerificationChecklistsPage,
+    setWorkshopChecklistPage,
+    setWorkplaceChecklistPage,
   } = useCurrentRoute();
   const {
     unitName,
@@ -24,15 +24,16 @@ export function useComplianceVerificationState() {
     setQuestionAnswer,
     setQuestionSeverity,
     setQuestionProbability,
+    setQuestionAdditionalNotes,
     computeQuestionRiskFactor,
   } = useQuestions();
 
   return {
     // route
     currentRoute,
-    getVerificationChecklistsPage,
-    getWorkshopChecklistPage,
-    getWorkplaceChecklistPage,
+    setVerificationChecklistsPage,
+    setWorkshopChecklistPage,
+    setWorkplaceChecklistPage,
 
     // unit details
     unitName,
@@ -49,6 +50,7 @@ export function useComplianceVerificationState() {
     setQuestionAnswer,
     setQuestionSeverity,
     setQuestionProbability,
+    setQuestionAdditionalNotes,
     computeQuestionRiskFactor,
   };
 }

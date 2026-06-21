@@ -11,10 +11,6 @@ export function useUnitDetails() {
     unitIdentificationNumber.trim() !== "" &&
     unitRegisteredOfficeAddress.trim() !== "";
 
-  console.log(unitName);
-  console.log(unitIdentificationNumber);
-  console.log(unitRegisteredOfficeAddress);
-
   return {
     unitName,
     setUnitName,
