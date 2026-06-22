@@ -25,35 +25,33 @@ export function VerificationChecklistsPage({
         </p>
 
         <ol className="mt-10 space-y-4">
-          <li
+          <button
             onClick={() => {
               initChecklistQuestions("workshop");
               setWorkshopChecklistPage();
             }}
-            className="group flex items-center justify-between text-xl rounded-2xl border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md"
+            className="w-full group flex items-center justify-between text-xl rounded-2xl text-slate-500 border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md hover:text-blue-600"
           >
-            <div>
+            <div className="flex items-start flex-col">
               <h3 className="text-xl font-semibold text-slate-900">Atelier</h3>
 
               <p className="text-slate-500">
                 Verificare generală SSM pentru atelier
               </p>
             </div>
-            <button className="rounded-xl p-2 text-slate-500 transition-all duration-400 group-hover:text-blue-500">
-              <SquareArrowRightEnter
-                size={25}
-                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110"
-              />
-            </button>
-          </li>
-          <li
+            <SquareArrowRightEnter
+              size={25}
+              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110"
+            />
+          </button>
+          <button
             onClick={() => {
               initChecklistQuestions("workplace");
               setWorkplaceChecklistPage();
             }}
-            className="group flex items-center justify-between text-xl rounded-2xl border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md"
+            className="w-full group flex items-center justify-between text-xl rounded-2xl text-slate-500 border border-slate-200 px-6 py-5 transition-all duration-300 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md hover:text-blue-600"
           >
-            <div>
+            <div className="flex items-start flex-col">
               <h3 className="text-xl font-semibold text-slate-900">
                 Loc de muncă
               </h3>
@@ -62,13 +60,12 @@ export function VerificationChecklistsPage({
                 Verificare generală SSM pentru loc de muncă
               </p>
             </div>
-            <button className="rounded-xl p-2 text-slate-500 transition-all duration-400 group-hover:text-blue-500">
-              <SquareArrowRightEnter
-                size={25}
-                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110"
-              />
-            </button>
-          </li>
+
+            <SquareArrowRightEnter
+              size={25}
+              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110"
+            />
+          </button>
         </ol>
       </section>
     </main>

@@ -31,7 +31,7 @@ export function UserInputItem({
         onChange={(event) => {
           handleChange(event.target.value);
         }}
-        className="flex-1 rounded-xl border border-slate-300 bg-white/80 px-4 py-3 text-lg shadow-sm transition-all duration-200 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
+        className="flex-1 rounded-xl border border-slate-300 bg-white/80 px-4 py-3 text-lg shadow-sm transition-all duration-200 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
       />
     </section>
   );
