@@ -1,6 +1,6 @@
-import { UserInputItem } from "../UserInputItem";
-import backgroundImage from "../assets/OHS-backgroundImage.png";
-import type { useComplianceVerificationState } from "../useComplianceVerificationState";
+import { UserInputUnitDetails } from "../ui/UserInputUnitDetails";
+import backgroundImage from "../../assets/OHS-backgroundImage.png";
+import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
@@ -46,26 +46,29 @@ export function HomePage({
       </section>
       <section>
         <section className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center flex flex-col justify-center items-center space-y-4">
-          <UserInputItem
+          <UserInputUnitDetails
             domainName="Nume unitate"
             inputText={unitName}
             minLengthText={4}
             maxLengthText={37}
             handleChange={setUnitName}
+            placeholderText="Ex.: SC ___ SRL"
           />
-          <UserInputItem
-            domainName="J/Ro"
+          <UserInputUnitDetails
+            domainName="J / CUI"
             inputText={unitIdentificationNumber}
             minLengthText={4}
             maxLengthText={13}
             handleChange={setUnitIdentificationNumber}
+            placeholderText="Ex.: J___/___/___"
           />
-          <UserInputItem
+          <UserInputUnitDetails
             domainName="Adresă sediu"
             inputText={unitRegisteredOfficeAddress}
             minLengthText={4}
             maxLengthText={40}
             handleChange={setUnitRegisteredOfficeAddress}
+            placeholderText="Ex.: str. ___  nr. ___  loc. ___  jud. ___"
           />
           <button
             onClick={() => {
@@ -74,7 +77,7 @@ export function HomePage({
               }
             }}
             disabled={!areUnitDetailsFilled}
-            className={`text-md mt-5 ${
+            className={`text-sm mt-5 ${
               areUnitDetailsFilled
                 ? "text-slate-400 transition-all duration-200 hover:text-blue-600 hover:scale-105 hover:font-medium"
                 : "text-slate-400 cursor-not-allowed"

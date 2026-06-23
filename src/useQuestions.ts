@@ -11,7 +11,7 @@ type Question = {
   additionalNotes: string;
 };
 
-type QuestionCategory = {
+export type QuestionCategory = {
   categoryName: string;
   questions: Question[];
 };

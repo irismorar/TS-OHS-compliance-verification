@@ -1,7 +1,7 @@
 import "./App.css";
-import { HomePage } from "./pages/HomePage";
-import { VerificationChecklistsPage } from "./pages/VerificationChecklistsPage";
-import { WorkplaceChecklistPage } from "./pages/WorkplaceChecklistPage";
+import { HomePage } from "./components/pages/HomePage";
+import { VerificationChecklistsPage } from "./components/pages/VerificationChecklistsPage";
+import { WorkplaceChecklistPage } from "./components/pages/WorkplaceChecklistPage";
 import { useComplianceVerificationState } from "./useComplianceVerificationState";
 
 export default function App() {
