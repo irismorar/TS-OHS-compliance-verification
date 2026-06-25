@@ -2,7 +2,7 @@ import type { QuestionData } from "../useQuestions";
 
 export const WORKPLACE_QUESTION_DATA: QuestionData = [
   {
-    categoryName: "Organizarea SSM",
+    categoryName: "Organizare SSM",
     questions: [
       {
         questionText: "Există o persoană desemnată responsabilă cu SSM?",
@@ -25,12 +25,12 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
         questionText:
           "Sunt comunicate procedurile și instrucțiunile proprii SSM?",
         safetyMeasure:
-          "Procedurile și IPSSM se vor comunica lucrătorilor prin sistem de date încărcat în server cu acces din orice loc de muncă.",
+          "Procedurile și instrucțiunile proprii SSM se vor comunica lucrătorilor prin sistem de date încărcat în server cu acces din orice loc de muncă.",
       },
       {
         questionText: "Există planul de prevenire și protecție actualizat?",
         safetyMeasure:
-          "P.P.P. se va analiza periodic și, în funcție de modificarile structurale, în baza rezultatelor evaluării riscurilor se va adapta la noile cerințe.",
+          "Planul de prevenire și protecție se va analiza periodic și, în funcție de modificarile structurale, în baza rezultatelor evaluării riscurilor se va adapta la noile cerințe.",
       },
       {
         questionText:
@@ -48,13 +48,13 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
         questionText:
           "Evaluarea riscurilor este realizată pentru toate locurile de muncă?",
         safetyMeasure:
-          "Se propune reevaluarea riscurilor în SSM, ținându-se cont de sistemele de muncă existente, riscurile specifice și GSR.",
+          "Se propune reevaluarea riscurilor în SSM, ținându-se cont de sistemele de muncă existente, riscurile specifice și grupurile sensibile la muncă.",
       },
       {
         questionText:
           "Documentul de evaluare este actualizat (anual sau la schimbări)?",
         safetyMeasure:
-          "Se propune reevaluarea riscurilor în SSM, ținându-se cont de sistemele de muncă existente, riscurile specifice și GSR.",
+          "Se propune reevaluarea riscurilor în SSM, ținându-se cont de sistemele de muncă existente, riscurile specifice și grupurile sensibile la muncă.",
       },
       {
         questionText: "Sunt identificate riscurile generale și specifice?",
@@ -64,11 +64,12 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
       {
         questionText: "Se cunosc măsurile de prevenire stabilite în evaluare?",
         safetyMeasure:
-          "Măsurile din PPP se vor defalca pe categorii - lucrători și conducători ai locurilor de muncă, se vor informa lucrătorii despre acestea.",
+          "Măsurile din planul de prevenire și protecție se vor defalca pe categorii - lucrători și conducători ai locurilor de muncă, se vor informa lucrătorii despre acestea.",
       },
       {
         questionText: "Măsurile sunt implementate și monitorizate?",
-        safetyMeasure: "Se impune verificarea implementării măsurilor din PPP.",
+        safetyMeasure:
+          "Se impune verificarea implementării măsurilor din planul de prevenire și protecție.",
       },
       {
         questionText: "Există registre de accidente ușoare/incidente?",
@@ -78,12 +79,12 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
       {
         questionText: "Se efectuează analiza periodică a riscurilor reziduale?",
         safetyMeasure:
-          "Efectuarea reevaluărilor riscurilor după implementarea programelor de prevenire din PPP.",
+          "Efectuarea reevaluărilor riscurilor după implementarea programelor de prevenire din planul de prevenire și protecție.",
       },
     ],
   },
   {
-    categoryName: "Condițiile locului de muncă",
+    categoryName: "Condiții loc de muncă",
     questions: [
       {
         questionText: "Căile de acces sunt libere, marcate și în stare bună?",
@@ -145,7 +146,7 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
     ],
   },
   {
-    categoryName: "Zonele de pericol",
+    categoryName: "Zone de pericol",
     questions: [
       {
         questionText:
@@ -194,37 +195,42 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
     ],
   },
   {
-    categoryName: "Echipamentul individual de protecție",
+    categoryName: "Echipament individual de protecție",
     questions: [
       {
-        questionText: "EIP este distribuit conform fișei de acordare?",
+        questionText:
+          "Echipamentul individual de protecție este distribuit conform fișei de acordare?",
         safetyMeasure:
-          "Periodic, LDSSM va verifica folosirea EIP de către lucrători, conducătorii direcți ai locurilor de muncă vor pune în practică procedura zilnică de verificare a purtării EIP.",
+          "Periodic, lucrătorul desemnat SSM va verifica folosirea echipamentului individual de protecție de către lucrători, conducătorii direcți ai locurilor de muncă vor pune în practică procedura zilnică de verificare a purtării echipamentului individual de protecție.",
       },
       {
         questionText:
-          "EIP este adecvat riscurilor (cască, ochelari, bocanci, veste, etc.)?",
+          "Echipamentul individual de protecție este adecvat riscurilor (cască, ochelari, bocanci, veste, etc.)?",
         safetyMeasure:
           "Se va verifica modul de acordare și categoriile de echipament aprobat.",
       },
       {
-        questionText: "Lucrătorii poartă EIP în mod corect?",
+        questionText:
+          "Lucrătorii poartă echipamentul individual de protecție în mod corect?",
         safetyMeasure:
-          "Periodic, LDSSM va verifica folosirea EIP de către lucrători, conducătorii direcți ai locurilor de muncă vor pune în practică procedura zilnică de verificare a purtării EIP.",
+          "Periodic, lucrătorul desemnat SSM va verifica folosirea echipamentului individual de protecțieP de către lucrători, conducătorii direcți ai locurilor de muncă vor pune în practică procedura zilnică de verificare a purtării echipamentului individual de protecție.",
       },
       {
-        questionText: "Stocul de EIP este suficient și monitorizat?",
-        safetyMeasure: "Stocul de EIP se va verifica periodic de către LDSSM.",
+        questionText:
+          "Stocul de echipamente individuale de protecție este suficient și monitorizat?",
+        safetyMeasure:
+          "Stocul de echipamente individuale de protecție se va verifica periodic de către lucrătorul desemnat SSM.",
       },
       {
-        questionText: "Există instrucțiuni de utilizare a EIP?",
+        questionText:
+          "Există instrucțiuni de utilizare a echipamentului individual de protecție?",
         safetyMeasure:
-          "Revizuirea tematicii de instruire și a referatului de informare asupra rolului EIP acordat.",
+          "Revizuirea tematicii de instruire și a referatului de informare asupra rolului echipamentului individual de protecție acordat.",
       },
     ],
   },
   {
-    categoryName: "Executantul",
+    categoryName: "Executant",
     questions: [
       {
         questionText:
@@ -249,13 +255,14 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
           "Testarea cunoștințelor lucrătorilor prin intervievare directă la locul de muncă.",
       },
       {
-        questionText: "Executantul respectă regulile SSM și poartă EIP?",
+        questionText:
+          "Executantul respectă regulile SSM și poartă echipamentul individual de protecție?",
         safetyMeasure: "Verificarea periodică a respectării regulilor SSM.",
       },
     ],
   },
   {
-    categoryName: "Sarcinile de muncă",
+    categoryName: "Sarcini de muncă",
     questions: [
       {
         questionText: "Sarcina este clar definită și comunicată lucrătorilor?",
@@ -285,7 +292,7 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
     ],
   },
   {
-    categoryName: "Echipamentele de muncă",
+    categoryName: "Echipamente de muncă",
     questions: [
       {
         questionText:
@@ -319,7 +326,7 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
     ],
   },
   {
-    categoryName: "Mediul de muncă",
+    categoryName: "Mediu de muncă",
     questions: [
       {
         questionText:

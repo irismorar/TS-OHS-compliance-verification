@@ -1,6 +1,8 @@
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
-import { QuestionsForm } from "../ui/QuestionsForm";
+import { QuestionCard } from "../ui/QuestionCard";
+import { QuestionsFormMain } from "../ui/QuestionsFormMain";
+import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
@@ -12,6 +14,7 @@ export function WorkplaceChecklistPage({
   setQuestionProbability,
   setQuestionAdditionalNotes,
   computeQuestionRiskFactor,
+  setVerificationChecklistsPage,
 }: Props) {
   if (currentRoute !== "workplaceChecklist") {
     return null;
@@ -19,18 +22,11 @@ export function WorkplaceChecklistPage({
 
   return (
     <>
-      <div className="mt-10 mb-20 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-slate-900">
-          Lista de verificare SSM pentru LOC DE MUNCĂ
-        </h1>
-
-        <p className="mt-2 text-slate-600">
-          Evaluează conformitatea, analizează riscurile și stabilește măsuri
-          corective
-        </p>
-      </div>
-
-      <QuestionsForm>
+      <QuestionsFormHeader
+        checklistSelectionName="loc de muncă"
+        handleClick={setVerificationChecklistsPage}
+      />
+      <QuestionsFormMain>
         {questionCategories.map((category, categoryIndex) => {
           const { categoryName, questions } = category;
 
@@ -91,10 +87,7 @@ export function WorkplaceChecklistPage({
                   getMeasuresPriorityLevel(riskFactor);
 
                 return (
-                  <div
-                    key={questionIndex}
-                    className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition-all duration-200 hover:shadow-lg hover:translate-x-1 hover:scale-103"
-                  >
+                  <QuestionCard index={questionIndex}>
                     {/* QUESTION TEXT AND YES/NO BUTTONS */}
                     <div className="flex items-center gap-4">
                       <p className="flex-1 text-lg font-medium leading-relaxed text-slate-900">
@@ -251,13 +244,13 @@ export function WorkplaceChecklistPage({
                         )}
                       </>
                     )}
-                  </div>
+                  </QuestionCard>
                 );
               })}
             </section>
           );
         })}
-      </QuestionsForm>
+      </QuestionsFormMain>
     </>
   );
 }

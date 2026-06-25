@@ -79,7 +79,7 @@ export function HomePage({
             disabled={!areUnitDetailsFilled}
             className={`text-sm mt-5 ${
               areUnitDetailsFilled
-                ? "text-slate-400 transition-all duration-200 hover:text-blue-600 hover:scale-105 hover:font-medium"
+                ? "text-slate-400 transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium"
                 : "text-slate-400 cursor-not-allowed"
             }`}
           >
