@@ -165,7 +165,7 @@ export const WORKSHOP_QUESTION_DATA: QuestionData = [
     ],
   },
   {
-    categoryName: "Locul de muncă",
+    categoryName: "Loc de muncă",
     questions: [
       {
         questionText: "Spațiul de lucru este ordonat și curat?",
@@ -276,7 +276,7 @@ export const WORKSHOP_QUESTION_DATA: QuestionData = [
     ],
   },
   {
-    categoryName: "Sistemul de muncă",
+    categoryName: "Sistem de muncă",
     questions: [
       {
         questionText:

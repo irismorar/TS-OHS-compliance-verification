@@ -1,29 +1,29 @@
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { QuestionCard } from "../ui/QuestionCard";
-import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
+import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
-export function WorkplaceChecklistPage({
+export function WorkshopChecklistPage({
   currentRoute,
   questionCategories,
+  setVerificationChecklistsPage,
+  computeQuestionRiskFactor,
   setQuestionAnswer,
   setQuestionSeverity,
   setQuestionProbability,
   setQuestionAdditionalNotes,
-  computeQuestionRiskFactor,
-  setVerificationChecklistsPage,
 }: Props) {
-  if (currentRoute !== "workplaceChecklist") {
-    return null;
+  if (currentRoute !== "workshopChecklist") {
+    return;
   }
 
   return (
     <>
       <QuestionsFormHeader
-        checklistSelectionName="loc de muncă"
+        checklistSelectionName="atelier"
         handleClick={setVerificationChecklistsPage}
       />
       <QuestionsFormMain>
@@ -135,7 +135,7 @@ export function WorkplaceChecklistPage({
                             <select
                               id={`severity-${categoryIndex}-${questionIndex}`}
                               value={severity ?? ""}
-                              onChange={(event) =>
+                              onChange={(event) => {
                                 setQuestionSeverity(
                                   categoryIndex,
                                   questionIndex,
@@ -144,12 +144,14 @@ export function WorkplaceChecklistPage({
                                         | 1
                                         | 2
                                         | 3
-                                        | 4)
+                                        | 4
+                                        | null)
                                     : null,
-                                )
-                              }
+                                );
+                              }}
                               className="w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
                             >
+                              {" "}
                               <option value=""></option>
                               <option value="1">1</option>
                               <option value="2">2</option>
@@ -165,9 +167,9 @@ export function WorkplaceChecklistPage({
                               Probabilitate:
                             </label>
                             <select
-                              id={`probability-${categoryIndex}-${questionIndex}`}
+                              id={`prbability-${categoryIndex}-${questionIndex}`}
                               value={probability ?? ""}
-                              onChange={(event) =>
+                              onChange={(event) => {
                                 setQuestionProbability(
                                   categoryIndex,
                                   questionIndex,
@@ -176,12 +178,14 @@ export function WorkplaceChecklistPage({
                                         | 1
                                         | 2
                                         | 3
-                                        | 4)
+                                        | 4
+                                        | null)
                                     : null,
-                                )
-                              }
+                                );
+                              }}
                               className="w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
                             >
+                              {" "}
                               <option value=""></option>
                               <option value="1">1</option>
                               <option value="2">2</option>
@@ -192,7 +196,7 @@ export function WorkplaceChecklistPage({
                           <div className="flex-1">
                             {riskFactor !== null && (
                               <>
-                                Risc:{" "}
+                                Risc:
                                 <span
                                   className={`rounded-lg px-3 py-1 text-sm font-bold shadow-md ${riskFactorBadgeClass}`}
                                 >
@@ -202,7 +206,6 @@ export function WorkplaceChecklistPage({
                             )}
                           </div>
                         </div>
-
                         {measuresPriorityLevel !== null && (
                           <>
                             {/* QUESTION MEASURES*/}
@@ -220,30 +223,29 @@ export function WorkplaceChecklistPage({
                                 </p>
                               </p>
                             </div>
-                          </>
-                        )}
-
-                        {(riskFactor === "EXTREM" ||
-                          riskFactor === "MEDIU") && (
-                          <>
-                            {/* QUESTION ADDITIONAL NOTE */}
-                            <textarea
-                              id={`additionalNotes-${categoryIndex}-${questionIndex}`}
-                              rows={2}
-                              cols={65}
-                              value={additionalNotes ?? ""}
-                              onChange={(event) => {
-                                setQuestionAdditionalNotes(
-                                  categoryIndex,
-                                  questionIndex,
-                                  event.target.value,
-                                );
-                              }}
-                              placeholder="Adaugă observații..."
-                              className={
-                                "w-full mt-4 rounded-lg border border-slate-300 bg-white p-4 text-sm shadow-lg focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                              }
-                            />
+                            {(riskFactor === "EXTREM" ||
+                              riskFactor === "MEDIU") && (
+                              <>
+                                {/* QUESTION ADDITIONAL NOTE */}
+                                <textarea
+                                  id={`additionalNotes-${categoryIndex}-${questionIndex}`}
+                                  rows={2}
+                                  cols={65}
+                                  value={additionalNotes ?? ""}
+                                  onChange={(event) => {
+                                    setQuestionAdditionalNotes(
+                                      categoryIndex,
+                                      questionIndex,
+                                      event.target.value,
+                                    );
+                                  }}
+                                  placeholder="Adaugă observații..."
+                                  className={
+                                    "w-full mt-4 rounded-lg border border-slate-300 bg-white p-4 text-sm shadow-lg focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                  }
+                                />
+                              </>
+                            )}
                           </>
                         )}
                       </>

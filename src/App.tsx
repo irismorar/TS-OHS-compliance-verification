@@ -2,6 +2,7 @@ import "./App.css";
 import { HomePage } from "./components/pages/HomePage";
 import { VerificationChecklistsPage } from "./components/pages/VerificationChecklistsPage";
 import { WorkplaceChecklistPage } from "./components/pages/WorkplaceChecklistPage";
+import { WorkshopChecklistPage } from "./components/pages/WorkshopChecklistPage";
 import { useComplianceVerificationState } from "./useComplianceVerificationState";
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
       <HomePage {...complianceVerificationData} />
       <VerificationChecklistsPage {...complianceVerificationData} />
       <WorkplaceChecklistPage {...complianceVerificationData} />
+      <WorkshopChecklistPage {...complianceVerificationData} />
     </section>
   );
 }

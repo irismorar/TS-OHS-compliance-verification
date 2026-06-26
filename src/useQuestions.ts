@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { RISK_FACTOR_COMBINATIONS } from "./data/RISK_FACTOR_COMBINATIONS";
 import { WORKPLACE_QUESTION_DATA } from "./data/WORKPLACE_QUESTION_DATA";
+import { WORKSHOP_QUESTION_DATA } from "./data/WORKSHOP_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -32,7 +33,7 @@ export function useQuestions() {
   function initChecklistQuestions(checklistName: "workshop" | "workplace") {
     switch (checklistName) {
       case "workshop": {
-        setQuestionCategories([]);
+        setQuestionCategories(stateifyQuestionData(WORKSHOP_QUESTION_DATA));
         break;
       }
       case "workplace": {
@@ -112,7 +113,7 @@ export function useQuestions() {
         if (category) {
           const question = category.questions[questionIndex];
           if (question) {
-            question.additionalNotes = additionalNotes;
+            question.additionalNotes = additionalNotes.trim();
           }
         }
         return updatedCategories;
