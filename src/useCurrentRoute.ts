@@ -6,6 +6,7 @@ export function useCurrentRoute() {
     | "verificationChecklists"
     | "workshopChecklist"
     | "workplaceChecklist"
+    | "finalDocument"
   >("home");
 
   const setVerificationChecklistsPage = () => {
@@ -20,10 +21,15 @@ export function useCurrentRoute() {
     setCurrentRoute("workplaceChecklist");
   };
 
+  const setFinalPage = () => {
+    setCurrentRoute("finalDocument");
+  };
+
   return {
     currentRoute,
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,
+    setFinalPage,
   };
 }

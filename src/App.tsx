@@ -1,4 +1,5 @@
 import "./App.css";
+import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { HomePage } from "./components/pages/HomePage";
 import { VerificationChecklistsPage } from "./components/pages/VerificationChecklistsPage";
 import { WorkplaceChecklistPage } from "./components/pages/WorkplaceChecklistPage";
@@ -14,6 +15,7 @@ export default function App() {
       <VerificationChecklistsPage {...complianceVerificationData} />
       <WorkplaceChecklistPage {...complianceVerificationData} />
       <WorkshopChecklistPage {...complianceVerificationData} />
+      <FormDocumentPage {...complianceVerificationData} />
     </section>
   );
 }

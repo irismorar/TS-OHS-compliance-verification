@@ -113,7 +113,7 @@ export function useQuestions() {
         if (category) {
           const question = category.questions[questionIndex];
           if (question) {
-            question.additionalNotes = additionalNotes.trim();
+            question.additionalNotes = additionalNotes;
           }
         }
         return updatedCategories;

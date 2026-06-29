@@ -3,6 +3,7 @@ import type { useComplianceVerificationState } from "../../useComplianceVerifica
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
+import { ChevronsRight } from "lucide-react";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
@@ -15,6 +16,7 @@ export function WorkplaceChecklistPage({
   setQuestionAdditionalNotes,
   computeQuestionRiskFactor,
   setVerificationChecklistsPage,
+  setFinalPage,
 }: Props) {
   if (currentRoute !== "workplaceChecklist") {
     return null;
@@ -254,6 +256,15 @@ export function WorkplaceChecklistPage({
             </section>
           );
         })}
+        <button
+          onClick={() => {
+            setFinalPage();
+          }}
+          className="absolute flex bottom-15 right-80 text-md text-slate-300 transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium"
+        >
+          <span>înainte</span>
+          <ChevronsRight />
+        </button>
       </QuestionsFormMain>
     </>
   );

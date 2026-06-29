@@ -1,3 +1,4 @@
+import { ChevronsRight } from "lucide-react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { QuestionCard } from "../ui/QuestionCard";
@@ -10,6 +11,7 @@ export function WorkshopChecklistPage({
   currentRoute,
   questionCategories,
   setVerificationChecklistsPage,
+  setFinalPage,
   computeQuestionRiskFactor,
   setQuestionAnswer,
   setQuestionSeverity,
@@ -256,6 +258,13 @@ export function WorkshopChecklistPage({
             </section>
           );
         })}
+        <button
+          onClick={() => setFinalPage()}
+          className="absolute flex bottom-15 right-80 text-md text-slate-300 transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium"
+        >
+          <span>înainte</span>
+          <ChevronsRight />
+        </button>
       </QuestionsFormMain>
     </>
   );

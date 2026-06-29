@@ -8,6 +8,7 @@ export function useComplianceVerificationState() {
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,
+    setFinalPage,
   } = useCurrentRoute();
   const {
     unitName,
@@ -34,6 +35,7 @@ export function useComplianceVerificationState() {
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,
+    setFinalPage,
 
     // unit details
     unitName,
