@@ -75,11 +75,11 @@ export function WorkshopChecklistPage({
                 ): string | null => {
                   switch (risk) {
                     case "SCĂZUT":
-                      return "Menținerea măsurilor";
+                      return "Menținerea măsurii";
                     case "MEDIU":
-                      return "Măsuri prioritare";
+                      return "Măsură prioritară";
                     case "EXTREM":
-                      return "Măsuri imediate";
+                      return "Măsură imediată";
                     default:
                       return null;
                   }
@@ -198,7 +198,7 @@ export function WorkshopChecklistPage({
                           <div className="flex-1">
                             {riskFactor !== null && (
                               <>
-                                Risc:
+                                Nivel risc:{" "}
                                 <span
                                   className={`rounded-lg px-3 py-1 text-sm font-bold shadow-md ${riskFactorBadgeClass}`}
                                 >

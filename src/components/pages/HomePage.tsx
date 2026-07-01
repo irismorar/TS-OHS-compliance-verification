@@ -66,7 +66,7 @@ export function HomePage({
             domainName="Adresă sediu"
             inputText={unitRegisteredOfficeAddress}
             minLengthText={4}
-            maxLengthText={40}
+            maxLengthText={70}
             handleChange={setUnitRegisteredOfficeAddress}
             placeholderText="Ex.: str. ___  nr. ___  loc. ___  jud. ___"
           />
@@ -93,7 +93,7 @@ export function HomePage({
           }}
         >
           <p>Creat de MMS CONSULTING SRL</p>
-          <p>Marcă înregistrată OSIM nr.</p>
+          <p>Marcă înregistrată nr. 105743 OSIM</p>
         </section>
       </section>
     </main>

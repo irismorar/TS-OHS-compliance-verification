@@ -12,6 +12,18 @@ export function FormDocumentPage({
 
   questionCategories,
   computeQuestionRiskFactor,
+  verifiedAreaName,
+  setVerifiedAreaName,
+  isEditingVerifiedArea,
+  setIsEditingVerifiedArea,
+  ssmWorkersNames,
+  setSsmWorkersName,
+  isEditingSsmWorkers,
+  setIsEditingSsmWorkers,
+  preparedBy,
+  setPreparedBy,
+  isEditingPreparedBy,
+  setIsEditingPreparedBy,
 }: Props) {
   if (currentRoute !== "finalDocument") {
     return null;
@@ -20,10 +32,16 @@ export function FormDocumentPage({
   return (
     <main className="min-h-screen bg-slate-100 p-10 text-black">
       <section className="mx-auto max-w-7xl rounded-3xl bg-white p-8">
-        <h1 className="mb-8 text-3xl font-bold">Raport final verificare SSM</h1>
+        <h1 className="mb-8 text-3xl font-bold">
+          Raport de verificare sub aspect SSM
+        </h1>
         <section className="mb-10 rounded-2xl bg-slate-100 p-6 ">
           <h2 className="mb-4 text-2xl font-semibold">Date unitate</h2>
 
+          <p>
+            <strong>Data: </strong>
+            {`${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}, ${new Date().getHours()}:${new Date().getMinutes()}`}
+          </p>
           <p>
             <strong>Nume unitate:</strong> {unitName}
           </p>
@@ -33,16 +51,104 @@ export function FormDocumentPage({
           <p>
             <strong>Adresă sediu:</strong> {unitRegisteredOfficeAddress}
           </p>
-          <p>
-            <strong>Nume reprezentanți SSM / unitate:</strong>
-          </p>
-          <p>
-            <strong>Întocmit:</strong>
-          </p>
-          <p>
-            <strong>Data: </strong>
-            {`${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}, ${new Date().getHours()}:${new Date().getMinutes()}`}
-          </p>
+
+          <div>
+            <label
+              htmlFor="ssmWorkersNames"
+              className="font-bold w-48 text-left select-none"
+            >
+              Sistem verificat:
+            </label>
+            {isEditingVerifiedArea ? (
+              <input
+                id="ssmWorkersNames"
+                className="ml-2 mb-2 w-70 rounded-lg border border-slate-300 bg-white/80 px-2 py-1 shadow-sm placeholder-slate-300 transition-all duration-200 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
+                value={verifiedAreaName}
+                onChange={(event) => {
+                  setVerifiedAreaName(event.target.value);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    if (verifiedAreaName.trim()) {
+                      setIsEditingVerifiedArea(false);
+                    }
+                  }
+                }}
+              ></input>
+            ) : (
+              <span
+                className="ml-2"
+                onDoubleClick={() => setIsEditingVerifiedArea(true)}
+              >
+                {verifiedAreaName}
+              </span>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="ssmWorkersNames"
+              className="font-bold w-48 text-left select-none"
+            >
+              Nume reprezentanți SSM/unitate:
+            </label>
+            {isEditingSsmWorkers ? (
+              <input
+                id="ssmWorkersNames"
+                className="ml-2 mb-2 w-70 rounded-lg border border-slate-300 bg-white/80 px-2 py-1 shadow-sm placeholder-slate-300 transition-all duration-200 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
+                value={ssmWorkersNames}
+                onChange={(event) => {
+                  setSsmWorkersName(event.target.value);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    if (ssmWorkersNames.trim()) {
+                      setIsEditingSsmWorkers(false);
+                    }
+                  }
+                }}
+              ></input>
+            ) : (
+              <span
+                className="ml-2"
+                onDoubleClick={() => setIsEditingSsmWorkers(true)}
+              >
+                {ssmWorkersNames}
+              </span>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="preparedBy"
+              className="font-bold w-48 text-left select-none"
+            >
+              Întocmit:
+            </label>
+            {isEditingPreparedBy ? (
+              <input
+                id="preparedBy"
+                className="w-70 rounded-lg ml-2 mb-2 border border-slate-300 bg-white/80 px-2 py-1 shadow-sm placeholder-slate-300 transition-all duration-200 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
+                value={preparedBy}
+                onChange={(event) => {
+                  setPreparedBy(event.target.value);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    if (preparedBy.trim()) {
+                      setIsEditingPreparedBy(false);
+                    }
+                  }
+                }}
+              ></input>
+            ) : (
+              <span
+                className="ml-2"
+                onDoubleClick={() => setIsEditingPreparedBy(true)}
+              >
+                {preparedBy}
+              </span>
+            )}
+          </div>
         </section>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-left text-sm print:text-xs">
@@ -54,53 +160,111 @@ export function FormDocumentPage({
                     questionIndex,
                   );
 
+                  const getRiskFactorBadgeClass = (
+                    risk: "EXTREM" | "MEDIU" | "SCĂZUT" | null,
+                  ): string => {
+                    switch (risk) {
+                      case "SCĂZUT":
+                        return "text-green-700";
+                      case "MEDIU":
+                        return "text-orange-500";
+                      case "EXTREM":
+                        return "text-red-700";
+                      default:
+                        return "";
+                    }
+                  };
+
+                  const riskFactorBadgeClass =
+                    getRiskFactorBadgeClass(riskFactor);
+
+                  const getMeasuresPriorityLevel = (
+                    risk: "EXTREM" | "MEDIU" | "SCĂZUT" | null,
+                  ): string | null => {
+                    switch (risk) {
+                      case "SCĂZUT":
+                        return "Menținerea măsurii";
+                      case "MEDIU":
+                        return "Măsură prioritară";
+                      case "EXTREM":
+                        return "Măsură imediată";
+                      default:
+                        return null;
+                    }
+                  };
+
+                  const measuresPriorityLevel =
+                    getMeasuresPriorityLevel(riskFactor);
+
                   return (
                     <tr key={`${categoryIndex}-${questionIndex}`}>
                       <td className="border border-slate-400 p-4">
                         <section>
-                          <p>
+                          <div>
                             <strong>Categorie:</strong> {category.categoryName}
-                          </p>
+                          </div>
 
-                          <p>
-                            <strong>Întrebare:</strong> {question.questionText}
-                          </p>
+                          <div className="flex gap-10">
+                            <span>
+                              <span className="font-bold">Întrebare:</span>{" "}
+                              {question.questionText}
+                            </span>
+                            <span>
+                              <span className="font-bold">Răspuns:</span>{" "}
+                              {question.questionAnswer ? "DA" : "NU"}
+                            </span>
+                          </div>
 
-                          <p>
-                            <strong>Răspuns:</strong>{" "}
-                            {question.questionAnswer ? "DA" : "NU"}
-                          </p>
+                          <div className="flex gap-10">
+                            <span>
+                              <span className="font-bold">Gravitate:</span>{" "}
+                              {question.severity ?? "Necompletat"}
+                            </span>
+                            <span>
+                              {" "}
+                              <span className="font-bold">
+                                Probabilitate:
+                              </span>{" "}
+                              {question.probability ?? "Necompletat"}
+                            </span>
+                            <span>
+                              {" "}
+                              <span className="font-bold">
+                                Nivel risc:
+                              </span>{" "}
+                              {riskFactor === "SCĂZUT" ? (
+                                <span
+                                  className={`font-bold ${riskFactorBadgeClass}`}
+                                >
+                                  {riskFactor}
+                                </span>
+                              ) : (
+                                <span
+                                  className={`font-bold ${riskFactorBadgeClass}`}
+                                >
+                                  {riskFactor}
+                                </span>
+                              )}
+                            </span>
+                          </div>
 
-                          <p>
-                            <strong>Gravitate:</strong>{" "}
-                            {question.severity ?? "Necompletat"}
-                          </p>
-
-                          <p>
-                            <strong>Probabilitate:</strong>{" "}
-                            {question.probability ?? "Necompletat"}
-                          </p>
-
-                          <p>
-                            <strong>Factor risc:</strong>{" "}
-                            {riskFactor === "SCĂZUT" ? (
-                              <strong>{riskFactor}</strong>
-                            ) : (
-                              <span>{riskFactor}</span>
-                            )}
-                          </p>
-
-                          <p>
-                            <strong>Măsură SSM:</strong>{" "}
+                          <div>
+                            <span className="font-bold">
+                              {measuresPriorityLevel}:
+                            </span>{" "}
                             {question.questionAnswer
                               ? QUESTION_DEFAULT_ANSWER
                               : question.safetyMeasure}
-                          </p>
+                          </div>
 
-                          <p>
-                            <strong>Observații: </strong>
-                            {question.additionalNotes}
-                          </p>
+                          {question.additionalNotes ? (
+                            <div>
+                              <span className="font-bold">Observații:</span>{" "}
+                              {question.additionalNotes}
+                            </div>
+                          ) : (
+                            ""
+                          )}
                         </section>
                       </td>
                     </tr>
