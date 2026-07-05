@@ -7,6 +7,23 @@ import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
+const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER: Record<
+  number,
+  number[]
+> = {
+  1: [1, 2, 3, 4],
+  2: [1, 2, 3, 4],
+  3: [1, 2, 3],
+  4: [1, 2],
+};
+const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER: Record<
+  number,
+  number[]
+> = {
+  3: [4],
+  4: [3, 4],
+};
+
 export function WorkshopChecklistPage({
   currentRoute,
   questionCategories,
@@ -50,6 +67,15 @@ export function WorkshopChecklistPage({
                   probability,
                   additionalNotes,
                 } = question;
+
+                const SEVERITY_OPTIONS = questionAnswer ? [3, 4] : [1, 2, 3, 4];
+                const PROBABILITY_OPTIONS = questionAnswer
+                  ? PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER[
+                      severity as number
+                    ] || []
+                  : PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER[
+                      severity as number
+                    ] || [];
 
                 const riskFactor = computeQuestionRiskFactor(
                   categoryIndex,
@@ -139,7 +165,9 @@ export function WorkshopChecklistPage({
                       <>
                         {/* QUESTION RISK ASSESSMENT */}
                         <div className="flex items-center gap-4 mt-3 p-4">
-                          <div className="w-48">
+                          <div
+                            className={`${probability !== null ? "opacity-50" : "opacity-100"} w-48`}
+                          >
                             <label
                               htmlFor={`severity-${categoryIndex}-${questionIndex}`}
                               className="mr-2"
@@ -148,6 +176,8 @@ export function WorkshopChecklistPage({
                             </label>
                             <select
                               id={`severity-${categoryIndex}-${questionIndex}`}
+                              disabled={probability !== null}
+                              className={`${probability !== null ? "cursor-not-allowed" : "cursor-default"} w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200`}
                               value={severity ?? ""}
                               onChange={(event) => {
                                 setQuestionSeverity(
@@ -163,17 +193,21 @@ export function WorkshopChecklistPage({
                                     : null,
                                 );
                               }}
-                              className="w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
                             >
                               {" "}
                               <option value=""></option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                              {SEVERITY_OPTIONS.map((option) => {
+                                return (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                );
+                              })}
                             </select>
                           </div>
-                          <div className="w-48">
+                          <div
+                            className={`w-48 ${severity === null ? "opacity-50" : "opacity-100"}`}
+                          >
                             <label
                               htmlFor={`probability-${categoryIndex}-${questionIndex}`}
                               className="mr-2"
@@ -181,7 +215,9 @@ export function WorkshopChecklistPage({
                               Probabilitate:
                             </label>
                             <select
-                              id={`prbability-${categoryIndex}-${questionIndex}`}
+                              id={`probability-${categoryIndex}-${questionIndex}`}
+                              disabled={severity === null}
+                              className={`${severity === null ? "cursor-not-allowed" : "cursor-default"} w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200`}
                               value={probability ?? ""}
                               onChange={(event) => {
                                 setQuestionProbability(
@@ -197,14 +233,16 @@ export function WorkshopChecklistPage({
                                     : null,
                                 );
                               }}
-                              className="w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
                             >
                               {" "}
                               <option value=""></option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                              {PROBABILITY_OPTIONS.map((option) => {
+                                return (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                );
+                              })}
                             </select>
                           </div>
                           <div className="flex-1">
