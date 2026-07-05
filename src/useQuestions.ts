@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { RISK_FACTOR_COMBINATIONS } from "./data/RISK_FACTOR_COMBINATIONS";
 import { WORKPLACE_QUESTION_DATA } from "./data/WORKPLACE_QUESTION_DATA";
 import { WORKSHOP_QUESTION_DATA } from "./data/WORKSHOP_QUESTION_DATA";
@@ -29,6 +29,28 @@ export function useQuestions() {
   const [questionCategories, setQuestionCategories] = useState<
     QuestionCategory[]
   >([]);
+  const firstUnansweredQuestionCategoryIndex = questionCategories.findIndex(
+    (category) =>
+      category.questions.some(
+        (question) =>
+          question.questionAnswer === null ||
+          question.severity === null ||
+          question.probability === null,
+      ),
+  );
+  const firstUnansweredQuestionIndex =
+    firstUnansweredQuestionCategoryIndex !== -1
+      ? questionCategories[
+          firstUnansweredQuestionCategoryIndex
+        ].questions.findIndex(
+          (question) =>
+            question.questionAnswer === null ||
+            question.severity === null ||
+            question.probability === null,
+        )
+      : -1;
+  const areAllQuestionsAnswered = firstUnansweredQuestionCategoryIndex === -1;
+  const firstUnansweredQuestionRef = useRef<HTMLDivElement | null>(null);
 
   function initChecklistQuestions(checklistName: "workshop" | "workplace") {
     switch (checklistName) {
@@ -147,6 +169,10 @@ export function useQuestions() {
 
   return {
     questionCategories,
+    firstUnansweredQuestionCategoryIndex,
+    firstUnansweredQuestionIndex,
+    areAllQuestionsAnswered,
+    firstUnansweredQuestionRef,
 
     initChecklistQuestions,
 

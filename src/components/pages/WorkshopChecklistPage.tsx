@@ -10,6 +10,10 @@ type Props = ReturnType<typeof useComplianceVerificationState>;
 export function WorkshopChecklistPage({
   currentRoute,
   questionCategories,
+  firstUnansweredQuestionCategoryIndex,
+  firstUnansweredQuestionIndex,
+  areAllQuestionsAnswered,
+  firstUnansweredQuestionRef,
   setVerificationChecklistsPage,
   setFinalPage,
   computeQuestionRiskFactor,
@@ -19,7 +23,7 @@ export function WorkshopChecklistPage({
   setQuestionAdditionalNotes,
 }: Props) {
   if (currentRoute !== "workshopChecklist") {
-    return;
+    return null;
   }
 
   return (
@@ -89,7 +93,15 @@ export function WorkshopChecklistPage({
                   getMeasuresPriorityLevel(riskFactor);
 
                 return (
-                  <QuestionCard index={questionIndex}>
+                  <QuestionCard
+                    key={questionIndex}
+                    unansweredQuestionRef={
+                      firstUnansweredQuestionCategoryIndex === categoryIndex &&
+                      firstUnansweredQuestionIndex === questionIndex
+                        ? firstUnansweredQuestionRef
+                        : undefined
+                    }
+                  >
                     {/* QUESTION TEXT AND YES/NO BUTTONS */}
                     <div className="flex items-center gap-4">
                       <p className="flex-1 text-lg font-medium leading-relaxed text-slate-900">
@@ -259,7 +271,19 @@ export function WorkshopChecklistPage({
           );
         })}
         <button
-          onClick={() => setFinalPage()}
+          onClick={() => {
+            if (areAllQuestionsAnswered) {
+              setFinalPage();
+            } else {
+              alert(
+                "Vă rugăm să răspundeți la toate întrebările înainte de a continua.",
+              );
+              firstUnansweredQuestionRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
+          }}
           className="absolute flex bottom-15 right-80 text-md text-slate-300 transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium"
         >
           <span>înainte</span>

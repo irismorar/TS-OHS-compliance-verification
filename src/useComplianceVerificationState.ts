@@ -33,6 +33,10 @@ export function useComplianceVerificationState() {
   } = useUnitDetails();
   const {
     questionCategories,
+    firstUnansweredQuestionCategoryIndex,
+    firstUnansweredQuestionIndex,
+    areAllQuestionsAnswered,
+    firstUnansweredQuestionRef,
     initChecklistQuestions,
     setQuestionAnswer,
     setQuestionSeverity,
@@ -72,6 +76,10 @@ export function useComplianceVerificationState() {
 
     // questions
     questionCategories,
+    firstUnansweredQuestionCategoryIndex,
+    firstUnansweredQuestionIndex,
+    areAllQuestionsAnswered,
+    firstUnansweredQuestionRef,
     initChecklistQuestions,
     setQuestionAnswer,
     setQuestionSeverity,
