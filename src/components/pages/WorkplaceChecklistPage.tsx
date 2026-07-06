@@ -10,13 +10,19 @@ type Props = ReturnType<typeof useComplianceVerificationState>;
 export function WorkplaceChecklistPage({
   currentRoute,
   questionCategories,
+  firstUnansweredQuestionCategoryIndex,
+  firstUnansweredQuestionIndex,
+  areAllQuestionsAnswered,
+  firstUnansweredQuestionRef,
+  setVerificationChecklistsPage,
+  setFinalPage,
+  computeQuestionRiskFactor,
   setQuestionAnswer,
   setQuestionSeverity,
   setQuestionProbability,
+  computeSeverityOptions,
+  computeProbabilityOptions,
   setQuestionAdditionalNotes,
-  computeQuestionRiskFactor,
-  setVerificationChecklistsPage,
-  setFinalPage,
 }: Props) {
   if (currentRoute !== "workplaceChecklist") {
     return null;
@@ -46,6 +52,12 @@ export function WorkplaceChecklistPage({
                   probability,
                   additionalNotes,
                 } = question;
+
+                const SEVERITY_OPTIONS =
+                  computeSeverityOptions(categoryIndex, questionIndex) || [];
+
+                const PROBABILITY_OPTIONS =
+                  computeProbabilityOptions(categoryIndex, questionIndex) || [];
 
                 const riskFactor = computeQuestionRiskFactor(
                   categoryIndex,
@@ -89,7 +101,15 @@ export function WorkplaceChecklistPage({
                   getMeasuresPriorityLevel(riskFactor);
 
                 return (
-                  <QuestionCard index={questionIndex}>
+                  <QuestionCard
+                    key={questionIndex}
+                    unansweredQuestionRef={
+                      firstUnansweredQuestionCategoryIndex === categoryIndex &&
+                      firstUnansweredQuestionIndex === questionIndex
+                        ? firstUnansweredQuestionRef
+                        : undefined
+                    }
+                  >
                     {/* QUESTION TEXT AND YES/NO BUTTONS */}
                     <div className="flex items-center gap-4">
                       <p className="flex-1 text-lg font-medium leading-relaxed text-slate-900">
@@ -127,7 +147,9 @@ export function WorkplaceChecklistPage({
                       <>
                         {/* QUESTION RISK ASSESSMENT */}
                         <div className="flex items-center gap-4 mt-3 p-4">
-                          <div className="w-48">
+                          <div
+                            className={`${probability !== null ? "opacity-50" : "opacity-100"} w-48`}
+                          >
                             <label
                               htmlFor={`severity-${categoryIndex}-${questionIndex}`}
                               className="mr-2"
@@ -136,6 +158,8 @@ export function WorkplaceChecklistPage({
                             </label>
                             <select
                               id={`severity-${categoryIndex}-${questionIndex}`}
+                              disabled={probability !== null}
+                              className={`${probability !== null ? "cursor-not-allowed" : "cursor-default"} w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200`}
                               value={severity ?? ""}
                               onChange={(event) =>
                                 setQuestionSeverity(
@@ -150,16 +174,20 @@ export function WorkplaceChecklistPage({
                                     : null,
                                 )
                               }
-                              className="w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
                             >
                               <option value=""></option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                              {SEVERITY_OPTIONS.map((option) => {
+                                return (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                );
+                              })}
                             </select>
                           </div>
-                          <div className="w-48">
+                          <div
+                            className={`${severity === null ? "opacity-50" : "opacity-100"} w-48`}
+                          >
                             <label
                               htmlFor={`probability-${categoryIndex}-${questionIndex}`}
                               className="mr-2"
@@ -168,6 +196,8 @@ export function WorkplaceChecklistPage({
                             </label>
                             <select
                               id={`probability-${categoryIndex}-${questionIndex}`}
+                              disabled={severity === null}
+                              className={`${severity === null ? "cursor-not-allowed" : "cursor-default"} w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200`}
                               value={probability ?? ""}
                               onChange={(event) =>
                                 setQuestionProbability(
@@ -182,13 +212,15 @@ export function WorkplaceChecklistPage({
                                     : null,
                                 )
                               }
-                              className="w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
                             >
                               <option value=""></option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                              {PROBABILITY_OPTIONS.map((option) => {
+                                return (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                );
+                              })}
                             </select>
                           </div>
                           <div className="flex-1">
@@ -258,7 +290,17 @@ export function WorkplaceChecklistPage({
         })}
         <button
           onClick={() => {
-            setFinalPage();
+            if (areAllQuestionsAnswered) {
+              setFinalPage();
+            } else {
+              alert(
+                "Vă rugăm să răspundeți la toate întrebările înainte de a continua.",
+              );
+              firstUnansweredQuestionRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
           }}
           className="absolute flex bottom-15 right-80 text-md text-slate-300 transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium"
         >

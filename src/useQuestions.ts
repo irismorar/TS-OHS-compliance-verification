@@ -25,32 +25,56 @@ export type QuestionData = {
   }[];
 }[];
 
+const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER: Record<
+  number,
+  number[]
+> = {
+  1: [1, 2, 3, 4],
+  2: [1, 2, 3, 4],
+  3: [1, 2, 3],
+  4: [1, 2],
+};
+const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER: Record<
+  number,
+  number[]
+> = {
+  3: [4],
+  4: [3, 4],
+};
+
 export function useQuestions() {
   const [questionCategories, setQuestionCategories] = useState<
     QuestionCategory[]
   >([]);
+
+  const firstUnansweredQuestionRef = useRef<HTMLDivElement | null>(null);
+
   const firstUnansweredQuestionCategoryIndex = questionCategories.findIndex(
-    (category) =>
-      category.questions.some(
-        (question) =>
+    (category) => {
+      return category.questions.some((question) => {
+        return (
           question.questionAnswer === null ||
           question.severity === null ||
-          question.probability === null,
-      ),
+          question.probability === null
+        );
+      });
+    },
   );
+
   const firstUnansweredQuestionIndex =
     firstUnansweredQuestionCategoryIndex !== -1
       ? questionCategories[
           firstUnansweredQuestionCategoryIndex
-        ].questions.findIndex(
-          (question) =>
+        ].questions.findIndex((question) => {
+          return (
             question.questionAnswer === null ||
             question.severity === null ||
-            question.probability === null,
-        )
+            question.probability === null
+          );
+        })
       : -1;
+
   const areAllQuestionsAnswered = firstUnansweredQuestionCategoryIndex === -1;
-  const firstUnansweredQuestionRef = useRef<HTMLDivElement | null>(null);
 
   function initChecklistQuestions(checklistName: "workshop" | "workplace") {
     switch (checklistName) {
@@ -144,6 +168,34 @@ export function useQuestions() {
     [],
   );
 
+  const computeSeverityOptions = useCallback(
+    (categoryIndex: number, questionIndex: number) => {
+      const category = questionCategories[categoryIndex];
+      if (category) {
+        const question = category.questions[questionIndex];
+        return question.questionAnswer ? [3, 4] : [1, 2, 3, 4];
+      }
+    },
+    [questionCategories],
+  );
+
+  const computeProbabilityOptions = useCallback(
+    (categoryIndex: number, questionIndex: number) => {
+      const category = questionCategories[categoryIndex];
+      if (category) {
+        const question = category.questions[questionIndex];
+        return question.questionAnswer
+          ? PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER[
+              question.severity as number
+            ] || []
+          : PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER[
+              question.severity as number
+            ] || [];
+      }
+    },
+    [questionCategories],
+  );
+
   const computeQuestionRiskFactor = useCallback(
     (categoryIndex: number, questionIndex: number) => {
       const category = questionCategories[categoryIndex];
@@ -180,6 +232,8 @@ export function useQuestions() {
     setQuestionSeverity,
     setQuestionProbability,
     setQuestionAdditionalNotes,
+    computeSeverityOptions,
+    computeProbabilityOptions,
     computeQuestionRiskFactor,
   };
 }

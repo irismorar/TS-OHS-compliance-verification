@@ -7,23 +7,6 @@ import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
-const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER: Record<
-  number,
-  number[]
-> = {
-  1: [1, 2, 3, 4],
-  2: [1, 2, 3, 4],
-  3: [1, 2, 3],
-  4: [1, 2],
-};
-const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER: Record<
-  number,
-  number[]
-> = {
-  3: [4],
-  4: [3, 4],
-};
-
 export function WorkshopChecklistPage({
   currentRoute,
   questionCategories,
@@ -37,6 +20,8 @@ export function WorkshopChecklistPage({
   setQuestionAnswer,
   setQuestionSeverity,
   setQuestionProbability,
+  computeSeverityOptions,
+  computeProbabilityOptions,
   setQuestionAdditionalNotes,
 }: Props) {
   if (currentRoute !== "workshopChecklist") {
@@ -68,14 +53,11 @@ export function WorkshopChecklistPage({
                   additionalNotes,
                 } = question;
 
-                const SEVERITY_OPTIONS = questionAnswer ? [3, 4] : [1, 2, 3, 4];
-                const PROBABILITY_OPTIONS = questionAnswer
-                  ? PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER[
-                      severity as number
-                    ] || []
-                  : PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER[
-                      severity as number
-                    ] || [];
+                const SEVERITY_OPTIONS =
+                  computeSeverityOptions(categoryIndex, questionIndex) || [];
+
+                const PROBABILITY_OPTIONS =
+                  computeProbabilityOptions(categoryIndex, questionIndex) || [];
 
                 const riskFactor = computeQuestionRiskFactor(
                   categoryIndex,
@@ -206,7 +188,7 @@ export function WorkshopChecklistPage({
                             </select>
                           </div>
                           <div
-                            className={`w-48 ${severity === null ? "opacity-50" : "opacity-100"}`}
+                            className={`${severity === null ? "opacity-50" : "opacity-100"} w-48`}
                           >
                             <label
                               htmlFor={`probability-${categoryIndex}-${questionIndex}`}

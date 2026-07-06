@@ -42,6 +42,8 @@ export function useComplianceVerificationState() {
     setQuestionSeverity,
     setQuestionProbability,
     setQuestionAdditionalNotes,
+    computeSeverityOptions,
+    computeProbabilityOptions,
     computeQuestionRiskFactor,
   } = useQuestions();
 
@@ -85,6 +87,8 @@ export function useComplianceVerificationState() {
     setQuestionSeverity,
     setQuestionProbability,
     setQuestionAdditionalNotes,
+    computeSeverityOptions,
+    computeProbabilityOptions,
     computeQuestionRiskFactor,
   };
 }
