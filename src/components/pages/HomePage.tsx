@@ -77,9 +77,9 @@ export function HomePage({
               }
             }}
             disabled={!areUnitDetailsFilled}
-            className={`text-sm mt-5 ${
+            className={`text-sm mt-5 rounded-xl border border-slate-300 bg-slate-100/80 px-3 py-2 shadow-sm ${
               areUnitDetailsFilled
-                ? "text-slate-400 transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium"
+                ? "text-slate-400 transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium hover:bg-slate-50"
                 : "text-slate-400 cursor-not-allowed"
             }`}
           >
