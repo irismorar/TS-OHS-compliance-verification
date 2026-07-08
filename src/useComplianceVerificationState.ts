@@ -8,7 +8,7 @@ export function useComplianceVerificationState() {
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,
-    setFinalPage,
+    setDocumentPage,
   } = useCurrentRoute();
   const {
     unitName,
@@ -45,6 +45,7 @@ export function useComplianceVerificationState() {
     computeSeverityOptions,
     computeProbabilityOptions,
     computeQuestionRiskFactor,
+    computeRiskTotals,
   } = useQuestions();
 
   return {
@@ -53,7 +54,7 @@ export function useComplianceVerificationState() {
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,
-    setFinalPage,
+    setDocumentPage,
 
     // unit details
     unitName,
@@ -90,5 +91,6 @@ export function useComplianceVerificationState() {
     computeSeverityOptions,
     computeProbabilityOptions,
     computeQuestionRiskFactor,
+    computeRiskTotals,
   };
 }

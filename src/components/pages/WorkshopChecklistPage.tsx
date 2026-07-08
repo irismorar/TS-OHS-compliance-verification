@@ -1,4 +1,3 @@
-import { ChevronsRight } from "lucide-react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { QuestionCard } from "../ui/QuestionCard";
@@ -15,7 +14,7 @@ export function WorkshopChecklistPage({
   areAllQuestionsAnswered,
   firstUnansweredQuestionRef,
   setVerificationChecklistsPage,
-  setFinalPage,
+  setDocumentPage,
   computeQuestionRiskFactor,
   setQuestionAnswer,
   setQuestionSeverity,
@@ -30,11 +29,23 @@ export function WorkshopChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader
-        checklistSelectionName="atelier"
-        handleClick={setVerificationChecklistsPage}
-      />
-      <QuestionsFormMain>
+      <QuestionsFormHeader checklistSelectionName="atelier" />
+      <QuestionsFormMain
+        handleClickBack={setVerificationChecklistsPage}
+        handleClickForward={() => {
+          if (areAllQuestionsAnswered) {
+            setDocumentPage();
+          } else {
+            alert(
+              "Vă rugăm să răspundeți la toate întrebările înainte de a continua.",
+            );
+            firstUnansweredQuestionRef.current?.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+        }}
+      >
         {questionCategories.map((category, categoryIndex) => {
           const { categoryName, questions } = category;
 
@@ -71,7 +82,7 @@ export function WorkshopChecklistPage({
                     case "SCĂZUT":
                       return "bg-green-100 text-green-700";
                     case "MEDIU":
-                      return "bg-orange-100 text-orange-500";
+                      return "bg-amber-100 text-amber-500";
                     case "EXTREM":
                       return "bg-red-100 text-red-700";
                     default:
@@ -290,25 +301,6 @@ export function WorkshopChecklistPage({
             </section>
           );
         })}
-        <button
-          onClick={() => {
-            if (areAllQuestionsAnswered) {
-              setFinalPage();
-            } else {
-              alert(
-                "Vă rugăm să răspundeți la toate întrebările înainte de a continua.",
-              );
-              firstUnansweredQuestionRef.current?.scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-              });
-            }
-          }}
-          className="absolute flex gap-1 bottom-10 right-80 text-md text-slate-300 text-sm mt-5 rounded-xl border border-slate-300 bg-slate-100/10 px-3 py-1 shadow-sm transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium hover:bg-slate-100/80"
-        >
-          <span>înainte</span>
-          <ChevronsRight />
-        </button>
       </QuestionsFormMain>
     </>
   );

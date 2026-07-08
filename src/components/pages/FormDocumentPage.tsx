@@ -1,5 +1,6 @@
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
+import { PieChart } from "react-minimal-pie-chart";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
@@ -24,6 +25,8 @@ export function FormDocumentPage({
   setPreparedBy,
   isEditingPreparedBy,
   setIsEditingPreparedBy,
+
+  computeRiskTotals,
 }: Props) {
   if (currentRoute !== "finalDocument") {
     return null;
@@ -33,6 +36,9 @@ export function FormDocumentPage({
     dateStyle: "medium",
     timeStyle: "short",
   }).format(new Date());
+
+  const { totalLowRisks, totalMediumRisks, totalExtremeRisks } =
+    computeRiskTotals();
 
   return (
     <main className="min-h-screen bg-slate-200 px-6 py-10 text-slate-950 print:bg-white print:p-0">
@@ -77,7 +83,7 @@ export function FormDocumentPage({
 
             <div>
               <dt className="font-bold text-slate-500">
-                Reprezentanți SSM/unitate
+                Reprezentanți SSM unitate
               </dt>
               <dd>
                 {isEditingSsmWorkers ? (
@@ -273,20 +279,88 @@ export function FormDocumentPage({
           ))}
         </section>
 
+        {/* Piechart area */}
+        <section className="mt-20 mb-20 print:my-6 print:break-inside-avoid">
+          <section className="grid grid-cols-[3fr_1fr] items-center rounded-2xl border border-slate-200 bg-white p-8 shadow-lg print:grid-cols-[2fr_1fr] print:gap-6 print:p-5 print:shadow-none">
+            <section>
+              <h3 className="mb-6 text-center text-2xl font-bold text-slate-800 print:mb-4 print:text-lg">
+                Distribuția factorilor de risc
+              </h3>
+
+              <PieChart
+                className="mx-auto h-80 w-80 print:h-52 print:w-52"
+                data={[
+                  {
+                    title: "Risc extrem",
+                    value: totalExtremeRisks,
+                    color: "#dc2626",
+                  },
+                  {
+                    title: "Risc mediu",
+                    value: totalMediumRisks,
+                    color: "#f59e0b",
+                  },
+                  {
+                    title: "Risc scăzut",
+                    value: totalLowRisks,
+                    color: "#16a34a",
+                  },
+                ]}
+              />
+            </section>
+
+            <section className="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg print:p-5 print:shadow-none">
+              <h4 className="mb-6 text-xl font-semibold text-slate-700 print:mb-4 print:text-base">
+                Legendă
+              </h4>
+
+              <div className="space-y-5 print:space-y-3 print:text-sm">
+                <div className="flex items-center justify-between gap-6">
+                  <div className="flex items-center gap-3">
+                    <span className="h-5 w-5 rounded-full bg-red-600 print:h-4 print:w-4"></span>
+                    <span>Risc extrem</span>
+                  </div>
+
+                  <span className="font-bold text-red-700">
+                    {totalExtremeRisks}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between gap-6">
+                  <div className="flex items-center gap-3">
+                    <span className="h-5 w-5 rounded-full bg-amber-500 print:h-4 print:w-4"></span>
+                    <span>Risc mediu</span>
+                  </div>
+
+                  <span className="font-bold text-amber-600">
+                    {totalMediumRisks}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between gap-6">
+                  <div className="flex items-center gap-3">
+                    <span className="h-5 w-5 rounded-full bg-green-600 print:h-4 print:w-4"></span>
+                    <span>Risc scăzut</span>
+                  </div>
+
+                  <span className="font-bold text-green-700">
+                    {totalLowRisks}
+                  </span>
+                </div>
+              </div>
+            </section>
+          </section>
+        </section>
+
         {/* Signature area */}
         <footer className="mt-12 grid grid-cols-2 gap-50 text-sm print:mt-10 print:text-xs">
           <div>
-            <p className="pt-2 font-bold">Întocmit</p>
-            <p>{preparedBy || "Nume și semnătură"}</p>
+            <p className="pt-2 font-bold">Reprezentanți SSM unitate</p>
+            <p>{ssmWorkersNames || "Nume și semnătură"}</p>
           </div>
-
           <div>
-            <p className="pt-2 font-bold text-right">
-              Reprezentant unitate / SSM
-            </p>
-            <p className="text-right">
-              {ssmWorkersNames || "Nume și semnătură"}
-            </p>
+            <p className="pt-2 font-bold text-right">Întocmit</p>
+            <p className="text-right">{preparedBy || "Nume și semnătură"}</p>
           </div>
         </footer>
       </section>

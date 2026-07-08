@@ -219,6 +219,34 @@ export function useQuestions() {
     [questionCategories],
   );
 
+  const computeRiskTotals = useCallback(() => {
+    let totalExtremeRisks = 0;
+    let totalMediumRisks = 0;
+    let totalLowRisks = 0;
+
+    questionCategories.forEach((category) => {
+      category.questions.forEach((question) => {
+        if (question.severity === null || question.probability === null) {
+          return;
+        }
+        const combination = RISK_FACTOR_COMBINATIONS.find(
+          (item) =>
+            item.severity === question.severity &&
+            item.probability === question.probability,
+        );
+        if (combination?.riskFactor === "EXTREM") {
+          totalExtremeRisks++;
+        } else if (combination?.riskFactor === "MEDIU") {
+          totalMediumRisks++;
+        } else if (combination?.riskFactor === "SCĂZUT") {
+          totalLowRisks++;
+        }
+      });
+    });
+
+    return { totalExtremeRisks, totalMediumRisks, totalLowRisks };
+  }, [questionCategories]);
+
   return {
     questionCategories,
     firstUnansweredQuestionCategoryIndex,
@@ -235,6 +263,7 @@ export function useQuestions() {
     computeSeverityOptions,
     computeProbabilityOptions,
     computeQuestionRiskFactor,
+    computeRiskTotals,
   };
 }
 

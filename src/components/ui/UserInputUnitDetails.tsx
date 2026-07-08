@@ -18,14 +18,14 @@ export function UserInputUnitDetails({
   return (
     <section className="w-full max-w-2xl flex items-center">
       <label
-        htmlFor="domain"
+        htmlFor={`domain-${domainName}`}
         className="w-48 text-left text-lg font-semibold text-slate-800 select-none"
       >
         {domainName}
       </label>
       <input
         type="text"
-        id="domain"
+        id={`domain-${domainName}`}
         required
         minLength={minLengthText}
         maxLength={maxLengthText}
