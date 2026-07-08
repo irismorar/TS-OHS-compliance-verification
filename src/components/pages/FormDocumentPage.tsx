@@ -289,6 +289,7 @@ export function FormDocumentPage({
 
               <PieChart
                 className="mx-auto h-80 w-80 print:h-52 print:w-52"
+                lineWidth={60}
                 data={[
                   {
                     title: "Risc extrem",
