@@ -257,7 +257,7 @@ export function WorkshopChecklistPage({
                             <div
                               className={`mt-4 rounded-xl p-4 text-sm font-bold shadow-lg ${riskFactorBadgeClass}`}
                             >
-                              <p>
+                              <div>
                                 <span className="uppercase">
                                   {measuresPriorityLevel}:
                                 </span>
@@ -266,7 +266,7 @@ export function WorkshopChecklistPage({
                                     ? QUESTION_DEFAULT_ANSWER
                                     : safetyMeasure}
                                 </p>
-                              </p>
+                              </div>
                             </div>
                             {(riskFactor === "EXTREM" ||
                               riskFactor === "MEDIU") && (
