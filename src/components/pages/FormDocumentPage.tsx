@@ -1,6 +1,6 @@
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
-import { PieChart } from "react-minimal-pie-chart";
+import { RiskPieChart } from "../RiskPieChart/RiskPieChart";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
@@ -287,26 +287,11 @@ export function FormDocumentPage({
                 Distribuția factorilor de risc
               </h3>
 
-              <PieChart
+              <RiskPieChart
                 className="mx-auto h-80 w-80 print:h-52 print:w-52"
-                lineWidth={60}
-                data={[
-                  {
-                    title: "Risc extrem",
-                    value: totalExtremeRisks,
-                    color: "#dc2626",
-                  },
-                  {
-                    title: "Risc mediu",
-                    value: totalMediumRisks,
-                    color: "#f59e0b",
-                  },
-                  {
-                    title: "Risc scăzut",
-                    value: totalLowRisks,
-                    color: "#16a34a",
-                  },
-                ]}
+                low={totalLowRisks}
+                medium={totalMediumRisks}
+                extreme={totalExtremeRisks}
               />
             </section>
 
