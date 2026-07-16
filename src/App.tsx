@@ -10,12 +10,12 @@ export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
 
   return (
-    <section className="max-h-dvh select-none">
+    <main className="max-h-dvh select-none bg-linear-to-b from-slate-400 via-slate-400 to-slate-500 bg-fixed">
       <HomePage {...complianceVerificationData} />
       <VerificationChecklistsPage {...complianceVerificationData} />
       <WorkplaceChecklistPage {...complianceVerificationData} />
       <WorkshopChecklistPage {...complianceVerificationData} />
       <FormDocumentPage {...complianceVerificationData} />
-    </section>
+    </main>
   );
 }
