@@ -15,5 +15,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: { riskLevel: "E", isLockedIn: false, disabled: false },
+  args: {
+    riskLevel: "E",
+    isLockedIn: false,
+    disabled: false,
+    gravity: 1,
+    probability: 1,
+    onLockIn: () => {},
+    onHover: () => {},
+    onLeave: () => {},
+  },
 };

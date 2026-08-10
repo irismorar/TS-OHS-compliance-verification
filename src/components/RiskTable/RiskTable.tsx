@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { RiskTableCell } from "./RiskTableCell";
 
 type Props = {
   onCommitRiskValues: (
     gravity: 1 | 2 | 3 | 4,
     probability: 1 | 2 | 3 | 4,
   ) => void;
+  userResponse: boolean;
 };
 
-export function RiskTable({ onCommitRiskValues }: Props) {
+export function RiskTable({ onCommitRiskValues, userResponse }: Props) {
   const [hoveredGravity, setHoveredGravity] = useState<1 | 2 | 3 | 4 | null>(
     null,
   );
@@ -88,37 +90,45 @@ export function RiskTable({ onCommitRiskValues }: Props) {
             >
               1
             </VTD>
-            <ITD
-              riskLevel="extreme"
+            <RiskTableCell
+              riskLevel="E"
               gravity={1}
               probability={1}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="extreme"
+            <RiskTableCell
+              riskLevel="E"
               gravity={2}
               probability={1}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="extreme"
+            <RiskTableCell
+              riskLevel="E"
               gravity={3}
               probability={1}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="medium"
+            <RiskTableCell
+              riskLevel="M"
               gravity={4}
               probability={1}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
           </tr>
           <tr>
@@ -128,37 +138,45 @@ export function RiskTable({ onCommitRiskValues }: Props) {
             >
               2
             </VTD>
-            <ITD
-              riskLevel="extreme"
+            <RiskTableCell
+              riskLevel="E"
               gravity={1}
               probability={2}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="extreme"
+            <RiskTableCell
+              riskLevel="E"
               gravity={2}
               probability={2}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="medium"
+            <RiskTableCell
+              riskLevel="M"
               gravity={3}
               probability={2}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="medium"
+            <RiskTableCell
+              riskLevel="M"
               gravity={4}
               probability={2}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
           </tr>
           <tr>
@@ -168,37 +186,45 @@ export function RiskTable({ onCommitRiskValues }: Props) {
             >
               3
             </VTD>
-            <ITD
-              riskLevel="extreme"
+            <RiskTableCell
+              riskLevel="E"
               gravity={1}
               probability={3}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="medium"
+            <RiskTableCell
+              riskLevel="M"
               gravity={2}
               probability={3}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="medium"
+            <RiskTableCell
+              riskLevel="M"
               gravity={3}
               probability={3}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="low"
+            <RiskTableCell
+              riskLevel="S"
               gravity={4}
               probability={3}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
           </tr>
           <tr>
@@ -208,37 +234,45 @@ export function RiskTable({ onCommitRiskValues }: Props) {
             >
               4
             </VTD>
-            <ITD
-              riskLevel="medium"
+            <RiskTableCell
+              riskLevel="M"
               gravity={1}
               probability={4}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="medium"
+            <RiskTableCell
+              riskLevel="M"
               gravity={2}
               probability={4}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={!userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="low"
+            <RiskTableCell
+              riskLevel="S"
               gravity={3}
               probability={4}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
-            <ITD
-              riskLevel="low"
+            <RiskTableCell
+              riskLevel="S"
               gravity={4}
               probability={4}
+              isLockedIn={!!(lockedGravity && lockedProbability)}
+              disabled={userResponse}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
-              onClick={handleCellClick}
+              onLockIn={handleCellClick}
             />
           </tr>
         </tbody>
@@ -285,35 +319,35 @@ function VTD({
   );
 }
 
-const RISK_LEVEL_LETTER = {
-  low: "S",
-  medium: "M",
-  extreme: "E",
-} as const;
+// const RISK_LEVEL_LETTER = {
+//   low: "S",
+//   medium: "M",
+//   extreme: "E",
+// } as const;
 
-function ITD({
-  riskLevel,
-  gravity,
-  probability,
-  onHover,
-  onLeave,
-  onClick,
-}: {
-  riskLevel: "low" | "medium" | "extreme";
-  gravity: 1 | 2 | 3 | 4;
-  probability: 1 | 2 | 3 | 4;
-  onHover: (gravity: 1 | 2 | 3 | 4, probability: 1 | 2 | 3 | 4) => void;
-  onLeave: () => void;
-  onClick: (gravity: 1 | 2 | 3 | 4, probability: 1 | 2 | 3 | 4) => void;
-}) {
-  return (
-    <td
-      className="w-10 h-10 text-center align-middle border cursor-pointer"
-      onMouseEnter={() => onHover(gravity, probability)}
-      onMouseLeave={onLeave}
-      onClick={() => onClick(gravity, probability)}
-    >
-      {RISK_LEVEL_LETTER[riskLevel]}
-    </td>
-  );
-}
+// function ITD({
+//   riskLevel,
+//   gravity,
+//   probability,
+//   onHover,
+//   onLeave,
+//   onClick,
+// }: {
+//   riskLevel: "low" | "medium" | "extreme";
+//   gravity: 1 | 2 | 3 | 4;
+//   probability: 1 | 2 | 3 | 4;
+//   onHover: (gravity: 1 | 2 | 3 | 4, probability: 1 | 2 | 3 | 4) => void;
+//   onLeave: () => void;
+//   onClick: (gravity: 1 | 2 | 3 | 4, probability: 1 | 2 | 3 | 4) => void;
+// }) {
+//   return (
+//     <td
+//       className="w-10 h-10 text-center align-middle border cursor-pointer"
+//       onMouseEnter={() => onHover(gravity, probability)}
+//       onMouseLeave={onLeave}
+//       onClick={() => onClick(gravity, probability)}
+//     >
+//       {RISK_LEVEL_LETTER[riskLevel]}
+//     </td>
+//   );
+// }

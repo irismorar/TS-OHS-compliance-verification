@@ -44,9 +44,9 @@ const riskTableCellVariants = cva(
   {
     variants: {
       riskLevel: {
-        E: ["bg-red-300 hover:bg-red-600"],
-        M: ["bg-amber-200 hover:bg-amber-500"],
-        S: ["bg-green-300 hover:bg-green-600"],
+        E: ["bg-red-400 hover:bg-red-600"],
+        M: ["bg-yellow-300 hover:bg-yellow-500"],
+        S: ["bg-green-400 hover:bg-green-600"],
       },
       isLockedIn: {
         false: null,
@@ -62,7 +62,7 @@ const riskTableCellVariants = cva(
       {
         riskLevel: "M",
         isLockedIn: true,
-        className: ["bg-amber-500"],
+        className: ["bg-yellow-500"],
       },
       {
         riskLevel: "S",
