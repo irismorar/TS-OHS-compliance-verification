@@ -19,6 +19,6 @@ export const Default: Story = {
     onCommitRiskValues: (gravity, probability) => {
       console.log("Committed risk values:", probability, gravity);
     },
-    userResponse: true,
+    userAnswer: false,
   },
 };
