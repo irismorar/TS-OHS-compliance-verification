@@ -10,7 +10,7 @@ export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
 
   return (
-    <main className="max-h-dvh select-none bg-linear-to-b from-slate-400 via-slate-400 to-slate-500 bg-fixed">
+    <main className="max-h-dvh select-none">
       <HomePage {...complianceVerificationData} />
       <VerificationChecklistsPage {...complianceVerificationData} />
       <WorkplaceChecklistPage {...complianceVerificationData} />

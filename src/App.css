@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+body {
+  min-height: 100dvh;
+  background: linear-gradient(to bottom, #acb8c6, #849cb5, #577895, #41617d, #07357e);
+  background-attachment: fixed;
+}
+
 @media print {
   * {
     -webkit-print-color-adjust: exact;
@@ -12,8 +18,8 @@
   }
 
   body {
-    background: white;
-  }
+    background: white !important;
+  } 
 
   input,
   button {

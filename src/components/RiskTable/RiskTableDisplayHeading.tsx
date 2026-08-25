@@ -30,7 +30,7 @@ const riskTableDisplayHeadingVariants = cva(
     variants: {
       isHighlighted: {
         false: null,
-        true: ["bg-slate-300 text-blue-600"],
+        true: ["bg-slate-400/70 text-blue-600"],
       },
       isLockedIn: {
         false: null,
@@ -41,7 +41,7 @@ const riskTableDisplayHeadingVariants = cva(
       {
         isHighlighted: false,
         isLockedIn: false,
-        className: ["bg-slate-400 text-slate-300"],
+        className: ["bg-slate-400 text-slate-300 border border-slate-200"],
       },
     ],
   },

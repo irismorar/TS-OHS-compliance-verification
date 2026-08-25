@@ -41,7 +41,7 @@ export function FormDocumentPage({
     computeRiskTotals();
 
   return (
-    <main className="min-h-screen bg-slate-200 px-6 py-10 text-slate-950 print:bg-white print:p-0">
+    <main className="min-h-screen bg-slate-200 px-6 py-10 text-slate-950 print:p-0">
       <section className="mx-auto max-w-275 bg-white p-10 shadow-2xl print:max-w-none print:p-0 print:shadow-none">
         {/* Header */}
         <header className="mb-8 border-b-4 border-slate-900 pb-6 print:mb-5">

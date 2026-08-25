@@ -14,7 +14,7 @@ export function VerificationChecklistsPage({
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-slate-150">
+    <main className="min-h-screen flex items-center justify-center">
       <section className="w-full max-w-4xl rounded-3xl bg-slate-200 p-10 shadow-xl select-none">
         <h1 className="text-4xl font-black text-slate-900">
           Selectează lista de verificare

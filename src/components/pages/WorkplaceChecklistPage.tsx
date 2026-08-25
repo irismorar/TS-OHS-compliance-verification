@@ -1,8 +1,11 @@
+import { createPortal } from "react-dom";
+import { useState } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
+import { RiskTable } from "../RiskTable/RiskTable";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
@@ -23,6 +26,8 @@ export function WorkplaceChecklistPage({
   computeProbabilityOptions,
   setQuestionAdditionalNotes,
 }: Props) {
+  const [isRiskTableOpen, setIsRiskTableOpen] = useState(false);
+
   if (currentRoute !== "workplaceChecklist") {
     return null;
   }
@@ -129,35 +134,61 @@ export function WorkplaceChecklistPage({
                       <div className="w-32 flex gap-1">
                         <button
                           className={`flex-1 rounded-xl py-2.5 font-bold text-white uppercase transition-all duration-200 ${questionAnswer === true ? "bg-green-500 shadow-lg" : "bg-gray-300 hover:text-green-500 "}`}
-                          onClick={() =>
+                          onClick={() => {
+                            setIsRiskTableOpen(true);
                             setQuestionAnswer(
                               categoryIndex,
                               questionIndex,
                               true,
-                            )
-                          }
+                            );
+                          }}
                         >
                           da
                         </button>
                         <button
                           className={`flex-1 rounded-xl py-2.5 font-bold text-white uppercase transition-all duration-200 ${questionAnswer === false ? "bg-red-500 shadow-lg" : "bg-gray-300 hover:text-red-500"}`}
-                          onClick={() =>
+                          onClick={() => {
+                            setIsRiskTableOpen(true);
                             setQuestionAnswer(
                               categoryIndex,
                               questionIndex,
                               false,
-                            )
-                          }
+                            );
+                          }}
                         >
                           nu
                         </button>
                       </div>
                     </div>
 
-                    {questionAnswer !== null && (
-                      <>
-                        {/* QUESTION RISK ASSESSMENT */}
-                        <div className="flex items-center gap-4 mt-3 p-4">
+                    {questionAnswer !== null &&
+                      isRiskTableOpen &&
+                      createPortal(
+                        <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                          <RiskTable
+                            onCommitRiskValues={() => {
+                              setQuestionSeverity(
+                                categoryIndex,
+                                questionIndex,
+                                severity,
+                              );
+                              setQuestionProbability(
+                                categoryIndex,
+                                questionIndex,
+                                probability,
+                              );
+                            }}
+                            onClose={() => setIsRiskTableOpen(false)}
+                            userAnswer={questionAnswer}
+                          />
+                        </section>,
+                        document.body,
+                      )}
+
+                    {/* {questionAnswer !== null && (
+                      <> */}
+                    {/* QUESTION RISK ASSESSMENT */}
+                    {/* <div className="flex items-center gap-4 mt-3 p-4">
                           <div
                             className={`${probability !== null ? "opacity-50" : "opacity-100"} w-48`}
                           >
@@ -249,9 +280,9 @@ export function WorkplaceChecklistPage({
                         </div>
 
                         {measuresPriorityLevel !== null && (
-                          <>
-                            {/* QUESTION MEASURES*/}
-                            <div
+                          <> */}
+                    {/* QUESTION MEASURES*/}
+                    {/* <div
                               className={`mt-4 rounded-xl p-4 text-sm font-bold shadow-lg ${riskFactorBadgeClass}`}
                             >
                               <div>
@@ -270,9 +301,9 @@ export function WorkplaceChecklistPage({
 
                         {(riskFactor === "EXTREM" ||
                           riskFactor === "MEDIU") && (
-                          <>
-                            {/* QUESTION ADDITIONAL NOTE */}
-                            <textarea
+                          <> */}
+                    {/* QUESTION ADDITIONAL NOTE */}
+                    {/* <textarea
                               id={`additionalNotes-${categoryIndex}-${questionIndex}`}
                               rows={2}
                               cols={65}
@@ -292,7 +323,7 @@ export function WorkplaceChecklistPage({
                           </>
                         )}
                       </>
-                    )}
+                    )} */}
                   </QuestionCard>
                 );
               })}

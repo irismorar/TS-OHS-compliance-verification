@@ -23,7 +23,7 @@ export function RiskTableCell({
 }: Props) {
   if (disabled) {
     return (
-      <td className="w-10 h-10 text-center align-middle bg-slate-400"></td>
+      <td className="w-10 h-10 text-center align-middle bg-slate-400/30"></td>
     );
   }
 
@@ -40,13 +40,13 @@ export function RiskTableCell({
 }
 
 const riskTableCellVariants = cva(
-  ["w-10 h-10 text-center align-middle cursor-pointer"],
+  ["w-10 h-10 text-center align-middle cursor-pointer border border-slate-100"],
   {
     variants: {
       riskLevel: {
-        E: ["bg-red-400 hover:bg-red-600"],
-        M: ["bg-yellow-300 hover:bg-yellow-500"],
-        S: ["bg-green-400 hover:bg-green-600"],
+        E: ["bg-red-400 hover:bg-red-500"],
+        M: ["bg-yellow-300/60 hover:bg-yellow-300"],
+        S: ["bg-green-400 hover:bg-green-500"],
       },
       isLockedIn: {
         false: null,
@@ -62,7 +62,7 @@ const riskTableCellVariants = cva(
       {
         riskLevel: "M",
         isLockedIn: true,
-        className: ["bg-yellow-500"],
+        className: ["bg-yellow-400"],
       },
       {
         riskLevel: "S",

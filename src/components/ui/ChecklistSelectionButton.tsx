@@ -12,7 +12,7 @@ export function ChecklistSelectionButton({
   return (
     <button
       onClick={handleClick}
-      className="w-full group flex items-center justify-between text-xl rounded-2xl text-slate-500 border border-slate-200 px-6 py-5 transition-all duration-200 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md hover:text-blue-600"
+      className="w-full group flex items-center justify-between text-xl rounded-2xl text-slate-500 border border-slate-400/60 px-6 py-5 transition-all duration-200 hover:border-gray-500 hover:bg-slate-50 hover:shadow-md hover:text-blue-600"
     >
       <div className="flex items-start flex-col">
         <h3 className="text-xl font-semibold uppercase text-slate-900">
