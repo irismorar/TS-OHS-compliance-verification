@@ -1,8 +1,11 @@
+import { createPortal } from "react-dom";
+import { useState } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { QuestionCard } from "../ui/QuestionCard";
-import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
+import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
+import { RiskTable } from "../RiskTable/RiskTable";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
@@ -19,10 +22,13 @@ export function WorkshopChecklistPage({
   setQuestionAnswer,
   setQuestionSeverity,
   setQuestionProbability,
-  computeSeverityOptions,
-  computeProbabilityOptions,
   setQuestionAdditionalNotes,
 }: Props) {
+  const [activeRiskTable, setActiveRiskTable] = useState<{
+    categoryIndex: number;
+    questionIndex: number;
+  } | null>(null);
+
   if (currentRoute !== "workshopChecklist") {
     return null;
   }
@@ -63,12 +69,6 @@ export function WorkshopChecklistPage({
                   probability,
                   additionalNotes,
                 } = question;
-
-                const SEVERITY_OPTIONS =
-                  computeSeverityOptions(categoryIndex, questionIndex) || [];
-
-                const PROBABILITY_OPTIONS =
-                  computeProbabilityOptions(categoryIndex, questionIndex) || [];
 
                 const riskFactor = computeQuestionRiskFactor(
                   categoryIndex,
@@ -129,172 +129,145 @@ export function WorkshopChecklistPage({
                       <div className="w-32 flex gap-1">
                         <button
                           className={`flex-1 rounded-xl py-2.5 font-bold text-white uppercase transition-all duration-200 ${questionAnswer === true ? "bg-green-500 shadow-lg" : "bg-gray-300 hover:text-green-500 "}`}
-                          onClick={() =>
+                          onClick={() => {
                             setQuestionAnswer(
                               categoryIndex,
                               questionIndex,
                               true,
-                            )
-                          }
+                            );
+                            setActiveRiskTable({
+                              categoryIndex,
+                              questionIndex,
+                            });
+                          }}
                         >
                           da
                         </button>
                         <button
                           className={`flex-1 rounded-xl py-2.5 font-bold text-white uppercase transition-all duration-200 ${questionAnswer === false ? "bg-red-500 shadow-lg" : "bg-gray-300 hover:text-red-500"}`}
-                          onClick={() =>
+                          onClick={() => {
                             setQuestionAnswer(
                               categoryIndex,
                               questionIndex,
                               false,
-                            )
-                          }
+                            );
+                            setActiveRiskTable({
+                              categoryIndex,
+                              questionIndex,
+                            });
+                          }}
                         >
                           nu
                         </button>
                       </div>
                     </div>
 
-                    {questionAnswer !== null && (
-                      <>
-                        {/* QUESTION RISK ASSESSMENT */}
-                        <div className="flex items-center gap-4 mt-3 p-4">
-                          <div
-                            className={`${probability !== null ? "opacity-50" : "opacity-100"} w-48`}
-                          >
-                            <label
-                              htmlFor={`severity-${categoryIndex}-${questionIndex}`}
-                              className="mr-2"
-                            >
-                              Gravitate:
-                            </label>
-                            <select
-                              id={`severity-${categoryIndex}-${questionIndex}`}
-                              disabled={probability !== null}
-                              className={`${probability !== null ? "cursor-not-allowed" : "cursor-default"} w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200`}
-                              value={severity ?? ""}
-                              onChange={(event) => {
-                                setQuestionSeverity(
-                                  categoryIndex,
-                                  questionIndex,
-                                  event.target.value
-                                    ? (Number(event.target.value) as
-                                        | 1
-                                        | 2
-                                        | 3
-                                        | 4
-                                        | null)
-                                    : null,
-                                );
-                              }}
-                            >
-                              {" "}
-                              <option value=""></option>
-                              {SEVERITY_OPTIONS.map((option) => {
-                                return (
-                                  <option key={option} value={option}>
-                                    {option}
-                                  </option>
-                                );
-                              })}
-                            </select>
-                          </div>
-                          <div
-                            className={`${severity === null ? "opacity-50" : "opacity-100"} w-48`}
-                          >
-                            <label
-                              htmlFor={`probability-${categoryIndex}-${questionIndex}`}
-                              className="mr-2"
-                            >
-                              Probabilitate:
-                            </label>
-                            <select
-                              id={`probability-${categoryIndex}-${questionIndex}`}
-                              disabled={severity === null}
-                              className={`${severity === null ? "cursor-not-allowed" : "cursor-default"} w-fit rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200`}
-                              value={probability ?? ""}
-                              onChange={(event) => {
-                                setQuestionProbability(
-                                  categoryIndex,
-                                  questionIndex,
-                                  event.target.value
-                                    ? (Number(event.target.value) as
-                                        | 1
-                                        | 2
-                                        | 3
-                                        | 4
-                                        | null)
-                                    : null,
-                                );
-                              }}
-                            >
-                              {" "}
-                              <option value=""></option>
-                              {PROBABILITY_OPTIONS.map((option) => {
-                                return (
-                                  <option key={option} value={option}>
-                                    {option}
-                                  </option>
-                                );
-                              })}
-                            </select>
-                          </div>
-                          <div className="flex-1">
-                            {riskFactor !== null && (
-                              <>
-                                Nivel risc:{" "}
-                                <span
-                                  className={`rounded-lg px-3 py-1 text-sm font-bold shadow-md ${riskFactorBadgeClass}`}
-                                >
-                                  {riskFactor}
-                                </span>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                        {measuresPriorityLevel !== null && (
-                          <>
-                            {/* QUESTION MEASURES*/}
-                            <div
-                              className={`mt-4 rounded-xl p-4 text-sm font-bold shadow-lg ${riskFactorBadgeClass}`}
-                            >
-                              <div>
-                                <span className="uppercase">
-                                  {measuresPriorityLevel}:
-                                </span>
-                                <p className="mt-3 font-medium">
-                                  {questionAnswer
-                                    ? QUESTION_DEFAULT_ANSWER
-                                    : safetyMeasure}
-                                </p>
-                              </div>
+                    {activeRiskTable?.categoryIndex === categoryIndex &&
+                      activeRiskTable?.questionIndex === questionIndex &&
+                      createPortal(
+                        <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                          <RiskTable
+                            onCommitRiskValues={(
+                              newSeverity,
+                              newProbability,
+                            ) => {
+                              setQuestionSeverity(
+                                categoryIndex,
+                                questionIndex,
+                                newSeverity,
+                              );
+                              setQuestionProbability(
+                                categoryIndex,
+                                questionIndex,
+                                newProbability,
+                              );
+                            }}
+                            onClose={() => {
+                              setActiveRiskTable(null);
+                            }}
+                            userAnswer={questionAnswer}
+                          />
+                        </section>,
+                        document.body,
+                      )}
+
+                    {activeRiskTable === null &&
+                      probability !== null &&
+                      severity !== null && (
+                        <>
+                          {/* QUESTION RISK ASSESSMENT */}
+                          <div className="flex items-center gap-4 mt-3 p-4">
+                            <div className="w-48">
+                              <span className="mr-2">Gravitate:</span>
+                              <span className="rounded-lg border border-slate-300 bg-white px-3 py-1 font-semibold">
+                                {severity ?? ""}
+                              </span>
                             </div>
-                            {(riskFactor === "EXTREM" ||
-                              riskFactor === "MEDIU") && (
-                              <>
-                                {/* QUESTION ADDITIONAL NOTE */}
-                                <textarea
-                                  id={`additionalNotes-${categoryIndex}-${questionIndex}`}
-                                  rows={2}
-                                  cols={65}
-                                  value={additionalNotes ?? ""}
-                                  onChange={(event) => {
-                                    setQuestionAdditionalNotes(
-                                      categoryIndex,
-                                      questionIndex,
-                                      event.target.value,
-                                    );
-                                  }}
-                                  placeholder="Adaugă observații..."
-                                  className={
-                                    "w-full mt-4 rounded-lg border border-slate-300 bg-white p-4 text-sm shadow-lg focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                                  }
-                                />
-                              </>
-                            )}
-                          </>
-                        )}
-                      </>
-                    )}
+                            <div className="w-48">
+                              <span className="mr-2">Probabilitate:</span>
+                              <span className="rounded-lg border border-slate-300 bg-white px-3 py-1 font-semibold">
+                                {probability ?? ""}
+                              </span>
+                            </div>
+                            <div className="flex-1">
+                              {riskFactor !== null && (
+                                <>
+                                  Nivel risc:{" "}
+                                  <span
+                                    className={`rounded-lg px-3 py-1 text-sm font-bold shadow-md ${riskFactorBadgeClass}`}
+                                  >
+                                    {riskFactor}
+                                  </span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+
+                          {measuresPriorityLevel !== null && (
+                            <>
+                              {/* QUESTION MEASURES*/}
+                              <div
+                                className={`mt-4 rounded-xl p-4 text-sm font-bold shadow-lg ${riskFactorBadgeClass}`}
+                              >
+                                <div>
+                                  <span className="uppercase">
+                                    {measuresPriorityLevel}:
+                                  </span>
+                                  <p className="mt-3 font-medium">
+                                    {questionAnswer
+                                      ? QUESTION_DEFAULT_ANSWER
+                                      : safetyMeasure}
+                                  </p>
+                                </div>
+                              </div>
+                            </>
+                          )}
+
+                          {(riskFactor === "EXTREM" ||
+                            riskFactor === "MEDIU") && (
+                            <>
+                              {/* QUESTION ADDITIONAL NOTE */}
+                              <textarea
+                                id={`additionalNotes-${categoryIndex}-${questionIndex}`}
+                                rows={2}
+                                cols={65}
+                                value={additionalNotes ?? ""}
+                                onChange={(event) => {
+                                  setQuestionAdditionalNotes(
+                                    categoryIndex,
+                                    questionIndex,
+                                    event.target.value,
+                                  );
+                                }}
+                                placeholder="Adaugă observații..."
+                                className={
+                                  "w-full mt-4 rounded-lg border border-slate-300 bg-white p-4 text-sm shadow-lg focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                }
+                              />
+                            </>
+                          )}
+                        </>
+                      )}
                   </QuestionCard>
                 );
               })}

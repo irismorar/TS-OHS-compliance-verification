@@ -4,7 +4,7 @@ import { RiskTableDisplayHeading } from "./RiskTableDisplayHeading";
 
 type Props = {
   onCommitRiskValues: (
-    gravity: 1 | 2 | 3 | 4 | null,
+    severity: 1 | 2 | 3 | 4 | null,
     probability: 1 | 2 | 3 | 4 | null,
   ) => void;
   onClose: () => void;
@@ -12,13 +12,13 @@ type Props = {
 };
 
 export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
-  const [hoveredGravity, setHoveredGravity] = useState<1 | 2 | 3 | 4 | null>(
+  const [hoveredSeverity, setHoveredSeverity] = useState<1 | 2 | 3 | 4 | null>(
     null,
   );
   const [hoveredProbability, setHoveredProbability] = useState<
     1 | 2 | 3 | 4 | null
   >(null);
-  const [lockedGravity, setLockedGravity] = useState<1 | 2 | 3 | 4 | null>(
+  const [lockedSeverity, setLockedSeverity] = useState<1 | 2 | 3 | 4 | null>(
     null,
   );
   const [lockedProbability, setLockedProbability] = useState<
@@ -27,18 +27,24 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
 
   const [isOpen, setIsOpen] = useState(true);
 
-  function handleCellHover(gravity: 1 | 2 | 3 | 4, probability: 1 | 2 | 3 | 4) {
-    setHoveredGravity(gravity);
+  function handleCellHover(
+    severity: 1 | 2 | 3 | 4,
+    probability: 1 | 2 | 3 | 4,
+  ) {
+    setHoveredSeverity(severity);
     setHoveredProbability(probability);
   }
 
   function handleCellLeave() {
-    setHoveredGravity(null);
+    setHoveredSeverity(null);
     setHoveredProbability(null);
   }
 
-  function handleCellClick(gravity: 1 | 2 | 3 | 4, probability: 1 | 2 | 3 | 4) {
-    setLockedGravity(gravity);
+  function handleCellClick(
+    severity: 1 | 2 | 3 | 4,
+    probability: 1 | 2 | 3 | 4,
+  ) {
+    setLockedSeverity(severity);
     setLockedProbability(probability);
   }
 
@@ -78,26 +84,26 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
           <tr>
             <RiskTableDisplayHeading></RiskTableDisplayHeading>
             <RiskTableDisplayHeading
-              isHighlighted={hoveredGravity === 1}
-              isLockedIn={lockedGravity === 1}
+              isHighlighted={hoveredSeverity === 1}
+              isLockedIn={lockedSeverity === 1}
             >
               1
             </RiskTableDisplayHeading>
             <RiskTableDisplayHeading
-              isHighlighted={hoveredGravity === 2}
-              isLockedIn={lockedGravity === 2}
+              isHighlighted={hoveredSeverity === 2}
+              isLockedIn={lockedSeverity === 2}
             >
               2
             </RiskTableDisplayHeading>
             <RiskTableDisplayHeading
-              isHighlighted={hoveredGravity === 3}
-              isLockedIn={lockedGravity === 3}
+              isHighlighted={hoveredSeverity === 3}
+              isLockedIn={lockedSeverity === 3}
             >
               3
             </RiskTableDisplayHeading>
             <RiskTableDisplayHeading
-              isHighlighted={hoveredGravity === 4}
-              isLockedIn={lockedGravity === 4}
+              isHighlighted={hoveredSeverity === 4}
+              isLockedIn={lockedSeverity === 4}
             >
               4
             </RiskTableDisplayHeading>
@@ -111,9 +117,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             </RiskTableDisplayHeading>
             <RiskTableCell
               riskLevel="E"
-              gravity={1}
+              severity={1}
               probability={1}
-              isLockedIn={lockedGravity === 1 && lockedProbability === 1}
+              isLockedIn={lockedSeverity === 1 && lockedProbability === 1}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -121,9 +127,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="E"
-              gravity={2}
+              severity={2}
               probability={1}
-              isLockedIn={lockedGravity === 2 && lockedProbability === 1}
+              isLockedIn={lockedSeverity === 2 && lockedProbability === 1}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -131,9 +137,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="E"
-              gravity={3}
+              severity={3}
               probability={1}
-              isLockedIn={lockedGravity === 3 && lockedProbability === 1}
+              isLockedIn={lockedSeverity === 3 && lockedProbability === 1}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -141,9 +147,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="M"
-              gravity={4}
+              severity={4}
               probability={1}
-              isLockedIn={lockedGravity === 4 && lockedProbability === 1}
+              isLockedIn={lockedSeverity === 4 && lockedProbability === 1}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -159,9 +165,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             </RiskTableDisplayHeading>
             <RiskTableCell
               riskLevel="E"
-              gravity={1}
+              severity={1}
               probability={2}
-              isLockedIn={lockedGravity === 1 && lockedProbability === 2}
+              isLockedIn={lockedSeverity === 1 && lockedProbability === 2}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -169,9 +175,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="E"
-              gravity={2}
+              severity={2}
               probability={2}
-              isLockedIn={lockedGravity === 2 && lockedProbability === 2}
+              isLockedIn={lockedSeverity === 2 && lockedProbability === 2}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -179,9 +185,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="M"
-              gravity={3}
+              severity={3}
               probability={2}
-              isLockedIn={lockedGravity === 3 && lockedProbability === 2}
+              isLockedIn={lockedSeverity === 3 && lockedProbability === 2}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -189,9 +195,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="M"
-              gravity={4}
+              severity={4}
               probability={2}
-              isLockedIn={lockedGravity === 4 && lockedProbability === 2}
+              isLockedIn={lockedSeverity === 4 && lockedProbability === 2}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -207,9 +213,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             </RiskTableDisplayHeading>
             <RiskTableCell
               riskLevel="E"
-              gravity={1}
+              severity={1}
               probability={3}
-              isLockedIn={lockedGravity === 1 && lockedProbability === 3}
+              isLockedIn={lockedSeverity === 1 && lockedProbability === 3}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -217,9 +223,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="M"
-              gravity={2}
+              severity={2}
               probability={3}
-              isLockedIn={lockedGravity === 2 && lockedProbability === 3}
+              isLockedIn={lockedSeverity === 2 && lockedProbability === 3}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -227,9 +233,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="M"
-              gravity={3}
+              severity={3}
               probability={3}
-              isLockedIn={lockedGravity === 3 && lockedProbability === 3}
+              isLockedIn={lockedSeverity === 3 && lockedProbability === 3}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -237,9 +243,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="S"
-              gravity={4}
+              severity={4}
               probability={3}
-              isLockedIn={lockedGravity === 4 && lockedProbability === 3}
+              isLockedIn={lockedSeverity === 4 && lockedProbability === 3}
               disabled={userAnswer !== true}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -255,9 +261,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             </RiskTableDisplayHeading>
             <RiskTableCell
               riskLevel="M"
-              gravity={1}
+              severity={1}
               probability={4}
-              isLockedIn={lockedGravity === 1 && lockedProbability === 4}
+              isLockedIn={lockedSeverity === 1 && lockedProbability === 4}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -265,9 +271,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="M"
-              gravity={2}
+              severity={2}
               probability={4}
-              isLockedIn={lockedGravity === 2 && lockedProbability === 4}
+              isLockedIn={lockedSeverity === 2 && lockedProbability === 4}
               disabled={userAnswer !== false}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -275,9 +281,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="S"
-              gravity={3}
+              severity={3}
               probability={4}
-              isLockedIn={lockedGravity === 3 && lockedProbability === 4}
+              isLockedIn={lockedSeverity === 3 && lockedProbability === 4}
               disabled={userAnswer !== true}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -285,9 +291,9 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
             />
             <RiskTableCell
               riskLevel="S"
-              gravity={4}
+              severity={4}
               probability={4}
-              isLockedIn={lockedGravity === 4 && lockedProbability === 4}
+              isLockedIn={lockedSeverity === 4 && lockedProbability === 4}
               disabled={userAnswer !== true}
               onHover={handleCellHover}
               onLeave={handleCellLeave}
@@ -301,8 +307,8 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
         <button
           aria-label="salvează"
           onClick={() => {
-            if (lockedGravity && lockedProbability) {
-              onCommitRiskValues(lockedGravity, lockedProbability);
+            if (lockedSeverity && lockedProbability) {
+              onCommitRiskValues(lockedSeverity, lockedProbability);
               setIsOpen(false);
               onClose();
             }
@@ -314,7 +320,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
           aria-label="anulează"
           onClick={() => {
             onCommitRiskValues(null, null);
-            setLockedGravity(null);
+            setLockedSeverity(null);
             setLockedProbability(null);
             setIsOpen(true);
           }}

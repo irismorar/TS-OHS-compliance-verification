@@ -16,9 +16,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onCommitRiskValues: (gravity, probability) => {
-      console.log("Committed risk values:", probability, gravity);
+    onCommitRiskValues: (severity, probability) => {
+      console.log("Committed risk values:", probability, severity);
     },
+    onClose: () => {},
     userAnswer: false,
   },
 };

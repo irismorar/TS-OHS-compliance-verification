@@ -25,23 +25,6 @@ export type QuestionData = {
   }[];
 }[];
 
-const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER: Record<
-  number,
-  number[]
-> = {
-  1: [1, 2, 3, 4],
-  2: [1, 2, 3, 4],
-  3: [1, 2, 3],
-  4: [1, 2],
-};
-const PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER: Record<
-  number,
-  number[]
-> = {
-  3: [4],
-  4: [3, 4],
-};
-
 export function useQuestions() {
   const [questionCategories, setQuestionCategories] = useState<
     QuestionCategory[]
@@ -168,34 +151,6 @@ export function useQuestions() {
     [],
   );
 
-  const computeSeverityOptions = useCallback(
-    (categoryIndex: number, questionIndex: number) => {
-      const category = questionCategories[categoryIndex];
-      if (category) {
-        const question = category.questions[questionIndex];
-        return question.questionAnswer ? [3, 4] : [1, 2, 3, 4];
-      }
-    },
-    [questionCategories],
-  );
-
-  const computeProbabilityOptions = useCallback(
-    (categoryIndex: number, questionIndex: number) => {
-      const category = questionCategories[categoryIndex];
-      if (category) {
-        const question = category.questions[questionIndex];
-        return question.questionAnswer
-          ? PROBABILITY_OPTIONS_BY_SEVERITY_WITH_POSITIVE_ANSWER[
-              question.severity as number
-            ] || []
-          : PROBABILITY_OPTIONS_BY_SEVERITY_WITH_NEGATIVE_ANSWER[
-              question.severity as number
-            ] || [];
-      }
-    },
-    [questionCategories],
-  );
-
   const computeQuestionRiskFactor = useCallback(
     (categoryIndex: number, questionIndex: number) => {
       const category = questionCategories[categoryIndex];
@@ -260,8 +215,6 @@ export function useQuestions() {
     setQuestionSeverity,
     setQuestionProbability,
     setQuestionAdditionalNotes,
-    computeSeverityOptions,
-    computeProbabilityOptions,
     computeQuestionRiskFactor,
     computeRiskTotals,
   };

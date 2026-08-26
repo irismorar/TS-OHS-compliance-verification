@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 type Props = {
   riskLevel: "E" | "M" | "S";
-  gravity: 1 | 2 | 3 | 4;
+  severity: 1 | 2 | 3 | 4;
   probability: 1 | 2 | 3 | 4;
   isLockedIn: boolean;
   disabled: boolean;
@@ -13,7 +13,7 @@ type Props = {
 
 export function RiskTableCell({
   riskLevel,
-  gravity,
+  severity,
   probability,
   isLockedIn,
   disabled,
@@ -30,8 +30,8 @@ export function RiskTableCell({
   return (
     <td
       className={riskTableCellVariants({ riskLevel, isLockedIn })}
-      onClick={() => onLockIn(gravity, probability)}
-      onMouseEnter={() => onHover(gravity, probability)}
+      onClick={() => onLockIn(severity, probability)}
+      onMouseEnter={() => onHover(severity, probability)}
       onMouseLeave={onLeave}
     >
       {riskLevel}

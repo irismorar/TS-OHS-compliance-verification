@@ -19,7 +19,7 @@ export const Default: Story = {
     riskLevel: "E",
     isLockedIn: false,
     disabled: false,
-    gravity: 1,
+    severity: 1,
     probability: 1,
     onLockIn: () => {},
     onHover: () => {},
