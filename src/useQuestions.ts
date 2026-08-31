@@ -2,6 +2,8 @@ import { useCallback, useRef, useState } from "react";
 import { RISK_FACTOR_COMBINATIONS } from "./data/RISK_FACTOR_COMBINATIONS";
 import { WORKPLACE_QUESTION_DATA } from "./data/WORKPLACE_QUESTION_DATA";
 import { WORKSHOP_QUESTION_DATA } from "./data/WORKSHOP_QUESTION_DATA";
+import { BIOLOGICAL_AGENTS_QUESTION_DATA } from "./data/BIOLOGICAL_AGENTS_QUESTION_DATA";
+import { CANCEROUS_AGENTS_QUESTION_DATA } from "./data/CANCEROUS_AGENTS_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -59,7 +61,13 @@ export function useQuestions() {
 
   const areAllQuestionsAnswered = firstUnansweredQuestionCategoryIndex === -1;
 
-  function initChecklistQuestions(checklistName: "workshop" | "workplace") {
+  function initChecklistQuestions(
+    checklistName:
+      | "workshop"
+      | "workplace"
+      | "biologicalAgents"
+      | "cancerousAgents",
+  ) {
     switch (checklistName) {
       case "workshop": {
         setQuestionCategories(stateifyQuestionData(WORKSHOP_QUESTION_DATA));
@@ -68,6 +76,17 @@ export function useQuestions() {
       case "workplace": {
         setQuestionCategories(stateifyQuestionData(WORKPLACE_QUESTION_DATA));
         break;
+      }
+      case "biologicalAgents": {
+        setQuestionCategories(
+          stateifyQuestionData(BIOLOGICAL_AGENTS_QUESTION_DATA),
+        );
+        break;
+      }
+      case "cancerousAgents": {
+        setQuestionCategories(
+          stateifyQuestionData(CANCEROUS_AGENTS_QUESTION_DATA),
+        );
       }
     }
   }

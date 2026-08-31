@@ -7,6 +7,8 @@ export function VerificationChecklistsPage({
   currentRoute,
   setWorkshopChecklistPage,
   setWorkplaceChecklistPage,
+  setBiologicalAgentsChecklistPage,
+  setCancerousAgentsChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -21,10 +23,10 @@ export function VerificationChecklistsPage({
         </h1>
 
         <p className="mt-2 text-lg text-slate-500">
-          Alege categoria pentru care dorești să efectuezi verificarea SSM.
+          Alege categoria pentru care dorești să efectuezi verificarea SSM
         </p>
 
-        <ul className="mt-10 space-y-4">
+        <ul className="mt-5 space-y-4">
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
@@ -41,6 +43,32 @@ export function VerificationChecklistsPage({
                 setWorkplaceChecklistPage();
               }}
               checklistSelectionName={"loc de muncă"}
+            />
+          </li>
+
+          <li>
+            <h2 className="mt-15 mb-5 text-lg text-slate-500">
+              Adaugă verificarea riscurilor specifice dacă este cazul:
+            </h2>
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("biologicalAgents");
+                setBiologicalAgentsChecklistPage();
+              }}
+              checklistSelectionName={"locații unde există și agenți biologici"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("cancerousAgents");
+                setCancerousAgentsChecklistPage();
+              }}
+              checklistSelectionName={
+                "locații unde există și agenți cancerigeni"
+              }
             />
           </li>
         </ul>

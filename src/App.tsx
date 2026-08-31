@@ -1,4 +1,7 @@
 import "./App.css";
+import { BiologicalAgentsChecklistPage } from "./components/pages/BiologicalAgentsChecklistPage";
+import { CancerousAgentsChecklistPage } from "./components/pages/CancerousAgentsChecklistPage";
+
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { HomePage } from "./components/pages/HomePage";
 import { VerificationChecklistsPage } from "./components/pages/VerificationChecklistsPage";
@@ -15,6 +18,8 @@ export default function App() {
       <VerificationChecklistsPage {...complianceVerificationData} />
       <WorkplaceChecklistPage {...complianceVerificationData} />
       <WorkshopChecklistPage {...complianceVerificationData} />
+      <BiologicalAgentsChecklistPage {...complianceVerificationData} />
+      <CancerousAgentsChecklistPage {...complianceVerificationData} />
       <FormDocumentPage {...complianceVerificationData} />
     </main>
   );
