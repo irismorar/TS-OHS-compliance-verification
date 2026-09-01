@@ -9,7 +9,7 @@ export function VerificationChecklistsPage({
   setWorkplaceChecklistPage,
   setBiologicalAgentsChecklistPage,
   setCancerousAgentsChecklistPage,
-  setChimicalAgentsChecklistPage,
+  setChemicalAgentsChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -49,7 +49,7 @@ export function VerificationChecklistsPage({
 
           <li>
             <h2 className="mt-15 mb-5 text-lg text-slate-500">
-              Adaugă verificarea riscurilor specifice dacă este cazul:
+              Dacă este cazul adaugă verificarea riscurilor specifice pentru:
             </h2>
           </li>
           <li>
@@ -75,10 +75,21 @@ export function VerificationChecklistsPage({
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("cancerousAgents");
-                setChimicalAgentsChecklistPage();
+                initChecklistQuestions("chemicalAgents");
+                setChemicalAgentsChecklistPage();
               }}
               checklistSelectionName={"locații unde există și agenți chimici"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("atex");
+                setChemicalAgentsChecklistPage();
+              }}
+              checklistSelectionName={
+                "locații unde există și atmosferă explozivă"
+              }
             />
           </li>
         </ul>

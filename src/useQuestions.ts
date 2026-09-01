@@ -4,7 +4,8 @@ import { WORKPLACE_QUESTION_DATA } from "./data/WORKPLACE_QUESTION_DATA";
 import { WORKSHOP_QUESTION_DATA } from "./data/WORKSHOP_QUESTION_DATA";
 import { BIOLOGICAL_AGENTS_QUESTION_DATA } from "./data/BIOLOGICAL_AGENTS_QUESTION_DATA";
 import { CANCEROUS_AGENTS_QUESTION_DATA } from "./data/CANCEROUS_AGENTS_QUESTION_DATA";
-import { CHIMICAL_AGENTS_QUESTION_DATA } from "./data/CHIMICAL_AGENTS_QUESTION_DATA";
+import { CHEMICAL_AGENTS_QUESTION_DATA } from "./data/CHEMICAL_AGENTS_QUESTION_DATA";
+import { ATEX_QUESTION_DATA } from "./data/ATEX_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -68,7 +69,8 @@ export function useQuestions() {
       | "workplace"
       | "biologicalAgents"
       | "cancerousAgents"
-      | "chimicalAgents",
+      | "chemicalAgents"
+      | "atex",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -91,10 +93,14 @@ export function useQuestions() {
         );
         break;
       }
-      case "chimicalAgents": {
+      case "chemicalAgents": {
         setQuestionCategories(
-          stateifyQuestionData(CHIMICAL_AGENTS_QUESTION_DATA),
+          stateifyQuestionData(CHEMICAL_AGENTS_QUESTION_DATA),
         );
+        break;
+      }
+      case "atex": {
+        setQuestionCategories(stateifyQuestionData(ATEX_QUESTION_DATA));
         break;
       }
     }

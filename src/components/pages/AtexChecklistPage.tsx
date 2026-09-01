@@ -9,7 +9,7 @@ import { RiskTable } from "../RiskTable/RiskTable";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
-export function ChimicalAgentsChecklistPage({
+export function AtexChecklistPage({
   currentRoute,
   questionCategories,
   firstUnansweredQuestionCategoryIndex,
@@ -29,13 +29,13 @@ export function ChimicalAgentsChecklistPage({
     questionIndex: number;
   } | null>(null);
 
-  if (currentRoute !== "chimicalAgentsChecklist") {
+  if (currentRoute !== "atexChecklist") {
     return null;
   }
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="agenți chimici" />
+      <QuestionsFormHeader checklistSelectionName="atmosferă explozivă" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

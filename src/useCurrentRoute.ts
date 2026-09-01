@@ -8,7 +8,8 @@ export function useCurrentRoute() {
     | "workplaceChecklist"
     | "biologicalAgentsChecklist"
     | "cancerousAgentsChecklist"
-    | "chimicalAgentsChecklist"
+    | "chemicalAgentsChecklist"
+    | "atexChecklist"
     | "finalDocument"
   >("home");
 
@@ -32,8 +33,12 @@ export function useCurrentRoute() {
     setCurrentRoute("cancerousAgentsChecklist");
   };
 
-  const setChimicalAgentsChecklistPage = () => {
-    setCurrentRoute("chimicalAgentsChecklist");
+  const setChemicalAgentsChecklistPage = () => {
+    setCurrentRoute("chemicalAgentsChecklist");
+  };
+
+  const setAtexChecklistPage = () => {
+    setCurrentRoute("atexChecklist");
   };
 
   const setDocumentPage = () => {
@@ -47,7 +52,8 @@ export function useCurrentRoute() {
     setWorkplaceChecklistPage,
     setBiologicalAgentsChecklistPage,
     setCancerousAgentsChecklistPage,
-    setChimicalAgentsChecklistPage,
+    setChemicalAgentsChecklistPage,
+    setAtexChecklistPage,
     setDocumentPage,
   };
 }
