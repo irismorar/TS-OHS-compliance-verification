@@ -11,6 +11,7 @@ import { VerificationChecklistsPage } from "./components/pages/VerificationCheck
 import { WorkplaceChecklistPage } from "./components/pages/WorkplaceChecklistPage";
 import { WorkshopChecklistPage } from "./components/pages/WorkshopChecklistPage";
 import { useComplianceVerificationState } from "./useComplianceVerificationState";
+import { ElectromagneticFieldsChecklistPage } from "./components/pages/ElectromagneticFieldsCkecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -26,6 +27,7 @@ export default function App() {
       <ChemicalAgentsChecklistPage {...complianceVerificationData} />
       <AtexChecklistPage {...complianceVerificationData} />
       <AsbestosChecklistPage {...complianceVerificationData} />
+      <ElectromagneticFieldsChecklistPage {...complianceVerificationData} />
 
       <FormDocumentPage {...complianceVerificationData} />
     </main>

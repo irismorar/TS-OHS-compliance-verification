@@ -11,6 +11,7 @@ export function useCurrentRoute() {
     | "chemicalAgentsChecklist"
     | "atexChecklist"
     | "asbestosChecklist"
+    | "electromagneticFieldsChecklist"
     | "finalDocument"
   >("home");
 
@@ -46,6 +47,10 @@ export function useCurrentRoute() {
     setCurrentRoute("asbestosChecklist");
   };
 
+  const setElectromagneticFieldsCkecklistPage = () => {
+    setCurrentRoute("electromagneticFieldsChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -60,6 +65,7 @@ export function useCurrentRoute() {
     setChemicalAgentsChecklistPage,
     setAtexChecklistPage,
     setAsbestosCkecklistPage,
+    setElectromagneticFieldsCkecklistPage,
     setDocumentPage,
   };
 }

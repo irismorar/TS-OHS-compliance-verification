@@ -12,6 +12,7 @@ export function VerificationChecklistsPage({
   setChemicalAgentsChecklistPage,
   setAtexChecklistPage,
   setAsbestosCkecklistPage,
+  setElectromagneticFieldsCkecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -19,7 +20,7 @@ export function VerificationChecklistsPage({
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
+    <main className="min-h-screen flex items-center justify-center pt-10 pb-10">
       <section className="w-full max-w-4xl rounded-3xl bg-slate-200 p-10 shadow-xl select-none">
         <h1 className="text-4xl font-black text-slate-900">
           Selectează lista de verificare
@@ -101,6 +102,17 @@ export function VerificationChecklistsPage({
                 setAsbestosCkecklistPage();
               }}
               checklistSelectionName={"locații unde există și azbest"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("electromagneticFields");
+                setElectromagneticFieldsCkecklistPage();
+              }}
+              checklistSelectionName={
+                "locații unde există și câmpuri electromagnetice"
+              }
             />
           </li>
         </ul>
