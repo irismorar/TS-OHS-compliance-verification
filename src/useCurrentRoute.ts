@@ -10,6 +10,7 @@ export function useCurrentRoute() {
     | "cancerousAgentsChecklist"
     | "chemicalAgentsChecklist"
     | "atexChecklist"
+    | "asbestosChecklist"
     | "finalDocument"
   >("home");
 
@@ -41,6 +42,10 @@ export function useCurrentRoute() {
     setCurrentRoute("atexChecklist");
   };
 
+  const setAsbestosCkecklistPage = () => {
+    setCurrentRoute("asbestosChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -54,6 +59,7 @@ export function useCurrentRoute() {
     setCancerousAgentsChecklistPage,
     setChemicalAgentsChecklistPage,
     setAtexChecklistPage,
+    setAsbestosCkecklistPage,
     setDocumentPage,
   };
 }

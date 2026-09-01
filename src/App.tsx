@@ -3,6 +3,7 @@ import { BiologicalAgentsChecklistPage } from "./components/pages/BiologicalAgen
 import { CancerousAgentsChecklistPage } from "./components/pages/CancerousAgentsChecklistPage";
 import { ChemicalAgentsChecklistPage } from "./components/pages/ChemicalAgentsChecklistPage";
 import { AtexChecklistPage } from "./components/pages/AtexChecklistPage";
+import { AsbestosChecklistPage } from "./components/pages/AsbestosChecklistPage";
 
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { HomePage } from "./components/pages/HomePage";
@@ -24,6 +25,7 @@ export default function App() {
       <CancerousAgentsChecklistPage {...complianceVerificationData} />
       <ChemicalAgentsChecklistPage {...complianceVerificationData} />
       <AtexChecklistPage {...complianceVerificationData} />
+      <AsbestosChecklistPage {...complianceVerificationData} />
 
       <FormDocumentPage {...complianceVerificationData} />
     </main>

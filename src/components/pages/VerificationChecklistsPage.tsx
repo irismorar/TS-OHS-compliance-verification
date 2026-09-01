@@ -10,6 +10,8 @@ export function VerificationChecklistsPage({
   setBiologicalAgentsChecklistPage,
   setCancerousAgentsChecklistPage,
   setChemicalAgentsChecklistPage,
+  setAtexChecklistPage,
+  setAsbestosCkecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -85,11 +87,20 @@ export function VerificationChecklistsPage({
             <ChecklistSelectionButton
               handleClick={() => {
                 initChecklistQuestions("atex");
-                setChemicalAgentsChecklistPage();
+                setAtexChecklistPage();
               }}
               checklistSelectionName={
                 "locații unde există și atmosferă explozivă"
               }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("asbestos");
+                setAsbestosCkecklistPage();
+              }}
+              checklistSelectionName={"locații unde există și azbest"}
             />
           </li>
         </ul>
