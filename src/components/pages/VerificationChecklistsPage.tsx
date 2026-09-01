@@ -9,6 +9,7 @@ export function VerificationChecklistsPage({
   setWorkplaceChecklistPage,
   setBiologicalAgentsChecklistPage,
   setCancerousAgentsChecklistPage,
+  setChimicalAgentsChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -69,6 +70,15 @@ export function VerificationChecklistsPage({
               checklistSelectionName={
                 "locații unde există și agenți cancerigeni"
               }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("cancerousAgents");
+                setChimicalAgentsChecklistPage();
+              }}
+              checklistSelectionName={"locații unde există și agenți chimici"}
             />
           </li>
         </ul>

@@ -4,6 +4,7 @@ import { WORKPLACE_QUESTION_DATA } from "./data/WORKPLACE_QUESTION_DATA";
 import { WORKSHOP_QUESTION_DATA } from "./data/WORKSHOP_QUESTION_DATA";
 import { BIOLOGICAL_AGENTS_QUESTION_DATA } from "./data/BIOLOGICAL_AGENTS_QUESTION_DATA";
 import { CANCEROUS_AGENTS_QUESTION_DATA } from "./data/CANCEROUS_AGENTS_QUESTION_DATA";
+import { CHIMICAL_AGENTS_QUESTION_DATA } from "./data/CHIMICAL_AGENTS_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -66,7 +67,8 @@ export function useQuestions() {
       | "workshop"
       | "workplace"
       | "biologicalAgents"
-      | "cancerousAgents",
+      | "cancerousAgents"
+      | "chimicalAgents",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -87,6 +89,13 @@ export function useQuestions() {
         setQuestionCategories(
           stateifyQuestionData(CANCEROUS_AGENTS_QUESTION_DATA),
         );
+        break;
+      }
+      case "chimicalAgents": {
+        setQuestionCategories(
+          stateifyQuestionData(CHIMICAL_AGENTS_QUESTION_DATA),
+        );
+        break;
       }
     }
   }

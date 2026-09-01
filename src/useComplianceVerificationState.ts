@@ -10,6 +10,7 @@ export function useComplianceVerificationState() {
     setWorkplaceChecklistPage,
     setBiologicalAgentsChecklistPage,
     setCancerousAgentsChecklistPage,
+    setChimicalAgentsChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -56,6 +57,7 @@ export function useComplianceVerificationState() {
     setWorkplaceChecklistPage,
     setBiologicalAgentsChecklistPage,
     setCancerousAgentsChecklistPage,
+    setChimicalAgentsChecklistPage,
     setDocumentPage,
 
     // unit details

@@ -8,6 +8,7 @@ export function useCurrentRoute() {
     | "workplaceChecklist"
     | "biologicalAgentsChecklist"
     | "cancerousAgentsChecklist"
+    | "chimicalAgentsChecklist"
     | "finalDocument"
   >("home");
 
@@ -31,6 +32,10 @@ export function useCurrentRoute() {
     setCurrentRoute("cancerousAgentsChecklist");
   };
 
+  const setChimicalAgentsChecklistPage = () => {
+    setCurrentRoute("chimicalAgentsChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -42,6 +47,7 @@ export function useCurrentRoute() {
     setWorkplaceChecklistPage,
     setBiologicalAgentsChecklistPage,
     setCancerousAgentsChecklistPage,
+    setChimicalAgentsChecklistPage,
     setDocumentPage,
   };
 }
