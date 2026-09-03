@@ -11,6 +11,7 @@ import { ELECTROMAGNETIC_FIELDS_QUESTION_DATA } from "./data/ELECTROMAGNETIC_FIE
 import { MANUAL_HANDLING_QUESTION_DATA } from "./data/MANUAL_HANDLING_QUESTION_DATA";
 import { SHARP_TOOLS_QUESTION_DATA } from "./data/SHARP_TOOLS_QUESTION_DATA";
 import { OPTICAL_RADIATION_QUESTION_DATA } from "./data/OPTICAL_RADIATION_QUESTION_DATA";
+import { EXTREME_TEMPERATURES_QUESTION_DATA } from "./data/EXTREME_TEMPERATURES_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -80,7 +81,8 @@ export function useQuestions() {
       | "asbestos"
       | "manualHandling"
       | "sharpTools"
-      | "opticalRadiation",
+      | "opticalRadiation"
+      | "extremeTemperatures",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -136,6 +138,12 @@ export function useQuestions() {
       case "opticalRadiation": {
         setQuestionCategories(
           stateifyQuestionData(OPTICAL_RADIATION_QUESTION_DATA),
+        );
+        break;
+      }
+      case "extremeTemperatures": {
+        setQuestionCategories(
+          stateifyQuestionData(EXTREME_TEMPERATURES_QUESTION_DATA),
         );
         break;
       }

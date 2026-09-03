@@ -16,8 +16,9 @@ export function useComplianceVerificationState() {
     setElectromagneticFieldsCkecklistPage,
     setManualHandlingChecklistPage,
     setSharpToolsChecklistPage,
-    setDocumentPage,
     setOpticalRadiationChecklistPage,
+    setExtremeTemperaturesChecklistPage,
+    setDocumentPage,
   } = useCurrentRoute();
   const {
     unitName,
@@ -70,6 +71,7 @@ export function useComplianceVerificationState() {
     setManualHandlingChecklistPage,
     setSharpToolsChecklistPage,
     setOpticalRadiationChecklistPage,
+    setExtremeTemperaturesChecklistPage,
     setDocumentPage,
 
     // unit details

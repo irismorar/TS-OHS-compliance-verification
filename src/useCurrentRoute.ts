@@ -15,6 +15,7 @@ export function useCurrentRoute() {
     | "manualHandlingChecklist"
     | "sharpToolsChecklist"
     | "opticalRadiationChecklist"
+    | "extremeTemperatures"
     | "finalDocument"
   >("home");
 
@@ -66,6 +67,10 @@ export function useCurrentRoute() {
     setCurrentRoute("opticalRadiationChecklist");
   };
 
+  const setExtremeTemperaturesChecklistPage = () => {
+    setCurrentRoute("extremeTemperatures");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -84,6 +89,7 @@ export function useCurrentRoute() {
     setManualHandlingChecklistPage,
     setSharpToolsChecklistPage,
     setOpticalRadiationChecklistPage,
+    setExtremeTemperaturesChecklistPage,
     setDocumentPage,
   };
 }

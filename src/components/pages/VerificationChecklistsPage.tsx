@@ -16,6 +16,7 @@ export function VerificationChecklistsPage({
   setManualHandlingChecklistPage,
   setSharpToolsChecklistPage,
   setOpticalRadiationChecklistPage,
+  setExtremeTemperaturesChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -148,6 +149,17 @@ export function VerificationChecklistsPage({
               }}
               checklistSelectionName={
                 "locații unde există și radiații optice artificiale"
+              }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("extremeTemperatures");
+                setExtremeTemperaturesChecklistPage();
+              }}
+              checklistSelectionName={
+                "locații unde există și temperaturi extreme"
               }
             />
           </li>
