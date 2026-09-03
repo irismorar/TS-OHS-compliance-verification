@@ -9,6 +9,7 @@ import { ManualHandlingChecklistPage } from "./components/pages/ManualHandlingCh
 import { SharpToolsChecklistPage } from "./components/pages/SharpToolsChecklistPage";
 import { OpticalRadiationChecklistPage } from "./components/pages/OpticalRadiationChecklistPage";
 import { ExtremeTemperaturesChecklistPage } from "./components/pages/ExtremeTemperaturesChecklistPage";
+import { VibrationChecklistPage } from "./components/pages/VibrationChecklistPage";
 
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { HomePage } from "./components/pages/HomePage";
@@ -36,6 +37,7 @@ export default function App() {
       <SharpToolsChecklistPage {...complianceVerificationData} />
       <OpticalRadiationChecklistPage {...complianceVerificationData} />
       <ExtremeTemperaturesChecklistPage {...complianceVerificationData} />
+      <VibrationChecklistPage {...complianceVerificationData} />
 
       <FormDocumentPage {...complianceVerificationData} />
     </main>

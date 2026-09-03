@@ -9,7 +9,7 @@ import { RiskTable } from "../RiskTable/RiskTable";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
-export function ExtremeTemperaturesChecklistPage({
+export function VibrationChecklistPage({
   currentRoute,
   questionCategories,
   firstUnansweredQuestionCategoryIndex,
@@ -29,13 +29,13 @@ export function ExtremeTemperaturesChecklistPage({
     questionIndex: number;
   } | null>(null);
 
-  if (currentRoute !== "extremeTemperaturesChecklist") {
+  if (currentRoute !== "vibrationChecklist") {
     return null;
   }
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există temperaturi extreme" />
+      <QuestionsFormHeader checklistSelectionName="locații unde există vibrații" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

@@ -18,6 +18,7 @@ export function useComplianceVerificationState() {
     setSharpToolsChecklistPage,
     setOpticalRadiationChecklistPage,
     setExtremeTemperaturesChecklistPage,
+    setVibrationChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -72,6 +73,7 @@ export function useComplianceVerificationState() {
     setSharpToolsChecklistPage,
     setOpticalRadiationChecklistPage,
     setExtremeTemperaturesChecklistPage,
+    setVibrationChecklistPage,
     setDocumentPage,
 
     // unit details

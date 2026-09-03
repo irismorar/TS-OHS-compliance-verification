@@ -15,7 +15,8 @@ export function useCurrentRoute() {
     | "manualHandlingChecklist"
     | "sharpToolsChecklist"
     | "opticalRadiationChecklist"
-    | "extremeTemperatures"
+    | "extremeTemperaturesChecklist"
+    | "vibrationChecklist"
     | "finalDocument"
   >("home");
 
@@ -68,7 +69,11 @@ export function useCurrentRoute() {
   };
 
   const setExtremeTemperaturesChecklistPage = () => {
-    setCurrentRoute("extremeTemperatures");
+    setCurrentRoute("extremeTemperaturesChecklist");
+  };
+
+  const setVibrationChecklistPage = () => {
+    setCurrentRoute("vibrationChecklist");
   };
 
   const setDocumentPage = () => {
@@ -90,6 +95,7 @@ export function useCurrentRoute() {
     setSharpToolsChecklistPage,
     setOpticalRadiationChecklistPage,
     setExtremeTemperaturesChecklistPage,
+    setVibrationChecklistPage,
     setDocumentPage,
   };
 }
