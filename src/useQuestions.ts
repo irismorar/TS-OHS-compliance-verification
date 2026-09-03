@@ -9,6 +9,7 @@ import { ATEX_QUESTION_DATA } from "./data/ATEX_QUESTION_DATA";
 import { ASBESTOS_QUESTION_DATA } from "./data/ASBESTOS_QUESTION_DATA";
 import { ELECTROMAGNETIC_FIELDS_QUESTION_DATA } from "./data/ELECTROMAGNETIC_FIELDS_QUESTION_DATA";
 import { MANUAL_HANDLING_QUESTION_DATA } from "./data/MANUAL_HANDLING_QUESTION_DATA";
+import { SHARP_TOOLS_QUESTION_DATA } from "./data/SHARP_TOOLS_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -76,7 +77,8 @@ export function useQuestions() {
       | "atex"
       | "electromagneticFields"
       | "asbestos"
-      | "manualHandling",
+      | "manualHandling"
+      | "sharpTools",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -123,6 +125,10 @@ export function useQuestions() {
         setQuestionCategories(
           stateifyQuestionData(MANUAL_HANDLING_QUESTION_DATA),
         );
+        break;
+      }
+      case "sharpTools": {
+        setQuestionCategories(stateifyQuestionData(SHARP_TOOLS_QUESTION_DATA));
         break;
       }
     }

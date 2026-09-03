@@ -13,6 +13,7 @@ export function useCurrentRoute() {
     | "asbestosChecklist"
     | "electromagneticFieldsChecklist"
     | "manualHandlingChecklist"
+    | "sharpToolsChecklist"
     | "finalDocument"
   >("home");
 
@@ -56,6 +57,10 @@ export function useCurrentRoute() {
     setCurrentRoute("manualHandlingChecklist");
   };
 
+  const setSharpToolsChecklistPage = () => {
+    setCurrentRoute("sharpToolsChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -72,6 +77,7 @@ export function useCurrentRoute() {
     setAsbestosCkecklistPage,
     setElectromagneticFieldsCkecklistPage,
     setManualHandlingChecklistPage,
+    setSharpToolsChecklistPage,
     setDocumentPage,
   };
 }
