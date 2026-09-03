@@ -35,7 +35,7 @@ export function ChemicalAgentsChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="agenți chimici" />
+      <QuestionsFormHeader checklistSelectionName="locații unde există agenți chimici" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

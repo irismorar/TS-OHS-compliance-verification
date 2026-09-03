@@ -35,7 +35,7 @@ export function AsbestosChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="azbest" />
+      <QuestionsFormHeader checklistSelectionName="locații unde există azbest" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

@@ -15,6 +15,7 @@ export function VerificationChecklistsPage({
   setElectromagneticFieldsCkecklistPage,
   setManualHandlingChecklistPage,
   setSharpToolsChecklistPage,
+  setOpticalRadiationChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -136,6 +137,17 @@ export function VerificationChecklistsPage({
               }}
               checklistSelectionName={
                 "locații unde există și manipularea obiectelor ascuțite"
+              }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("opticalRadiation");
+                setOpticalRadiationChecklistPage();
+              }}
+              checklistSelectionName={
+                "locații unde există și radiații optice artificiale"
               }
             />
           </li>

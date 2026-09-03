@@ -35,7 +35,7 @@ export function ElectromagneticFieldsChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="câmpuri electromagnetice" />
+      <QuestionsFormHeader checklistSelectionName="locații unde există câmpuri electromagnetice" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

@@ -35,7 +35,7 @@ export function CancerousAgentsChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="agenți cancerigeni" />
+      <QuestionsFormHeader checklistSelectionName="locații unde există agenți cancerigeni" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

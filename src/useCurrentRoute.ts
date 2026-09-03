@@ -14,6 +14,7 @@ export function useCurrentRoute() {
     | "electromagneticFieldsChecklist"
     | "manualHandlingChecklist"
     | "sharpToolsChecklist"
+    | "opticalRadiationChecklist"
     | "finalDocument"
   >("home");
 
@@ -61,6 +62,10 @@ export function useCurrentRoute() {
     setCurrentRoute("sharpToolsChecklist");
   };
 
+  const setOpticalRadiationChecklistPage = () => {
+    setCurrentRoute("opticalRadiationChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -78,6 +83,7 @@ export function useCurrentRoute() {
     setElectromagneticFieldsCkecklistPage,
     setManualHandlingChecklistPage,
     setSharpToolsChecklistPage,
+    setOpticalRadiationChecklistPage,
     setDocumentPage,
   };
 }

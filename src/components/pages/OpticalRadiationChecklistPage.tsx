@@ -9,7 +9,7 @@ import { RiskTable } from "../RiskTable/RiskTable";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
-export function AtexChecklistPage({
+export function OpticalRadiationChecklistPage({
   currentRoute,
   questionCategories,
   firstUnansweredQuestionCategoryIndex,
@@ -29,13 +29,13 @@ export function AtexChecklistPage({
     questionIndex: number;
   } | null>(null);
 
-  if (currentRoute !== "atexChecklist") {
+  if (currentRoute !== "opticalRadiationChecklist") {
     return null;
   }
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există atmosferă explozivă" />
+      <QuestionsFormHeader checklistSelectionName="locații unde există radiații optice artificiale" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

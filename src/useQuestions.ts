@@ -10,6 +10,7 @@ import { ASBESTOS_QUESTION_DATA } from "./data/ASBESTOS_QUESTION_DATA";
 import { ELECTROMAGNETIC_FIELDS_QUESTION_DATA } from "./data/ELECTROMAGNETIC_FIELDS_QUESTION_DATA";
 import { MANUAL_HANDLING_QUESTION_DATA } from "./data/MANUAL_HANDLING_QUESTION_DATA";
 import { SHARP_TOOLS_QUESTION_DATA } from "./data/SHARP_TOOLS_QUESTION_DATA";
+import { OPTICAL_RADIATION_QUESTION_DATA } from "./data/OPTICAL_RADIATION_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -78,7 +79,8 @@ export function useQuestions() {
       | "electromagneticFields"
       | "asbestos"
       | "manualHandling"
-      | "sharpTools",
+      | "sharpTools"
+      | "opticalRadiation",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -129,6 +131,12 @@ export function useQuestions() {
       }
       case "sharpTools": {
         setQuestionCategories(stateifyQuestionData(SHARP_TOOLS_QUESTION_DATA));
+        break;
+      }
+      case "opticalRadiation": {
+        setQuestionCategories(
+          stateifyQuestionData(OPTICAL_RADIATION_QUESTION_DATA),
+        );
         break;
       }
     }

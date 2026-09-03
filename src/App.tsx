@@ -4,8 +4,10 @@ import { CancerousAgentsChecklistPage } from "./components/pages/CancerousAgents
 import { ChemicalAgentsChecklistPage } from "./components/pages/ChemicalAgentsChecklistPage";
 import { AtexChecklistPage } from "./components/pages/AtexChecklistPage";
 import { AsbestosChecklistPage } from "./components/pages/AsbestosChecklistPage";
+import { ElectromagneticFieldsChecklistPage } from "./components/pages/ElectromagneticFieldsCkecklistPage";
 import { ManualHandlingChecklistPage } from "./components/pages/ManualHandlingChecklistPage";
 import { SharpToolsChecklistPage } from "./components/pages/SharpToolsChecklistPage";
+import { OpticalRadiationChecklistPage } from "./components/pages/OpticalRadiationChecklistPage";
 
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { HomePage } from "./components/pages/HomePage";
@@ -13,7 +15,6 @@ import { VerificationChecklistsPage } from "./components/pages/VerificationCheck
 import { WorkplaceChecklistPage } from "./components/pages/WorkplaceChecklistPage";
 import { WorkshopChecklistPage } from "./components/pages/WorkshopChecklistPage";
 import { useComplianceVerificationState } from "./useComplianceVerificationState";
-import { ElectromagneticFieldsChecklistPage } from "./components/pages/ElectromagneticFieldsCkecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -32,6 +33,7 @@ export default function App() {
       <ElectromagneticFieldsChecklistPage {...complianceVerificationData} />
       <ManualHandlingChecklistPage {...complianceVerificationData} />
       <SharpToolsChecklistPage {...complianceVerificationData} />
+      <OpticalRadiationChecklistPage {...complianceVerificationData} />
 
       <FormDocumentPage {...complianceVerificationData} />
     </main>

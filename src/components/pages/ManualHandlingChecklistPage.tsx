@@ -35,7 +35,7 @@ export function ManualHandlingChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="manipularea manuală a maselor" />
+      <QuestionsFormHeader checklistSelectionName="locații unde se realizează manipularea manuală a maselor" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {
