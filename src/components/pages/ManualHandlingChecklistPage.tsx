@@ -9,7 +9,7 @@ import { RiskTable } from "../RiskTable/RiskTable";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
-export function ElectromagneticFieldsChecklistPage({
+export function ManualHandlingChecklistPage({
   currentRoute,
   questionCategories,
   firstUnansweredQuestionCategoryIndex,
@@ -29,13 +29,13 @@ export function ElectromagneticFieldsChecklistPage({
     questionIndex: number;
   } | null>(null);
 
-  if (currentRoute !== "electromagneticFieldsChecklist") {
+  if (currentRoute !== "manualHandlingChecklist") {
     return null;
   }
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="câmpuri electromagnetice" />
+      <QuestionsFormHeader checklistSelectionName="manipularea manuală a maselor" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

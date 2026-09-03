@@ -14,6 +14,7 @@ export function useComplianceVerificationState() {
     setAtexChecklistPage,
     setAsbestosCkecklistPage,
     setElectromagneticFieldsCkecklistPage,
+    setManualHandlingChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -64,6 +65,7 @@ export function useComplianceVerificationState() {
     setAtexChecklistPage,
     setAsbestosCkecklistPage,
     setElectromagneticFieldsCkecklistPage,
+    setManualHandlingChecklistPage,
     setDocumentPage,
 
     // unit details

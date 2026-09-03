@@ -13,6 +13,7 @@ export function VerificationChecklistsPage({
   setAtexChecklistPage,
   setAsbestosCkecklistPage,
   setElectromagneticFieldsCkecklistPage,
+  setManualHandlingChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -112,6 +113,17 @@ export function VerificationChecklistsPage({
               }}
               checklistSelectionName={
                 "locații unde există și câmpuri electromagnetice"
+              }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("manualHandling");
+                setManualHandlingChecklistPage();
+              }}
+              checklistSelectionName={
+                "locații unde există și manipularea manuală a maselor"
               }
             />
           </li>

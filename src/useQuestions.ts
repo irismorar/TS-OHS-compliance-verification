@@ -8,6 +8,7 @@ import { CHEMICAL_AGENTS_QUESTION_DATA } from "./data/CHEMICAL_AGENTS_QUESTION_D
 import { ATEX_QUESTION_DATA } from "./data/ATEX_QUESTION_DATA";
 import { ASBESTOS_QUESTION_DATA } from "./data/ASBESTOS_QUESTION_DATA";
 import { ELECTROMAGNETIC_FIELDS_QUESTION_DATA } from "./data/ELECTROMAGNETIC_FIELDS_QUESTION_DATA";
+import { MANUAL_HANDLING_QUESTION_DATA } from "./data/MANUAL_HANDLING_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -74,7 +75,8 @@ export function useQuestions() {
       | "chemicalAgents"
       | "atex"
       | "electromagneticFields"
-      | "asbestos",
+      | "asbestos"
+      | "manualHandling",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -114,6 +116,12 @@ export function useQuestions() {
       case "electromagneticFields": {
         setQuestionCategories(
           stateifyQuestionData(ELECTROMAGNETIC_FIELDS_QUESTION_DATA),
+        );
+        break;
+      }
+      case "manualHandling": {
+        setQuestionCategories(
+          stateifyQuestionData(MANUAL_HANDLING_QUESTION_DATA),
         );
         break;
       }
