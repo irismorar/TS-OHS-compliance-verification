@@ -18,6 +18,7 @@ export function VerificationChecklistsPage({
   setOpticalRadiationChecklistPage,
   setExtremeTemperaturesChecklistPage,
   setVibrationChecklistPage,
+  setNoiseChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -171,6 +172,17 @@ export function VerificationChecklistsPage({
                 setVibrationChecklistPage();
               }}
               checklistSelectionName={"locații unde există și vibrații"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("noise");
+                setNoiseChecklistPage();
+              }}
+              checklistSelectionName={
+                "locații unde există nivel ridicat de zgomot"
+              }
             />
           </li>
         </ul>

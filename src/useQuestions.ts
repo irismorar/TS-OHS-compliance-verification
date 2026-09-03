@@ -13,6 +13,7 @@ import { SHARP_TOOLS_QUESTION_DATA } from "./data/SHARP_TOOLS_QUESTION_DATA";
 import { OPTICAL_RADIATION_QUESTION_DATA } from "./data/OPTICAL_RADIATION_QUESTION_DATA";
 import { EXTREME_TEMPERATURES_QUESTION_DATA } from "./data/EXTREME_TEMPERATURES_QUESTION_DATA";
 import { VIBRATION_QUESTION_DATA } from "./data/VIBRATION_QUESTION_DATA";
+import { NOISE_QUESTION_DATA } from "./data/NOISE_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -84,7 +85,8 @@ export function useQuestions() {
       | "sharpTools"
       | "opticalRadiation"
       | "extremeTemperatures"
-      | "vibration",
+      | "vibration"
+      | "noise",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -151,6 +153,10 @@ export function useQuestions() {
       }
       case "vibration": {
         setQuestionCategories(stateifyQuestionData(VIBRATION_QUESTION_DATA));
+        break;
+      }
+      case "noise": {
+        setQuestionCategories(stateifyQuestionData(NOISE_QUESTION_DATA));
         break;
       }
     }

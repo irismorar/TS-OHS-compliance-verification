@@ -17,6 +17,7 @@ export function useCurrentRoute() {
     | "opticalRadiationChecklist"
     | "extremeTemperaturesChecklist"
     | "vibrationChecklist"
+    | "noiseChecklist"
     | "finalDocument"
   >("home");
 
@@ -76,6 +77,10 @@ export function useCurrentRoute() {
     setCurrentRoute("vibrationChecklist");
   };
 
+  const setNoiseChecklistPage = () => {
+    setCurrentRoute("noiseChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -96,6 +101,7 @@ export function useCurrentRoute() {
     setOpticalRadiationChecklistPage,
     setExtremeTemperaturesChecklistPage,
     setVibrationChecklistPage,
+    setNoiseChecklistPage,
     setDocumentPage,
   };
 }

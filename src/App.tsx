@@ -10,6 +10,7 @@ import { SharpToolsChecklistPage } from "./components/pages/SharpToolsChecklistP
 import { OpticalRadiationChecklistPage } from "./components/pages/OpticalRadiationChecklistPage";
 import { ExtremeTemperaturesChecklistPage } from "./components/pages/ExtremeTemperaturesChecklistPage";
 import { VibrationChecklistPage } from "./components/pages/VibrationChecklistPage";
+import { NoiseChecklistPage } from "./components/pages/NoiseChecklistPage";
 
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { HomePage } from "./components/pages/HomePage";
@@ -38,7 +39,7 @@ export default function App() {
       <OpticalRadiationChecklistPage {...complianceVerificationData} />
       <ExtremeTemperaturesChecklistPage {...complianceVerificationData} />
       <VibrationChecklistPage {...complianceVerificationData} />
-
+      <NoiseChecklistPage {...complianceVerificationData} />
       <FormDocumentPage {...complianceVerificationData} />
     </main>
   );
