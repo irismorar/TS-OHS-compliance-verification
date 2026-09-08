@@ -35,7 +35,7 @@ export function BiologicalAgentsChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există agenți biologici" />
+      <QuestionsFormHeader checklistSelectionName="risc specific - agenți biologici" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

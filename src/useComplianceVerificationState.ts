@@ -20,6 +20,7 @@ export function useComplianceVerificationState() {
     setExtremeTemperaturesChecklistPage,
     setVibrationChecklistPage,
     setNoiseChecklistPage,
+    setInternalAuditChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -76,6 +77,7 @@ export function useComplianceVerificationState() {
     setExtremeTemperaturesChecklistPage,
     setVibrationChecklistPage,
     setNoiseChecklistPage,
+    setInternalAuditChecklistPage,
     setDocumentPage,
 
     // unit details

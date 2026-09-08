@@ -35,7 +35,7 @@ export function SharpToolsChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde se realizează manipularea obiectelor ascuțite" />
+      <QuestionsFormHeader checklistSelectionName="risc specific - obiecte ascuțite" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

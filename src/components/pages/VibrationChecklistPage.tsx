@@ -35,7 +35,7 @@ export function VibrationChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există vibrații" />
+      <QuestionsFormHeader checklistSelectionName="risc specific - vibrații" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

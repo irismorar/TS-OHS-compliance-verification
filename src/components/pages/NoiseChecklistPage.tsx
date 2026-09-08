@@ -35,7 +35,7 @@ export function NoiseChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există nivel ridicat de zgomot" />
+      <QuestionsFormHeader checklistSelectionName="risc specific - zgomot" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

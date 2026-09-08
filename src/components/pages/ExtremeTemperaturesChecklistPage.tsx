@@ -35,7 +35,7 @@ export function ExtremeTemperaturesChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există temperaturi extreme" />
+      <QuestionsFormHeader checklistSelectionName="risc specific - temperaturi extreme" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

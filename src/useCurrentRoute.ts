@@ -18,6 +18,7 @@ export function useCurrentRoute() {
     | "extremeTemperaturesChecklist"
     | "vibrationChecklist"
     | "noiseChecklist"
+    | "internalAuditChecklist"
     | "finalDocument"
   >("home");
 
@@ -81,6 +82,10 @@ export function useCurrentRoute() {
     setCurrentRoute("noiseChecklist");
   };
 
+  const setInternalAuditChecklistPage = () => {
+    setCurrentRoute("internalAuditChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -102,6 +107,7 @@ export function useCurrentRoute() {
     setExtremeTemperaturesChecklistPage,
     setVibrationChecklistPage,
     setNoiseChecklistPage,
+    setInternalAuditChecklistPage,
     setDocumentPage,
   };
 }

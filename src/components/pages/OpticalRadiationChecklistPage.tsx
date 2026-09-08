@@ -35,7 +35,7 @@ export function OpticalRadiationChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există radiații optice artificiale" />
+      <QuestionsFormHeader checklistSelectionName="risc specific - radiații optice artificiale" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

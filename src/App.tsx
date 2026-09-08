@@ -11,6 +11,7 @@ import { OpticalRadiationChecklistPage } from "./components/pages/OpticalRadiati
 import { ExtremeTemperaturesChecklistPage } from "./components/pages/ExtremeTemperaturesChecklistPage";
 import { VibrationChecklistPage } from "./components/pages/VibrationChecklistPage";
 import { NoiseChecklistPage } from "./components/pages/NoiseChecklistPage";
+import { InternalAuditChecklistPage } from "./components/pages/InternalAuditChecklistPage";
 
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { HomePage } from "./components/pages/HomePage";
@@ -28,6 +29,8 @@ export default function App() {
       <VerificationChecklistsPage {...complianceVerificationData} />
       <WorkplaceChecklistPage {...complianceVerificationData} />
       <WorkshopChecklistPage {...complianceVerificationData} />
+      <InternalAuditChecklistPage {...complianceVerificationData} />
+
       <BiologicalAgentsChecklistPage {...complianceVerificationData} />
       <CancerousAgentsChecklistPage {...complianceVerificationData} />
       <ChemicalAgentsChecklistPage {...complianceVerificationData} />

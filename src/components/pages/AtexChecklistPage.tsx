@@ -35,7 +35,7 @@ export function AtexChecklistPage({
 
   return (
     <>
-      <QuestionsFormHeader checklistSelectionName="locații unde există atmosferă explozivă" />
+      <QuestionsFormHeader checklistSelectionName="risc specific - atmosferă explozivă" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {

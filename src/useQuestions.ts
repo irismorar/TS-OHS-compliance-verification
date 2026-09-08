@@ -14,6 +14,7 @@ import { OPTICAL_RADIATION_QUESTION_DATA } from "./data/OPTICAL_RADIATION_QUESTI
 import { EXTREME_TEMPERATURES_QUESTION_DATA } from "./data/EXTREME_TEMPERATURES_QUESTION_DATA";
 import { VIBRATION_QUESTION_DATA } from "./data/VIBRATION_QUESTION_DATA";
 import { NOISE_QUESTION_DATA } from "./data/NOISE_QUESTION_DATA";
+import { INTERNAL_AUDIT_QUESTION_DATA } from "./data/INTERNAL_AUDIT_DATA";
 
 type Question = {
   questionText: string;
@@ -86,7 +87,8 @@ export function useQuestions() {
       | "opticalRadiation"
       | "extremeTemperatures"
       | "vibration"
-      | "noise",
+      | "noise"
+      | "internalAudit",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -157,6 +159,12 @@ export function useQuestions() {
       }
       case "noise": {
         setQuestionCategories(stateifyQuestionData(NOISE_QUESTION_DATA));
+        break;
+      }
+      case "internalAudit": {
+        setQuestionCategories(
+          stateifyQuestionData(INTERNAL_AUDIT_QUESTION_DATA),
+        );
         break;
       }
     }

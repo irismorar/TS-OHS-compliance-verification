@@ -19,6 +19,7 @@ export function VerificationChecklistsPage({
   setExtremeTemperaturesChecklistPage,
   setVibrationChecklistPage,
   setNoiseChecklistPage,
+  setInternalAuditChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -55,6 +56,15 @@ export function VerificationChecklistsPage({
               checklistSelectionName={"loc de muncă"}
             />
           </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("internalAudit");
+                setInternalAuditChecklistPage();
+              }}
+              checklistSelectionName={"audit intern"}
+            />
+          </li>
 
           <li>
             <h2 className="mt-15 mb-5 text-lg text-slate-500">
@@ -67,7 +77,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("biologicalAgents");
                 setBiologicalAgentsChecklistPage();
               }}
-              checklistSelectionName={"locații unde există și agenți biologici"}
+              checklistSelectionName={"risc specific - agenți biologici"}
             />
           </li>
           <li>
@@ -76,9 +86,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("cancerousAgents");
                 setCancerousAgentsChecklistPage();
               }}
-              checklistSelectionName={
-                "locații unde există și agenți cancerigeni"
-              }
+              checklistSelectionName={"risc specific - agenți cancerigeni"}
             />
           </li>
           <li>
@@ -87,7 +95,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("chemicalAgents");
                 setChemicalAgentsChecklistPage();
               }}
-              checklistSelectionName={"locații unde există și agenți chimici"}
+              checklistSelectionName={"risc specific - agenți chimici"}
             />
           </li>
           <li>
@@ -96,9 +104,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("atex");
                 setAtexChecklistPage();
               }}
-              checklistSelectionName={
-                "locații unde există și atmosferă explozivă"
-              }
+              checklistSelectionName={"risc specific - atmosferă explozivă"}
             />
           </li>
           <li>
@@ -107,7 +113,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("asbestos");
                 setAsbestosCkecklistPage();
               }}
-              checklistSelectionName={"locații unde există și azbest"}
+              checklistSelectionName={"risc specific - azbest"}
             />
           </li>
           <li>
@@ -117,7 +123,7 @@ export function VerificationChecklistsPage({
                 setElectromagneticFieldsCkecklistPage();
               }}
               checklistSelectionName={
-                "locații unde există și câmpuri electromagnetice"
+                "risc specific - câmpuri electromagnetice"
               }
             />
           </li>
@@ -128,7 +134,7 @@ export function VerificationChecklistsPage({
                 setManualHandlingChecklistPage();
               }}
               checklistSelectionName={
-                "locații unde există și manipularea manuală a maselor"
+                "risc specific - manipulare manuală a maselor"
               }
             />
           </li>
@@ -138,9 +144,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("sharpTools");
                 setSharpToolsChecklistPage();
               }}
-              checklistSelectionName={
-                "locații unde există și manipularea obiectelor ascuțite"
-              }
+              checklistSelectionName={"risc specific - obiecte ascuțite"}
             />
           </li>
           <li>
@@ -150,7 +154,7 @@ export function VerificationChecklistsPage({
                 setOpticalRadiationChecklistPage();
               }}
               checklistSelectionName={
-                "locații unde există și radiații optice artificiale"
+                "risc specific - radiații optice artificiale"
               }
             />
           </li>
@@ -160,9 +164,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("extremeTemperatures");
                 setExtremeTemperaturesChecklistPage();
               }}
-              checklistSelectionName={
-                "locații unde există și temperaturi extreme"
-              }
+              checklistSelectionName={"risc specific - temperaturi extreme"}
             />
           </li>
           <li>
@@ -171,7 +173,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("vibration");
                 setVibrationChecklistPage();
               }}
-              checklistSelectionName={"locații unde există și vibrații"}
+              checklistSelectionName={"risc specific - vibrații"}
             />
           </li>
           <li>
@@ -180,9 +182,7 @@ export function VerificationChecklistsPage({
                 initChecklistQuestions("noise");
                 setNoiseChecklistPage();
               }}
-              checklistSelectionName={
-                "locații unde există nivel ridicat de zgomot"
-              }
+              checklistSelectionName={"risc specific - zgomot"}
             />
           </li>
         </ul>
