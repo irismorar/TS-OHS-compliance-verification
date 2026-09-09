@@ -21,6 +21,7 @@ export function useComplianceVerificationState() {
     setVibrationChecklistPage,
     setNoiseChecklistPage,
     setInternalAuditChecklistPage,
+    setMaintenanceChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -78,6 +79,7 @@ export function useComplianceVerificationState() {
     setVibrationChecklistPage,
     setNoiseChecklistPage,
     setInternalAuditChecklistPage,
+    setMaintenanceChecklistPage,
     setDocumentPage,
 
     // unit details

@@ -15,6 +15,7 @@ import { EXTREME_TEMPERATURES_QUESTION_DATA } from "./data/EXTREME_TEMPERATURES_
 import { VIBRATION_QUESTION_DATA } from "./data/VIBRATION_QUESTION_DATA";
 import { NOISE_QUESTION_DATA } from "./data/NOISE_QUESTION_DATA";
 import { INTERNAL_AUDIT_QUESTION_DATA } from "./data/INTERNAL_AUDIT_DATA";
+import { MAINTENANCE_QUESTION_DATA } from "./data/MAINTENANCE_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -88,7 +89,8 @@ export function useQuestions() {
       | "extremeTemperatures"
       | "vibration"
       | "noise"
-      | "internalAudit",
+      | "internalAudit"
+      | "maintenance",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -165,6 +167,10 @@ export function useQuestions() {
         setQuestionCategories(
           stateifyQuestionData(INTERNAL_AUDIT_QUESTION_DATA),
         );
+        break;
+      }
+      case "maintenance": {
+        setQuestionCategories(stateifyQuestionData(MAINTENANCE_QUESTION_DATA));
         break;
       }
     }

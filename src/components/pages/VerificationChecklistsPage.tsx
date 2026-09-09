@@ -20,6 +20,7 @@ export function VerificationChecklistsPage({
   setVibrationChecklistPage,
   setNoiseChecklistPage,
   setInternalAuditChecklistPage,
+  setMaintenanceChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -34,7 +35,7 @@ export function VerificationChecklistsPage({
         </h1>
 
         <p className="mt-2 text-lg text-slate-500">
-          Alege categoria pentru care dorești să efectuezi verificarea SSM
+          Alege categoria pentru care dorești să efectuezi verificarea SSM:
         </p>
 
         <ul className="mt-5 space-y-4">
@@ -65,10 +66,19 @@ export function VerificationChecklistsPage({
               checklistSelectionName={"audit intern"}
             />
           </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("maintenance");
+                setMaintenanceChecklistPage();
+              }}
+              checklistSelectionName={"mentenanță"}
+            />
+          </li>
 
           <li>
             <h2 className="mt-15 mb-5 text-lg text-slate-500">
-              Dacă este cazul adaugă verificarea riscurilor specifice pentru:
+              Verificare generală SSM a riscurilor specifice:
             </h2>
           </li>
           <li>
