@@ -20,6 +20,7 @@ export function useCurrentRoute() {
     | "noiseChecklist"
     | "internalAuditChecklist"
     | "maintenanceChecklist"
+    | "manualHandlingOfLoadsAuditChecklist"
     | "finalDocument"
   >("home");
 
@@ -91,6 +92,10 @@ export function useCurrentRoute() {
     setCurrentRoute("maintenanceChecklist");
   };
 
+  const setManualHandlingOfLoadsAuditChecklistPage = () => {
+    setCurrentRoute("manualHandlingOfLoadsAuditChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -114,6 +119,7 @@ export function useCurrentRoute() {
     setNoiseChecklistPage,
     setInternalAuditChecklistPage,
     setMaintenanceChecklistPage,
+    setManualHandlingOfLoadsAuditChecklistPage,
     setDocumentPage,
   };
 }

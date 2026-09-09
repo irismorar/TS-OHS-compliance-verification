@@ -16,6 +16,7 @@ import { VIBRATION_QUESTION_DATA } from "./data/VIBRATION_QUESTION_DATA";
 import { NOISE_QUESTION_DATA } from "./data/NOISE_QUESTION_DATA";
 import { INTERNAL_AUDIT_QUESTION_DATA } from "./data/INTERNAL_AUDIT_DATA";
 import { MAINTENANCE_QUESTION_DATA } from "./data/MAINTENANCE_QUESTION_DATA";
+import { MANUAL_HANDLING_OF_LOADS_AUDIT_QUESTION_DATA } from "./data/MANUAL_HANDLING_OF_LOADS_AUDIT_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -90,7 +91,8 @@ export function useQuestions() {
       | "vibration"
       | "noise"
       | "internalAudit"
-      | "maintenance",
+      | "maintenance"
+      | "manualHandlingOfLoadsAudit",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -171,6 +173,12 @@ export function useQuestions() {
       }
       case "maintenance": {
         setQuestionCategories(stateifyQuestionData(MAINTENANCE_QUESTION_DATA));
+        break;
+      }
+      case "manualHandlingOfLoadsAudit": {
+        setQuestionCategories(
+          stateifyQuestionData(MANUAL_HANDLING_OF_LOADS_AUDIT_QUESTION_DATA),
+        );
         break;
       }
     }

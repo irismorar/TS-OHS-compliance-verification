@@ -21,6 +21,7 @@ export function VerificationChecklistsPage({
   setNoiseChecklistPage,
   setInternalAuditChecklistPage,
   setMaintenanceChecklistPage,
+  setManualHandlingOfLoadsAuditChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -73,6 +74,17 @@ export function VerificationChecklistsPage({
                 setMaintenanceChecklistPage();
               }}
               checklistSelectionName={"mentenanță"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("manualHandlingOfLoadsAudit");
+                setManualHandlingOfLoadsAuditChecklistPage();
+              }}
+              checklistSelectionName={
+                "audit pentru manipularea manuală a sarcinilor"
+              }
             />
           </li>
 
