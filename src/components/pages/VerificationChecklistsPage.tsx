@@ -22,6 +22,7 @@ export function VerificationChecklistsPage({
   setInternalAuditChecklistPage,
   setMaintenanceChecklistPage,
   setManualHandlingOfLoadsAuditChecklistPage,
+  setWorkEquipmentChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -85,6 +86,15 @@ export function VerificationChecklistsPage({
               checklistSelectionName={
                 "audit pentru manipularea manuală a sarcinilor"
               }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("workEquipment");
+                setWorkEquipmentChecklistPage();
+              }}
+              checklistSelectionName={"echipament individual de muncă"}
             />
           </li>
 

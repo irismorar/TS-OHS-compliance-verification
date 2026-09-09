@@ -20,6 +20,8 @@ import { WorkplaceChecklistPage } from "./components/pages/WorkplaceChecklistPag
 import { WorkshopChecklistPage } from "./components/pages/WorkshopChecklistPage";
 import { useComplianceVerificationState } from "./useComplianceVerificationState";
 import { MaintenanceChecklistPage } from "./components/pages/MaintenanceChecklistPage";
+import { ManualHandlingOfLoadsAuditChecklistPage } from "./components/pages/ManualHandlingOfLoadsAudit";
+import { WorkEquipmentChecklistPage } from "./components/pages/WorkEquipmentChecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -32,6 +34,10 @@ export default function App() {
       <WorkshopChecklistPage {...complianceVerificationData} />
       <InternalAuditChecklistPage {...complianceVerificationData} />
       <MaintenanceChecklistPage {...complianceVerificationData} />
+      <ManualHandlingOfLoadsAuditChecklistPage
+        {...complianceVerificationData}
+      />
+      <WorkEquipmentChecklistPage {...complianceVerificationData} />
 
       <BiologicalAgentsChecklistPage {...complianceVerificationData} />
       <CancerousAgentsChecklistPage {...complianceVerificationData} />

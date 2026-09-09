@@ -21,6 +21,7 @@ export function useCurrentRoute() {
     | "internalAuditChecklist"
     | "maintenanceChecklist"
     | "manualHandlingOfLoadsAuditChecklist"
+    | "workEquipmentChecklist"
     | "finalDocument"
   >("home");
 
@@ -96,6 +97,10 @@ export function useCurrentRoute() {
     setCurrentRoute("manualHandlingOfLoadsAuditChecklist");
   };
 
+  const setWorkEquipmentChecklistPage = () => {
+    setCurrentRoute("workEquipmentChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -120,6 +125,7 @@ export function useCurrentRoute() {
     setInternalAuditChecklistPage,
     setMaintenanceChecklistPage,
     setManualHandlingOfLoadsAuditChecklistPage,
+    setWorkEquipmentChecklistPage,
     setDocumentPage,
   };
 }
