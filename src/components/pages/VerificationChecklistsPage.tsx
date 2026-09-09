@@ -23,6 +23,7 @@ export function VerificationChecklistsPage({
   setMaintenanceChecklistPage,
   setManualHandlingOfLoadsAuditChecklistPage,
   setWorkEquipmentChecklistPage,
+  setLoadHandlingUsingStackerTruckChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -95,6 +96,17 @@ export function VerificationChecklistsPage({
                 setWorkEquipmentChecklistPage();
               }}
               checklistSelectionName={"echipament individual de muncă"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("loadHandlingUsingStackerTruck");
+                setLoadHandlingUsingStackerTruckChecklistPage();
+              }}
+              checklistSelectionName={
+                "manipulare sarcini folosind transpaleta cu catarg"
+              }
             />
           </li>
 

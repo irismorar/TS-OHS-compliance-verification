@@ -22,6 +22,7 @@ export function useCurrentRoute() {
     | "maintenanceChecklist"
     | "manualHandlingOfLoadsAuditChecklist"
     | "workEquipmentChecklist"
+    | "loadHandlingUsingStackerTruckChecklist"
     | "finalDocument"
   >("home");
 
@@ -101,6 +102,10 @@ export function useCurrentRoute() {
     setCurrentRoute("workEquipmentChecklist");
   };
 
+  const setLoadHandlingUsingStackerTruckChecklistPage = () => {
+    setCurrentRoute("loadHandlingUsingStackerTruckChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -126,6 +131,7 @@ export function useCurrentRoute() {
     setMaintenanceChecklistPage,
     setManualHandlingOfLoadsAuditChecklistPage,
     setWorkEquipmentChecklistPage,
+    setLoadHandlingUsingStackerTruckChecklistPage,
     setDocumentPage,
   };
 }

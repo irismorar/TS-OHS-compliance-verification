@@ -18,6 +18,7 @@ import { INTERNAL_AUDIT_QUESTION_DATA } from "./data/INTERNAL_AUDIT_DATA";
 import { MAINTENANCE_QUESTION_DATA } from "./data/MAINTENANCE_QUESTION_DATA";
 import { MANUAL_HANDLING_OF_LOADS_AUDIT_QUESTION_DATA } from "./data/MANUAL_HANDLING_OF_LOADS_AUDIT_QUESTION_DATA";
 import { WORK_EQUIPMENT_QUESTION_DATA } from "./data/WORK_EQUIPMENT_QUESTION_DATA";
+import { LOAD_HANDLING_USING_STACKER_TRUCK_QUESTION_DATA } from "./data/LOAD_HANDLING_USING_STACKER_TRUCK_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -94,7 +95,8 @@ export function useQuestions() {
       | "internalAudit"
       | "maintenance"
       | "manualHandlingOfLoadsAudit"
-      | "workEquipment",
+      | "workEquipment"
+      | "loadHandlingUsingStackerTruck",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -186,6 +188,12 @@ export function useQuestions() {
       case "workEquipment": {
         setQuestionCategories(
           stateifyQuestionData(WORK_EQUIPMENT_QUESTION_DATA),
+        );
+        break;
+      }
+      case "loadHandlingUsingStackerTruck": {
+        setQuestionCategories(
+          stateifyQuestionData(LOAD_HANDLING_USING_STACKER_TRUCK_QUESTION_DATA),
         );
         break;
       }
