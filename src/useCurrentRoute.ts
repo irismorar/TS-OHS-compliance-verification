@@ -23,6 +23,7 @@ export function useCurrentRoute() {
     | "manualHandlingOfLoadsAuditChecklist"
     | "workEquipmentChecklist"
     | "loadHandlingUsingStackerTruckChecklist"
+    | "lotoChecklist"
     | "finalDocument"
   >("home");
 
@@ -106,6 +107,10 @@ export function useCurrentRoute() {
     setCurrentRoute("loadHandlingUsingStackerTruckChecklist");
   };
 
+  const setLotoChecklistPage = () => {
+    setCurrentRoute("lotoChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -132,6 +137,7 @@ export function useCurrentRoute() {
     setManualHandlingOfLoadsAuditChecklistPage,
     setWorkEquipmentChecklistPage,
     setLoadHandlingUsingStackerTruckChecklistPage,
+    setLotoChecklistPage,
     setDocumentPage,
   };
 }

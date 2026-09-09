@@ -23,6 +23,7 @@ import { MaintenanceChecklistPage } from "./components/pages/MaintenanceChecklis
 import { ManualHandlingOfLoadsAuditChecklistPage } from "./components/pages/ManualHandlingOfLoadsAudit";
 import { WorkEquipmentChecklistPage } from "./components/pages/WorkEquipmentChecklistPage";
 import { LoadHandlingUsingStackerTruckChecklistPage } from "./components/pages/LoadHandlingUsingStackerTruckChecklistPage";
+import { LotoChecklistPage } from "./components/pages/LotoChecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -42,6 +43,7 @@ export default function App() {
       <LoadHandlingUsingStackerTruckChecklistPage
         {...complianceVerificationData}
       />
+      <LotoChecklistPage {...complianceVerificationData} />
 
       <BiologicalAgentsChecklistPage {...complianceVerificationData} />
       <CancerousAgentsChecklistPage {...complianceVerificationData} />
