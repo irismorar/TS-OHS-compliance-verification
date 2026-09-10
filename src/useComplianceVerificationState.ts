@@ -30,6 +30,7 @@ export function useComplianceVerificationState() {
     setElectricalChecklistPage,
     setWorkAtHeightChecklistPage,
     setWorkUsingLaddersChecklistPage,
+    setMetalRackingPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -96,6 +97,7 @@ export function useComplianceVerificationState() {
     setElectricalChecklistPage,
     setWorkAtHeightChecklistPage,
     setWorkUsingLaddersChecklistPage,
+    setMetalRackingPage,
     setDocumentPage,
 
     // unit details

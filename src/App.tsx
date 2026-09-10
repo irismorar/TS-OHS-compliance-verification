@@ -28,6 +28,7 @@ import { LoadHandlingUsingManualPalletTruckChecklistPage } from "./components/pa
 import { ElectricalChecklistPage } from "./components/pages/ElectricalChecklistPage";
 import { WorkAtHeightChecklistPage } from "./components/pages/WorkAtHeightChecklistPage";
 import { WorkUsingLaddersChecklistPage } from "./components/pages/WorkUsingLaddersChecklistPage";
+import { MetalRackingChecklistPage } from "./components/pages/MetalRackingChecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -54,6 +55,7 @@ export default function App() {
       <ElectricalChecklistPage {...complianceVerificationData} />
       <WorkAtHeightChecklistPage {...complianceVerificationData} />
       <WorkUsingLaddersChecklistPage {...complianceVerificationData} />
+      <MetalRackingChecklistPage {...complianceVerificationData} />
 
       <BiologicalAgentsChecklistPage {...complianceVerificationData} />
       <CancerousAgentsChecklistPage {...complianceVerificationData} />

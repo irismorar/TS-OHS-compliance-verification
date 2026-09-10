@@ -29,6 +29,7 @@ export function VerificationChecklistsPage({
   setElectricalChecklistPage,
   setWorkAtHeightChecklistPage,
   setWorkUsingLaddersChecklistPage,
+  setMetalRackingPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -159,6 +160,15 @@ export function VerificationChecklistsPage({
                 setWorkUsingLaddersChecklistPage();
               }}
               checklistSelectionName={"lucru pe scări"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("metalRacking");
+                setMetalRackingPage();
+              }}
+              checklistSelectionName={"rafturi metalice"}
             />
           </li>
 

@@ -24,6 +24,7 @@ import { LOAD_HANDLING_USING_MANUAL_PALLET_TRUCK_QUESTION_DATA } from "./data/LO
 import { ELECTRICAL_QUESTION_DATA } from "./data/ELECTRICAL_QUESTION_DATA";
 import { WORK_AT_HEIGHT_QUESTION_DATA } from "./data/WORK_AT_HIGHT_QUESTION_DATA";
 import { WORK_USING_LADDERS_QUESTION_DATA } from "./data/WORK_USING_LADDERS";
+import { METAL_RACKING_QUESTION_DATA } from "./data/METAL_RACKING_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -106,7 +107,8 @@ export function useQuestions() {
       | "loadHandlingUsingManualPalletTruck"
       | "electrical"
       | "workAtHeight"
-      | "workUsingLadders",
+      | "workUsingLadders"
+      | "metalRacking",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -232,6 +234,12 @@ export function useQuestions() {
       case "workUsingLadders": {
         setQuestionCategories(
           stateifyQuestionData(WORK_USING_LADDERS_QUESTION_DATA),
+        );
+        break;
+      }
+      case "metalRacking": {
+        setQuestionCategories(
+          stateifyQuestionData(METAL_RACKING_QUESTION_DATA),
         );
         break;
       }

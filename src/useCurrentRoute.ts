@@ -28,6 +28,7 @@ export function useCurrentRoute() {
     | "electricalChecklist"
     | "workAtHeightChecklist"
     | "workUsingLaddersChecklist"
+    | "metalRackingChecklist"
     | "finalDocument"
   >("home");
 
@@ -131,6 +132,10 @@ export function useCurrentRoute() {
     setCurrentRoute("workUsingLaddersChecklist");
   };
 
+  const setMetalRackingPage = () => {
+    setCurrentRoute("metalRackingChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -162,6 +167,7 @@ export function useCurrentRoute() {
     setElectricalChecklistPage,
     setWorkAtHeightChecklistPage,
     setWorkUsingLaddersChecklistPage,
+    setMetalRackingPage,
     setDocumentPage,
   };
 }
