@@ -27,6 +27,7 @@ export function VerificationChecklistsPage({
   setLotoChecklistPage,
   setLoadHandlingUsingManualPalletTruckChecklistPage,
   setElectricalChecklistPage,
+  setWorkAtHeightChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -139,6 +140,15 @@ export function VerificationChecklistsPage({
                 setElectricalChecklistPage();
               }}
               checklistSelectionName={"electrice"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("workAtHeight");
+                setWorkAtHeightChecklistPage();
+              }}
+              checklistSelectionName={"lucru la înălțime"}
             />
           </li>
 

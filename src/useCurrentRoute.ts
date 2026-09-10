@@ -26,6 +26,7 @@ export function useCurrentRoute() {
     | "lotoChecklist"
     | "loadHandlingUsingManualPalletTruckChecklist"
     | "electricalChecklist"
+    | "workAtHeightChecklist"
     | "finalDocument"
   >("home");
 
@@ -121,6 +122,10 @@ export function useCurrentRoute() {
     setCurrentRoute("electricalChecklist");
   };
 
+  const setWorkAtHeightChecklistPage = () => {
+    setCurrentRoute("workAtHeightChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -150,6 +155,7 @@ export function useCurrentRoute() {
     setLotoChecklistPage,
     setLoadHandlingUsingManualPalletTruckChecklistPage,
     setElectricalChecklistPage,
+    setWorkAtHeightChecklistPage,
     setDocumentPage,
   };
 }

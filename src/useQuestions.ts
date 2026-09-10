@@ -22,6 +22,7 @@ import { LOAD_HANDLING_USING_STACKER_TRUCK_QUESTION_DATA } from "./data/LOAD_HAN
 import { LOTO_QUESTION_DATA } from "./data/LOTO_QUESTION_DATA";
 import { LOAD_HANDLING_USING_MANUAL_PALLET_TRUCK_QUESTION_DATA } from "./data/LOAD_HANDLING_USSING_MANUAL_PALLET_TRUCK_QUESTION_DATA";
 import { ELECTRICAL_QUESTION_DATA } from "./data/ELECTRICAL_QUESTION_DATA";
+import { WORK_AT_HEIGHT_QUESTION_DATA } from "./data/WORK_AT_HIGHT_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -102,7 +103,8 @@ export function useQuestions() {
       | "loadHandlingUsingStackerTruck"
       | "loto"
       | "loadHandlingUsingManualPalletTruck"
-      | "electrical",
+      | "electrical"
+      | "workAtHeight",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -217,6 +219,12 @@ export function useQuestions() {
       }
       case "electrical": {
         setQuestionCategories(stateifyQuestionData(ELECTRICAL_QUESTION_DATA));
+        break;
+      }
+      case "workAtHeight": {
+        setQuestionCategories(
+          stateifyQuestionData(WORK_AT_HEIGHT_QUESTION_DATA),
+        );
         break;
       }
     }
