@@ -65,28 +65,10 @@ export function VerificationChecklistsPage({
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("workplace");
-                setWorkplaceChecklistPage();
-              }}
-              checklistSelectionName={"loc de muncă"}
-            />
-          </li>
-          <li>
-            <ChecklistSelectionButton
-              handleClick={() => {
                 initChecklistQuestions("internalAudit");
                 setInternalAuditChecklistPage();
               }}
               checklistSelectionName={"audit intern"}
-            />
-          </li>
-          <li>
-            <ChecklistSelectionButton
-              handleClick={() => {
-                initChecklistQuestions("maintenance");
-                setMaintenanceChecklistPage();
-              }}
-              checklistSelectionName={"mentenanță"}
             />
           </li>
           <li>
@@ -103,21 +85,37 @@ export function VerificationChecklistsPage({
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("workEquipment");
-                setWorkEquipmentChecklistPage();
+                initChecklistQuestions("officeEquipment");
+                setOfficeEquipmentChecklistPage();
               }}
-              checklistSelectionName={"echipament individual de muncă"}
+              checklistSelectionName={"birotică"}
             />
           </li>
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("loadHandlingUsingStackerTruck");
-                setLoadHandlingUsingStackerTruckChecklistPage();
+                initChecklistQuestions("office");
+                setOfficeChecklistPage();
               }}
-              checklistSelectionName={
-                "manipulare sarcini folosind transpaleta cu catarg"
-              }
+              checklistSelectionName={"birouri"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("electrical");
+                setElectricalChecklistPage();
+              }}
+              checklistSelectionName={"electrice"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("workEquipment");
+                setWorkEquipmentChecklistPage();
+              }}
+              checklistSelectionName={"echipament individual de muncă"}
             />
           </li>
           <li>
@@ -132,21 +130,10 @@ export function VerificationChecklistsPage({
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("loadHandlingUsingManualPalletTruck");
-                setLoadHandlingUsingManualPalletTruckChecklistPage();
+                initChecklistQuestions("workplace");
+                setWorkplaceChecklistPage();
               }}
-              checklistSelectionName={
-                "manipulare sarcini folosind transpaleta mecanică"
-              }
-            />
-          </li>
-          <li>
-            <ChecklistSelectionButton
-              handleClick={() => {
-                initChecklistQuestions("electrical");
-                setElectricalChecklistPage();
-              }}
-              checklistSelectionName={"electrice"}
+              checklistSelectionName={"loc de muncă"}
             />
           </li>
           <li>
@@ -170,19 +157,41 @@ export function VerificationChecklistsPage({
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("metalRacking");
-                setMetalRackingChecklistPage();
+                initChecklistQuestions("loadHandlingUsingStackerTruck");
+                setLoadHandlingUsingStackerTruckChecklistPage();
               }}
-              checklistSelectionName={"rafturi metalice"}
+              checklistSelectionName={
+                "manipulare sarcini folosind transpaleta cu catarg"
+              }
             />
           </li>
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("chemicalSubstance");
-                setChemicalSubstanceChecklistPage();
+                initChecklistQuestions("loadHandlingUsingManualPalletTruck");
+                setLoadHandlingUsingManualPalletTruckChecklistPage();
               }}
-              checklistSelectionName={"substanțe chimice"}
+              checklistSelectionName={
+                "manipulare sarcini folosind transpaleta mecanică"
+              }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("maintenance");
+                setMaintenanceChecklistPage();
+              }}
+              checklistSelectionName={"mentenanță"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("metalRacking");
+                setMetalRackingChecklistPage();
+              }}
+              checklistSelectionName={"rafturi metalice"}
             />
           </li>
           <li>
@@ -197,19 +206,10 @@ export function VerificationChecklistsPage({
           <li>
             <ChecklistSelectionButton
               handleClick={() => {
-                initChecklistQuestions("office");
-                setOfficeChecklistPage();
+                initChecklistQuestions("chemicalSubstance");
+                setChemicalSubstanceChecklistPage();
               }}
-              checklistSelectionName={"birouri"}
-            />
-          </li>
-          <li>
-            <ChecklistSelectionButton
-              handleClick={() => {
-                initChecklistQuestions("officeEquipment");
-                setOfficeEquipmentChecklistPage();
-              }}
-              checklistSelectionName={"birotică"}
+              checklistSelectionName={"substanțe chimice"}
             />
           </li>
           <li>
