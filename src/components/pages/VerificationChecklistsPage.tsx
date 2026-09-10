@@ -26,6 +26,7 @@ export function VerificationChecklistsPage({
   setLoadHandlingUsingStackerTruckChecklistPage,
   setLotoChecklistPage,
   setLoadHandlingUsingManualPalletTruckChecklistPage,
+  setElectricalChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -129,6 +130,15 @@ export function VerificationChecklistsPage({
               checklistSelectionName={
                 "manipulare sarcini folosind transpaleta mecanică"
               }
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("electrical");
+                setElectricalChecklistPage();
+              }}
+              checklistSelectionName={"electrice"}
             />
           </li>
 

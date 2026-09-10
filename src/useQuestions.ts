@@ -21,6 +21,7 @@ import { WORK_EQUIPMENT_QUESTION_DATA } from "./data/WORK_EQUIPMENT_QUESTION_DAT
 import { LOAD_HANDLING_USING_STACKER_TRUCK_QUESTION_DATA } from "./data/LOAD_HANDLING_USING_STACKER_TRUCK_QUESTION_DATA";
 import { LOTO_QUESTION_DATA } from "./data/LOTO_QUESTION_DATA";
 import { LOAD_HANDLING_USING_MANUAL_PALLET_TRUCK_QUESTION_DATA } from "./data/LOAD_HANDLING_USSING_MANUAL_PALLET_TRUCK_QUESTION_DATA";
+import { ELECTRICAL_QUESTION_DATA } from "./data/ELECTRICAL_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -100,7 +101,8 @@ export function useQuestions() {
       | "workEquipment"
       | "loadHandlingUsingStackerTruck"
       | "loto"
-      | "loadHandlingUsingManualPalletTruck",
+      | "loadHandlingUsingManualPalletTruck"
+      | "electrical",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -211,6 +213,10 @@ export function useQuestions() {
             LOAD_HANDLING_USING_MANUAL_PALLET_TRUCK_QUESTION_DATA,
           ),
         );
+        break;
+      }
+      case "electrical": {
+        setQuestionCategories(stateifyQuestionData(ELECTRICAL_QUESTION_DATA));
         break;
       }
     }
