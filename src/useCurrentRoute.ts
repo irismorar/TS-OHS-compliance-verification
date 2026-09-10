@@ -33,6 +33,7 @@ export function useCurrentRoute() {
     | "administrativeAreasChecklist"
     | "officeChecklist"
     | "officeEquipmentChecklist"
+    | "hazardousAreasChecklist"
     | "finalDocument"
   >("home");
 
@@ -156,6 +157,10 @@ export function useCurrentRoute() {
     setCurrentRoute("officeEquipmentChecklist");
   };
 
+  const setHazardousAreasChecklistPage = () => {
+    setCurrentRoute("hazardousAreasChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -192,6 +197,7 @@ export function useCurrentRoute() {
     setAdministrativeAreasChecklistPage,
     setOfficeChecklistPage,
     setOfficeEquipmentChecklistPage,
+    setHazardousAreasChecklistPage,
     setDocumentPage,
   };
 }

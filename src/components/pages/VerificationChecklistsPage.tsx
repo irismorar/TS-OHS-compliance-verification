@@ -34,6 +34,7 @@ export function VerificationChecklistsPage({
   setAdministrativeAreasChecklistPage,
   setOfficeChecklistPage,
   setOfficeEquipmentChecklistPage,
+  setHazardousAreasChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -209,6 +210,15 @@ export function VerificationChecklistsPage({
                 setOfficeEquipmentChecklistPage();
               }}
               checklistSelectionName={"birotică"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("hazardousAreas");
+                setHazardousAreasChecklistPage();
+              }}
+              checklistSelectionName={"zone periculoase"}
             />
           </li>
 

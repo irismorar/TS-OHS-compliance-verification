@@ -29,6 +29,7 @@ import { CHEMICAL_SUBSTANCE_QUESTION_DATA } from "./data/CHEMICAL_SUBSTANCE_QUES
 import { ADMINISTRATIVE_AREAS_QUESTION_DATA } from "./data/ADMINISTRATIVE_AREAS_QUESTION_DATA";
 import { OFFICE_QUESTION_DATA } from "./data/OFFICE_QUESTION_DATA";
 import { OFFICE_EQUIPMENT_QUESTION_DATA } from "./data/OFFICE_EQUIPMENT_QUESTION_DATA";
+import { HAZARDOUS_AREAS_QUESTION_DATA } from "./data/HAZARDOUS_AREAS_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -116,7 +117,8 @@ export function useQuestions() {
       | "chemicalSubstance"
       | "administrativeAreas"
       | "office"
-      | "officeEquipment",
+      | "officeEquipment"
+      | "hazardousAreas",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -270,6 +272,12 @@ export function useQuestions() {
       case "officeEquipment": {
         setQuestionCategories(
           stateifyQuestionData(OFFICE_EQUIPMENT_QUESTION_DATA),
+        );
+        break;
+      }
+      case "hazardousAreas": {
+        setQuestionCategories(
+          stateifyQuestionData(HAZARDOUS_AREAS_QUESTION_DATA),
         );
         break;
       }
