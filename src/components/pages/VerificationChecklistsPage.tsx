@@ -29,7 +29,8 @@ export function VerificationChecklistsPage({
   setElectricalChecklistPage,
   setWorkAtHeightChecklistPage,
   setWorkUsingLaddersChecklistPage,
-  setMetalRackingPage,
+  setMetalRackingChecklistPage,
+  setChemicalHazardsChecklistPage,
   initChecklistQuestions,
 }: Props) {
   if (currentRoute !== "verificationChecklists") {
@@ -166,9 +167,18 @@ export function VerificationChecklistsPage({
             <ChecklistSelectionButton
               handleClick={() => {
                 initChecklistQuestions("metalRacking");
-                setMetalRackingPage();
+                setMetalRackingChecklistPage();
               }}
               checklistSelectionName={"rafturi metalice"}
+            />
+          </li>
+          <li>
+            <ChecklistSelectionButton
+              handleClick={() => {
+                initChecklistQuestions("chemicalHazards");
+                setChemicalHazardsChecklistPage();
+              }}
+              checklistSelectionName={"substanțe chimice"}
             />
           </li>
 

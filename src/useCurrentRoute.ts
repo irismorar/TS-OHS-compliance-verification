@@ -29,6 +29,7 @@ export function useCurrentRoute() {
     | "workAtHeightChecklist"
     | "workUsingLaddersChecklist"
     | "metalRackingChecklist"
+    | "chemicalHazardsChecklist"
     | "finalDocument"
   >("home");
 
@@ -132,8 +133,12 @@ export function useCurrentRoute() {
     setCurrentRoute("workUsingLaddersChecklist");
   };
 
-  const setMetalRackingPage = () => {
+  const setMetalRackingChecklistPage = () => {
     setCurrentRoute("metalRackingChecklist");
+  };
+
+  const setChemicalHazardsChecklistPage = () => {
+    setCurrentRoute("chemicalHazardsChecklist");
   };
 
   const setDocumentPage = () => {
@@ -167,7 +172,8 @@ export function useCurrentRoute() {
     setElectricalChecklistPage,
     setWorkAtHeightChecklistPage,
     setWorkUsingLaddersChecklistPage,
-    setMetalRackingPage,
+    setMetalRackingChecklistPage,
+    setChemicalHazardsChecklistPage,
     setDocumentPage,
   };
 }

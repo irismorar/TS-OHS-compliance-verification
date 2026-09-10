@@ -25,6 +25,7 @@ import { ELECTRICAL_QUESTION_DATA } from "./data/ELECTRICAL_QUESTION_DATA";
 import { WORK_AT_HEIGHT_QUESTION_DATA } from "./data/WORK_AT_HIGHT_QUESTION_DATA";
 import { WORK_USING_LADDERS_QUESTION_DATA } from "./data/WORK_USING_LADDERS";
 import { METAL_RACKING_QUESTION_DATA } from "./data/METAL_RACKING_QUESTION_DATA";
+import { CHEMICAL_HAZARDS_QUESTION_DATA } from "./data/CHEMICAL_HAZARDS_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -108,7 +109,8 @@ export function useQuestions() {
       | "electrical"
       | "workAtHeight"
       | "workUsingLadders"
-      | "metalRacking",
+      | "metalRacking"
+      | "chemicalHazards",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -240,6 +242,12 @@ export function useQuestions() {
       case "metalRacking": {
         setQuestionCategories(
           stateifyQuestionData(METAL_RACKING_QUESTION_DATA),
+        );
+        break;
+      }
+      case "chemicalHazards": {
+        setQuestionCategories(
+          stateifyQuestionData(CHEMICAL_HAZARDS_QUESTION_DATA),
         );
         break;
       }
