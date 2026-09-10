@@ -24,6 +24,7 @@ import { ManualHandlingOfLoadsAuditChecklistPage } from "./components/pages/Manu
 import { WorkEquipmentChecklistPage } from "./components/pages/WorkEquipmentChecklistPage";
 import { LoadHandlingUsingStackerTruckChecklistPage } from "./components/pages/LoadHandlingUsingStackerTruckChecklistPage";
 import { LotoChecklistPage } from "./components/pages/LotoChecklistPage";
+import { LoadHandlingUsingManualPalletTruckChecklistPage } from "./components/pages/LoadHandlingUsingManualPalletTruckChecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -44,6 +45,9 @@ export default function App() {
         {...complianceVerificationData}
       />
       <LotoChecklistPage {...complianceVerificationData} />
+      <LoadHandlingUsingManualPalletTruckChecklistPage
+        {...complianceVerificationData}
+      />
 
       <BiologicalAgentsChecklistPage {...complianceVerificationData} />
       <CancerousAgentsChecklistPage {...complianceVerificationData} />

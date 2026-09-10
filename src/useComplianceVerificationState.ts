@@ -26,6 +26,7 @@ export function useComplianceVerificationState() {
     setWorkEquipmentChecklistPage,
     setLoadHandlingUsingStackerTruckChecklistPage,
     setLotoChecklistPage,
+    setLoadHandlingUsingManualPalletTruckChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -88,6 +89,7 @@ export function useComplianceVerificationState() {
     setWorkEquipmentChecklistPage,
     setLoadHandlingUsingStackerTruckChecklistPage,
     setLotoChecklistPage,
+    setLoadHandlingUsingManualPalletTruckChecklistPage,
     setDocumentPage,
 
     // unit details
