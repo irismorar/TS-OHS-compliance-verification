@@ -32,6 +32,7 @@ export function useComplianceVerificationState() {
     setWorkUsingLaddersChecklistPage,
     setMetalRackingChecklistPage,
     setChemicalSubstanceChecklistPage,
+    setOfficeChecklistPage,
     setAdministrativeAreasChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
@@ -102,6 +103,7 @@ export function useComplianceVerificationState() {
     setMetalRackingChecklistPage,
     setChemicalSubstanceChecklistPage,
     setAdministrativeAreasChecklistPage,
+    setOfficeChecklistPage,
     setDocumentPage,
 
     // unit details

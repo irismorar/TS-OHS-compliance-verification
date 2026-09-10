@@ -31,6 +31,7 @@ import { WorkUsingLaddersChecklistPage } from "./components/pages/WorkUsingLadde
 import { MetalRackingChecklistPage } from "./components/pages/MetalRackingChecklistPage";
 import { ChemicalSubstanceChecklistPage } from "./components/pages/ChemicalSubstanceChecklistPage";
 import { AdministrativeAreasChecklistPage } from "./components/pages/AdministrativeAreasChecklistPage";
+import { OfficeChecklistPage } from "./components/pages/OfficeChecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -60,6 +61,7 @@ export default function App() {
       <MetalRackingChecklistPage {...complianceVerificationData} />
       <ChemicalSubstanceChecklistPage {...complianceVerificationData} />
       <AdministrativeAreasChecklistPage {...complianceVerificationData} />
+      <OfficeChecklistPage {...complianceVerificationData} />
 
       <BiologicalAgentsChecklistPage {...complianceVerificationData} />
       <CancerousAgentsChecklistPage {...complianceVerificationData} />

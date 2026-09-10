@@ -27,6 +27,7 @@ import { WORK_USING_LADDERS_QUESTION_DATA } from "./data/WORK_USING_LADDERS";
 import { METAL_RACKING_QUESTION_DATA } from "./data/METAL_RACKING_QUESTION_DATA";
 import { CHEMICAL_SUBSTANCE_QUESTION_DATA } from "./data/CHEMICAL_SUBSTANCE_QUESTION_DATA";
 import { ADMINISTRATIVE_AREAS_QUESTION_DATA } from "./data/ADMINISTRATIVE_AREAS_QUESTION_DATA";
+import { OFFICE_QUESTION_DATA } from "./data/OFFICE_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -112,7 +113,8 @@ export function useQuestions() {
       | "workUsingLadders"
       | "metalRacking"
       | "chemicalSubstance"
-      | "administrativeAreas",
+      | "administrativeAreas"
+      | "office",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -257,6 +259,10 @@ export function useQuestions() {
         setQuestionCategories(
           stateifyQuestionData(ADMINISTRATIVE_AREAS_QUESTION_DATA),
         );
+        break;
+      }
+      case "office": {
+        setQuestionCategories(stateifyQuestionData(OFFICE_QUESTION_DATA));
         break;
       }
     }
