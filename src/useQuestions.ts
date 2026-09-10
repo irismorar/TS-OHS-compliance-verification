@@ -25,7 +25,8 @@ import { ELECTRICAL_QUESTION_DATA } from "./data/ELECTRICAL_QUESTION_DATA";
 import { WORK_AT_HEIGHT_QUESTION_DATA } from "./data/WORK_AT_HIGHT_QUESTION_DATA";
 import { WORK_USING_LADDERS_QUESTION_DATA } from "./data/WORK_USING_LADDERS";
 import { METAL_RACKING_QUESTION_DATA } from "./data/METAL_RACKING_QUESTION_DATA";
-import { CHEMICAL_HAZARDS_QUESTION_DATA } from "./data/CHEMICAL_HAZARDS_QUESTION_DATA";
+import { CHEMICAL_SUBSTANCE_QUESTION_DATA } from "./data/CHEMICAL_SUBSTANCE_QUESTION_DATA";
+import { ADMINISTRATIVE_AREAS_QUESTION_DATA } from "./data/ADMINISTRATIVE_AREAS_QUESTION_DATA";
 
 type Question = {
   questionText: string;
@@ -110,7 +111,8 @@ export function useQuestions() {
       | "workAtHeight"
       | "workUsingLadders"
       | "metalRacking"
-      | "chemicalHazards",
+      | "chemicalSubstance"
+      | "administrativeAreas",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -245,9 +247,15 @@ export function useQuestions() {
         );
         break;
       }
-      case "chemicalHazards": {
+      case "chemicalSubstance": {
         setQuestionCategories(
-          stateifyQuestionData(CHEMICAL_HAZARDS_QUESTION_DATA),
+          stateifyQuestionData(CHEMICAL_SUBSTANCE_QUESTION_DATA),
+        );
+        break;
+      }
+      case "administrativeAreas": {
+        setQuestionCategories(
+          stateifyQuestionData(ADMINISTRATIVE_AREAS_QUESTION_DATA),
         );
         break;
       }

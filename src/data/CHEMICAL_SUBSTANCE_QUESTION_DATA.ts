@@ -1,6 +1,6 @@
 import type { QuestionData } from "../useQuestions";
 
-export const CHEMICAL_HAZARDS_QUESTION_DATA: QuestionData = [
+export const CHEMICAL_SUBSTANCE_QUESTION_DATA: QuestionData = [
   {
     categoryName: "Substanțe chimice",
     questions: [

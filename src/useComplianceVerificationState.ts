@@ -31,7 +31,8 @@ export function useComplianceVerificationState() {
     setWorkAtHeightChecklistPage,
     setWorkUsingLaddersChecklistPage,
     setMetalRackingChecklistPage,
-    setChemicalHazardsChecklistPage,
+    setChemicalSubstanceChecklistPage,
+    setAdministrativeAreasChecklistPage,
     setDocumentPage,
   } = useCurrentRoute();
   const {
@@ -99,7 +100,8 @@ export function useComplianceVerificationState() {
     setWorkAtHeightChecklistPage,
     setWorkUsingLaddersChecklistPage,
     setMetalRackingChecklistPage,
-    setChemicalHazardsChecklistPage,
+    setChemicalSubstanceChecklistPage,
+    setAdministrativeAreasChecklistPage,
     setDocumentPage,
 
     // unit details

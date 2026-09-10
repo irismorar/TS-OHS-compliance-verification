@@ -9,7 +9,7 @@ import { RiskTable } from "../RiskTable/RiskTable";
 
 type Props = ReturnType<typeof useComplianceVerificationState>;
 
-export function ChemicalHazardsChecklistPage({
+export function ChemicalSubstanceChecklistPage({
   currentRoute,
   questionCategories,
   firstUnansweredQuestionCategoryIndex,
@@ -29,7 +29,7 @@ export function ChemicalHazardsChecklistPage({
     questionIndex: number;
   } | null>(null);
 
-  if (currentRoute !== "chemicalHazardsChecklist") {
+  if (currentRoute !== "chemicalSubstanceChecklist") {
     return null;
   }
 
