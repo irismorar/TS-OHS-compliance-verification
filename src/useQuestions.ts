@@ -23,6 +23,7 @@ import { LOTO_QUESTION_DATA } from "./data/LOTO_QUESTION_DATA";
 import { LOAD_HANDLING_USING_MANUAL_PALLET_TRUCK_QUESTION_DATA } from "./data/LOAD_HANDLING_USSING_MANUAL_PALLET_TRUCK_QUESTION_DATA";
 import { ELECTRICAL_QUESTION_DATA } from "./data/ELECTRICAL_QUESTION_DATA";
 import { WORK_AT_HEIGHT_QUESTION_DATA } from "./data/WORK_AT_HIGHT_QUESTION_DATA";
+import { WORK_USING_LADDERS_QUESTION_DATA } from "./data/WORK_USING_LADDERS";
 
 type Question = {
   questionText: string;
@@ -104,7 +105,8 @@ export function useQuestions() {
       | "loto"
       | "loadHandlingUsingManualPalletTruck"
       | "electrical"
-      | "workAtHeight",
+      | "workAtHeight"
+      | "workUsingLadders",
   ) {
     switch (checklistName) {
       case "workshop": {
@@ -224,6 +226,12 @@ export function useQuestions() {
       case "workAtHeight": {
         setQuestionCategories(
           stateifyQuestionData(WORK_AT_HEIGHT_QUESTION_DATA),
+        );
+        break;
+      }
+      case "workUsingLadders": {
+        setQuestionCategories(
+          stateifyQuestionData(WORK_USING_LADDERS_QUESTION_DATA),
         );
         break;
       }

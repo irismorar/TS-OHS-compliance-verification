@@ -27,6 +27,7 @@ import { LotoChecklistPage } from "./components/pages/LotoChecklistPage";
 import { LoadHandlingUsingManualPalletTruckChecklistPage } from "./components/pages/LoadHandlingUsingManualPalletTruckChecklistPage";
 import { ElectricalChecklistPage } from "./components/pages/ElectricalChecklistPage";
 import { WorkAtHeightChecklistPage } from "./components/pages/WorkAtHeightChecklistPage";
+import { WorkUsingLaddersChecklistPage } from "./components/pages/WorkUsingLaddersChecklistPage";
 
 export default function App() {
   const complianceVerificationData = useComplianceVerificationState();
@@ -52,6 +53,7 @@ export default function App() {
       />
       <ElectricalChecklistPage {...complianceVerificationData} />
       <WorkAtHeightChecklistPage {...complianceVerificationData} />
+      <WorkUsingLaddersChecklistPage {...complianceVerificationData} />
 
       <BiologicalAgentsChecklistPage {...complianceVerificationData} />
       <CancerousAgentsChecklistPage {...complianceVerificationData} />

@@ -27,6 +27,7 @@ export function useCurrentRoute() {
     | "loadHandlingUsingManualPalletTruckChecklist"
     | "electricalChecklist"
     | "workAtHeightChecklist"
+    | "workUsingLaddersChecklist"
     | "finalDocument"
   >("home");
 
@@ -126,6 +127,10 @@ export function useCurrentRoute() {
     setCurrentRoute("workAtHeightChecklist");
   };
 
+  const setWorkUsingLaddersChecklistPage = () => {
+    setCurrentRoute("workUsingLaddersChecklist");
+  };
+
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
@@ -156,6 +161,7 @@ export function useCurrentRoute() {
     setLoadHandlingUsingManualPalletTruckChecklistPage,
     setElectricalChecklistPage,
     setWorkAtHeightChecklistPage,
+    setWorkUsingLaddersChecklistPage,
     setDocumentPage,
   };
 }
