@@ -44,7 +44,7 @@ export function FormDocumentPage({
     <main className="min-h-screen bg-slate-200 px-6 py-10 text-slate-950 print:p-0">
       <section className="mx-auto max-w-275 bg-white p-10 shadow-2xl print:max-w-none print:p-0 print:shadow-none">
         {/* Header */}
-        <header className="mb-8 border-b-4 border-slate-900 pb-6 print:mb-5">
+        <header className="mb-10 border-b-4 border-slate-900 pb-6 print:mb-5">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
             Raport SSM
           </p>
@@ -60,7 +60,7 @@ export function FormDocumentPage({
         </header>
 
         {/* Unit details */}
-        <section className="mb-8 rounded-2xl border border-slate-300 bg-slate-50 p-6 print:break-inside-avoid print:rounded-none print:border-slate-400 print:p-4">
+        <section className="mb-10 rounded-2xl border border-slate-300 bg-slate-50 p-6 print:break-inside-avoid print:rounded-none print:border-slate-400 print:p-4">
           <h2 className="mb-4 text-xl font-bold uppercase text-slate-900 print:text-base">
             Date identificare
           </h2>
@@ -169,6 +169,27 @@ export function FormDocumentPage({
               </dd>
             </div>
           </dl>
+        </section>
+
+        <section className="mb-10 text-md font-bold text-slate-800 text-justify print:text-md print:text-base">
+          <p className="mb-3 border-b border-slate-400 pb-2 text-xl font-black uppercase text-slate-900 print:text-base">
+            Atenție!
+          </p>
+          <p>
+            În cazul unui pericol iminent de producere a unui eveniment,
+            procedura de siguranță indicată este următoarea:
+          </p>
+          <ol className="list-decimal px-4 print:px-4">
+            <li>Oprește imediat echipamentul sau acțiunea</li>
+            <li>
+              Atenționează de îndată lucrătorii din apropiere și anunță
+              conducătorul direct al locului de muncă
+            </li>
+            <li>
+              Efectuează retragerea într-o zonă sigură până la diminuarea
+              pericolului existent
+            </li>
+          </ol>
         </section>
 
         {/* Questions grouped by category */}
@@ -338,8 +359,22 @@ export function FormDocumentPage({
           </section>
         </section>
 
+        <section>
+          <p className="mb-3 border-b border-slate-400 pb-2 text-xl font-black uppercase text-slate-900 print:text-base">
+            Atenție!
+          </p>
+          <p className="mb-20 text-md font-bold text-slate-800 text-justify print:text-md">
+            Realizarea măsurilor de redresare a neconformităților stabilite în
+            prezentul raport de verificare, cad în sarcina reprezentantului
+            angajatorului și a conducătorului direct al locului de muncă. Aceste
+            măsuri vor fi obiectul unui plan de acțiuni analizat periodic de
+            conducerea unității și verificat de lucrătorul desemnat SSM, până la
+            realizarea măsurilor.
+          </p>
+        </section>
+
         {/* Signature area */}
-        <footer className="mt-12 grid grid-cols-2 gap-50 text-sm print:mt-10 print:text-xs">
+        <footer className="mt-12 mb-12 grid grid-cols-2 gap-50 text-sm print:mt-10 print:text-xs">
           <div>
             <p className="pt-2 font-bold">Reprezentanți SSM unitate</p>
             <p>{ssmWorkersNames || "Nume și semnătură"}</p>
