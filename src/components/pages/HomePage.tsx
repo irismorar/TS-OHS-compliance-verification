@@ -1,20 +1,29 @@
 import { UserInputUnitDetails } from "../ui/UserInputUnitDetails";
 import backgroundImage from "../../assets/OHS-backgroundImage.png";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
+import { useContext } from "react";
+import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function HomePage() {
+  const complianceVerificationContext = useContext(
+    ComplianceVerificationContext,
+  );
 
-export function HomePage({
-  currentRoute,
-  setVerificationChecklistsPage,
-  unitName,
-  setUnitName,
-  unitIdentificationNumber,
-  setUnitIdentificationNumber,
-  unitRegisteredOfficeAddress,
-  setUnitRegisteredOfficeAddress,
-  areUnitDetailsFilled,
-}: Props) {
+  if (!complianceVerificationContext) {
+    throw new Error("Must be inside a context provider!");
+  }
+
+  const {
+    currentRoute,
+    unitName,
+    setUnitName,
+    unitIdentificationNumber,
+    setUnitIdentificationNumber,
+    unitRegisteredOfficeAddress,
+    setUnitRegisteredOfficeAddress,
+    areUnitDetailsFilled,
+    setVerificationChecklistsPage,
+  } = complianceVerificationContext;
+
   if (currentRoute !== "home") {
     return null;
   }

@@ -1,42 +1,51 @@
 import { ChecklistSelectionButton } from "../ui/ChecklistSelectionButton";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
+import { useContext } from "react";
+import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function VerificationChecklistsPage() {
+  const complianceVerificationContext = useContext(
+    ComplianceVerificationContext,
+  );
 
-export function VerificationChecklistsPage({
-  currentRoute,
-  setWorkshopChecklistPage,
-  setWorkplaceChecklistPage,
-  setBiologicalAgentsChecklistPage,
-  setCancerousAgentsChecklistPage,
-  setChemicalAgentsChecklistPage,
-  setAtexChecklistPage,
-  setAsbestosCkecklistPage,
-  setElectromagneticFieldsCkecklistPage,
-  setManualHandlingChecklistPage,
-  setSharpToolsChecklistPage,
-  setOpticalRadiationChecklistPage,
-  setExtremeTemperaturesChecklistPage,
-  setVibrationChecklistPage,
-  setNoiseChecklistPage,
-  setInternalAuditChecklistPage,
-  setMaintenanceChecklistPage,
-  setManualHandlingOfLoadsAuditChecklistPage,
-  setWorkEquipmentChecklistPage,
-  setLoadHandlingUsingStackerTruckChecklistPage,
-  setLotoChecklistPage,
-  setLoadHandlingUsingManualPalletTruckChecklistPage,
-  setElectricalChecklistPage,
-  setWorkAtHeightChecklistPage,
-  setWorkUsingLaddersChecklistPage,
-  setMetalRackingChecklistPage,
-  setChemicalSubstanceChecklistPage,
-  setAdministrativeAreasChecklistPage,
-  setOfficeChecklistPage,
-  setOfficeEquipmentChecklistPage,
-  setHazardousAreasChecklistPage,
-  initChecklistQuestions,
-}: Props) {
+  if (!complianceVerificationContext) {
+    throw new Error("Must be inside a context provider!");
+  }
+
+  const {
+    currentRoute,
+    setWorkshopChecklistPage,
+    setWorkplaceChecklistPage,
+    setBiologicalAgentsChecklistPage,
+    setCancerousAgentsChecklistPage,
+    setChemicalAgentsChecklistPage,
+    setAtexChecklistPage,
+    setAsbestosCkecklistPage,
+    setElectromagneticFieldsCkecklistPage,
+    setManualHandlingChecklistPage,
+    setSharpToolsChecklistPage,
+    setOpticalRadiationChecklistPage,
+    setExtremeTemperaturesChecklistPage,
+    setVibrationChecklistPage,
+    setNoiseChecklistPage,
+    setInternalAuditChecklistPage,
+    setMaintenanceChecklistPage,
+    setManualHandlingOfLoadsAuditChecklistPage,
+    setWorkEquipmentChecklistPage,
+    setLoadHandlingUsingStackerTruckChecklistPage,
+    setLotoChecklistPage,
+    setLoadHandlingUsingManualPalletTruckChecklistPage,
+    setElectricalChecklistPage,
+    setWorkAtHeightChecklistPage,
+    setWorkUsingLaddersChecklistPage,
+    setMetalRackingChecklistPage,
+    setChemicalSubstanceChecklistPage,
+    setAdministrativeAreasChecklistPage,
+    setOfficeChecklistPage,
+    setOfficeEquipmentChecklistPage,
+    setHazardousAreasChecklistPage,
+    initChecklistQuestions,
+  } = complianceVerificationContext;
+
   if (currentRoute !== "verificationChecklists") {
     return null;
   }

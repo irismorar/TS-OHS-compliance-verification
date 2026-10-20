@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useCurrentRoute() {
   const [currentRoute, setCurrentRoute] = useState<
@@ -164,6 +164,10 @@ export function useCurrentRoute() {
   const setDocumentPage = () => {
     setCurrentRoute("finalDocument");
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [currentRoute]);
 
   return {
     currentRoute,
