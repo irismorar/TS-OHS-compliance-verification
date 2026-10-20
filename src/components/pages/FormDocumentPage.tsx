@@ -1,33 +1,42 @@
+import { useContext } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { RiskPieChart } from "../RiskPieChart/RiskPieChart";
+import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function FormDocumentPage() {
+  const complianceVerificationContext = useContext(
+    ComplianceVerificationContext,
+  );
 
-export function FormDocumentPage({
-  currentRoute,
+  if (!complianceVerificationContext) {
+    throw new Error("Must be inside a context provider!");
+  }
 
-  unitName,
-  unitIdentificationNumber,
-  unitRegisteredOfficeAddress,
+  const {
+    currentRoute,
 
-  questionCategories,
-  computeQuestionRiskFactor,
-  verifiedAreaName,
-  setVerifiedAreaName,
-  isEditingVerifiedArea,
-  setIsEditingVerifiedArea,
-  ssmWorkersNames,
-  setSsmWorkersName,
-  isEditingSsmWorkers,
-  setIsEditingSsmWorkers,
-  preparedBy,
-  setPreparedBy,
-  isEditingPreparedBy,
-  setIsEditingPreparedBy,
+    unitName,
+    unitIdentificationNumber,
+    unitRegisteredOfficeAddress,
 
-  computeRiskTotals,
-}: Props) {
+    questionCategories,
+    computeQuestionRiskFactor,
+    verifiedAreaName,
+    setVerifiedAreaName,
+    isEditingVerifiedArea,
+    setIsEditingVerifiedArea,
+    ssmWorkersNames,
+    setSsmWorkersName,
+    isEditingSsmWorkers,
+    setIsEditingSsmWorkers,
+    preparedBy,
+    setPreparedBy,
+    isEditingPreparedBy,
+    setIsEditingPreparedBy,
+
+    computeRiskTotals,
+  } = complianceVerificationContext;
+
   if (currentRoute !== "finalDocument") {
     return null;
   }

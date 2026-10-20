@@ -19,19 +19,19 @@ import { AdministrativeAreasChecklistPage } from "./components/pages/Administrat
 import { OfficeChecklistPage } from "./components/pages/OfficeChecklistPage";
 import { OfficeEquipmentChecklistPage } from "./components/pages/OfficeEquipmentChecklistPage";
 import { HazardousAreasChecklistPage } from "./components/pages/HazardousAreasChecklistPage";
-// import { BiologicalAgentsChecklistPage } from "./components/pages/BiologicalAgentsChecklistPage";
-// import { CancerousAgentsChecklistPage } from "./components/pages/CancerousAgentsChecklistPage";
-// import { ChemicalAgentsChecklistPage } from "./components/pages/ChemicalAgentsChecklistPage";
-// import { AtexChecklistPage } from "./components/pages/AtexChecklistPage";
-// import { AsbestosChecklistPage } from "./components/pages/AsbestosChecklistPage";
-// import { ElectromagneticFieldsChecklistPage } from "./components/pages/ElectromagneticFieldsCkecklistPage";
-// import { ManualHandlingChecklistPage } from "./components/pages/ManualHandlingChecklistPage";
-// import { SharpToolsChecklistPage } from "./components/pages/SharpToolsChecklistPage";
-// import { OpticalRadiationChecklistPage } from "./components/pages/OpticalRadiationChecklistPage";
-// import { ExtremeTemperaturesChecklistPage } from "./components/pages/ExtremeTemperaturesChecklistPage";
-// import { VibrationChecklistPage } from "./components/pages/VibrationChecklistPage";
-// import { NoiseChecklistPage } from "./components/pages/NoiseChecklistPage";
-// import { FormDocumentPage } from "./components/pages/FormDocumentPage";
+import { BiologicalAgentsChecklistPage } from "./components/pages/BiologicalAgentsChecklistPage";
+import { CancerousAgentsChecklistPage } from "./components/pages/CancerousAgentsChecklistPage";
+import { ChemicalAgentsChecklistPage } from "./components/pages/ChemicalAgentsChecklistPage";
+import { AtexChecklistPage } from "./components/pages/AtexChecklistPage";
+import { AsbestosChecklistPage } from "./components/pages/AsbestosChecklistPage";
+import { ElectromagneticFieldsChecklistPage } from "./components/pages/ElectromagneticFieldsCkecklistPage";
+import { ManualHandlingChecklistPage } from "./components/pages/ManualHandlingChecklistPage";
+import { SharpToolsChecklistPage } from "./components/pages/SharpToolsChecklistPage";
+import { OpticalRadiationChecklistPage } from "./components/pages/OpticalRadiationChecklistPage";
+import { ExtremeTemperaturesChecklistPage } from "./components/pages/ExtremeTemperaturesChecklistPage";
+import { VibrationChecklistPage } from "./components/pages/VibrationChecklistPage";
+import { NoiseChecklistPage } from "./components/pages/NoiseChecklistPage";
+import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 
 export default function App() {
   return (
@@ -56,19 +56,19 @@ export default function App() {
       <OfficeChecklistPage />
       <OfficeEquipmentChecklistPage />
       <HazardousAreasChecklistPage />
-      {/*<BiologicalAgentsChecklistPage {...complianceVerificationData} />
-      <CancerousAgentsChecklistPage {...complianceVerificationData} />
-      <ChemicalAgentsChecklistPage {...complianceVerificationData} />
-      <AtexChecklistPage {...complianceVerificationData} />
-      <AsbestosChecklistPage {...complianceVerificationData} />
-      <ElectromagneticFieldsChecklistPage {...complianceVerificationData} />
-      <ManualHandlingChecklistPage {...complianceVerificationData} />
-      <SharpToolsChecklistPage {...complianceVerificationData} />
-      <OpticalRadiationChecklistPage {...complianceVerificationData} />
-      <ExtremeTemperaturesChecklistPage {...complianceVerificationData} />
-      <VibrationChecklistPage {...complianceVerificationData} />
-      <NoiseChecklistPage {...complianceVerificationData} />
-      <FormDocumentPage {...complianceVerificationData} /> */}
+      <BiologicalAgentsChecklistPage />
+      <CancerousAgentsChecklistPage />
+      <ChemicalAgentsChecklistPage />
+      <AtexChecklistPage />
+      <AsbestosChecklistPage />
+      <ElectromagneticFieldsChecklistPage />
+      <ManualHandlingChecklistPage />
+      <SharpToolsChecklistPage />
+      <OpticalRadiationChecklistPage />
+      <ExtremeTemperaturesChecklistPage />
+      <VibrationChecklistPage />
+      <NoiseChecklistPage />
+      <FormDocumentPage />
     </main>
   );
 }

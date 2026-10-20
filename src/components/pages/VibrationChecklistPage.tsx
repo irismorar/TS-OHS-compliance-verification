@@ -1,29 +1,37 @@
 import { createPortal } from "react-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 import { RiskTable } from "../RiskTable/RiskTable";
+import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function VibrationChecklistPage() {
+  const complianceVerificationContext = useContext(
+    ComplianceVerificationContext,
+  );
 
-export function VibrationChecklistPage({
-  currentRoute,
-  questionCategories,
-  firstUnansweredQuestionCategoryIndex,
-  firstUnansweredQuestionIndex,
-  areAllQuestionsAnswered,
-  firstUnansweredQuestionRef,
-  setVerificationChecklistsPage,
-  setDocumentPage,
-  computeQuestionRiskFactor,
-  setQuestionAnswer,
-  setQuestionSeverity,
-  setQuestionProbability,
-  setQuestionAdditionalNotes,
-}: Props) {
+  if (!complianceVerificationContext) {
+    throw new Error("Must be inside a context provider!");
+  }
+
+  const {
+    currentRoute,
+    questionCategories,
+    firstUnansweredQuestionCategoryIndex,
+    firstUnansweredQuestionIndex,
+    areAllQuestionsAnswered,
+    firstUnansweredQuestionRef,
+    setVerificationChecklistsPage,
+    setDocumentPage,
+    computeQuestionRiskFactor,
+    setQuestionAnswer,
+    setQuestionSeverity,
+    setQuestionProbability,
+    setQuestionAdditionalNotes,
+  } = complianceVerificationContext;
+
   const [activeRiskTable, setActiveRiskTable] = useState<{
     categoryIndex: number;
     questionIndex: number;
