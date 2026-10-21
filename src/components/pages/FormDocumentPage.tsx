@@ -1,16 +1,9 @@
-import { useContext } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import { RiskPieChart } from "../RiskPieChart/RiskPieChart";
-import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
 export function FormDocumentPage() {
-  const complianceVerificationContext = useContext(
-    ComplianceVerificationContext,
-  );
-
-  if (!complianceVerificationContext) {
-    throw new Error("Must be inside a context provider!");
-  }
+  const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
     currentRoute,

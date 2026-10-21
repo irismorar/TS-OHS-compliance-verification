@@ -1,16 +1,9 @@
 import { UserInputUnitDetails } from "../ui/UserInputUnitDetails";
 import backgroundImage from "../../assets/OHS-backgroundImage.png";
-import { useContext } from "react";
-import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
 export function HomePage() {
-  const complianceVerificationContext = useContext(
-    ComplianceVerificationContext,
-  );
-
-  if (!complianceVerificationContext) {
-    throw new Error("Must be inside a context provider!");
-  }
+  const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
     currentRoute,

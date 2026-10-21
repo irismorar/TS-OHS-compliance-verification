@@ -1,20 +1,14 @@
 import { createPortal } from "react-dom";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 import { RiskTable } from "../RiskTable/RiskTable";
-import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
 export function WorkUsingLaddersChecklistPage() {
-  const complianceVerificationContext = useContext(
-    ComplianceVerificationContext,
-  );
-
-  if (!complianceVerificationContext) {
-    throw new Error("Must be inside a context provider!");
-  }
+  const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
     currentRoute,

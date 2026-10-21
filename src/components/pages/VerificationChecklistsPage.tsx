@@ -1,15 +1,8 @@
 import { ChecklistSelectionButton } from "../ui/ChecklistSelectionButton";
-import { useContext } from "react";
-import { ComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
 export function VerificationChecklistsPage() {
-  const complianceVerificationContext = useContext(
-    ComplianceVerificationContext,
-  );
-
-  if (!complianceVerificationContext) {
-    throw new Error("Must be inside a context provider!");
-  }
+  const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
     currentRoute,
