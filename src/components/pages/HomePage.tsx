@@ -1,20 +1,22 @@
 import { UserInputUnitDetails } from "../ui/UserInputUnitDetails";
 import backgroundImage from "../../assets/OHS-backgroundImage.png";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function HomePage() {
+  const complianceVerificationContext = useComplianceVerificationContext();
 
-export function HomePage({
-  currentRoute,
-  setVerificationChecklistsPage,
-  unitName,
-  setUnitName,
-  unitIdentificationNumber,
-  setUnitIdentificationNumber,
-  unitRegisteredOfficeAddress,
-  setUnitRegisteredOfficeAddress,
-  areUnitDetailsFilled,
-}: Props) {
+  const {
+    currentRoute,
+    unitName,
+    setUnitName,
+    unitIdentificationNumber,
+    setUnitIdentificationNumber,
+    unitRegisteredOfficeAddress,
+    setUnitRegisteredOfficeAddress,
+    areUnitDetailsFilled,
+    setVerificationChecklistsPage,
+  } = complianceVerificationContext;
+
   if (currentRoute !== "home") {
     return null;
   }

@@ -1,29 +1,31 @@
 import { createPortal } from "react-dom";
 import { useState } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 import { RiskTable } from "../RiskTable/RiskTable";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function ManualHandlingChecklistPage() {
+  const complianceVerificationContext = useComplianceVerificationContext();
 
-export function ManualHandlingChecklistPage({
-  currentRoute,
-  questionCategories,
-  firstUnansweredQuestionCategoryIndex,
-  firstUnansweredQuestionIndex,
-  areAllQuestionsAnswered,
-  firstUnansweredQuestionRef,
-  setVerificationChecklistsPage,
-  setDocumentPage,
-  computeQuestionRiskFactor,
-  setQuestionAnswer,
-  setQuestionSeverity,
-  setQuestionProbability,
-  setQuestionAdditionalNotes,
-}: Props) {
+  const {
+    currentRoute,
+    questionCategories,
+    firstUnansweredQuestionCategoryIndex,
+    firstUnansweredQuestionIndex,
+    areAllQuestionsAnswered,
+    firstUnansweredQuestionRef,
+    setVerificationChecklistsPage,
+    setDocumentPage,
+    computeQuestionRiskFactor,
+    setQuestionAnswer,
+    setQuestionSeverity,
+    setQuestionProbability,
+    setQuestionAdditionalNotes,
+  } = complianceVerificationContext;
+
   const [activeRiskTable, setActiveRiskTable] = useState<{
     categoryIndex: number;
     questionIndex: number;

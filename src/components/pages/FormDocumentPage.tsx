@@ -1,33 +1,35 @@
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
 import { RiskPieChart } from "../RiskPieChart/RiskPieChart";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function FormDocumentPage() {
+  const complianceVerificationContext = useComplianceVerificationContext();
 
-export function FormDocumentPage({
-  currentRoute,
+  const {
+    currentRoute,
 
-  unitName,
-  unitIdentificationNumber,
-  unitRegisteredOfficeAddress,
+    unitName,
+    unitIdentificationNumber,
+    unitRegisteredOfficeAddress,
 
-  questionCategories,
-  computeQuestionRiskFactor,
-  verifiedAreaName,
-  setVerifiedAreaName,
-  isEditingVerifiedArea,
-  setIsEditingVerifiedArea,
-  ssmWorkersNames,
-  setSsmWorkersName,
-  isEditingSsmWorkers,
-  setIsEditingSsmWorkers,
-  preparedBy,
-  setPreparedBy,
-  isEditingPreparedBy,
-  setIsEditingPreparedBy,
+    questionCategories,
+    computeQuestionRiskFactor,
+    verifiedAreaName,
+    setVerifiedAreaName,
+    isEditingVerifiedArea,
+    setIsEditingVerifiedArea,
+    ssmWorkersNames,
+    setSsmWorkersName,
+    isEditingSsmWorkers,
+    setIsEditingSsmWorkers,
+    preparedBy,
+    setPreparedBy,
+    isEditingPreparedBy,
+    setIsEditingPreparedBy,
 
-  computeRiskTotals,
-}: Props) {
+    computeRiskTotals,
+  } = complianceVerificationContext;
+
   if (currentRoute !== "finalDocument") {
     return null;
   }

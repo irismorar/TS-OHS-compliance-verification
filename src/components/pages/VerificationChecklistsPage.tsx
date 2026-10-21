@@ -1,42 +1,44 @@
 import { ChecklistSelectionButton } from "../ui/ChecklistSelectionButton";
-import type { useComplianceVerificationState } from "../../useComplianceVerificationState";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = ReturnType<typeof useComplianceVerificationState>;
+export function VerificationChecklistsPage() {
+  const complianceVerificationContext = useComplianceVerificationContext();
 
-export function VerificationChecklistsPage({
-  currentRoute,
-  setWorkshopChecklistPage,
-  setWorkplaceChecklistPage,
-  setBiologicalAgentsChecklistPage,
-  setCancerousAgentsChecklistPage,
-  setChemicalAgentsChecklistPage,
-  setAtexChecklistPage,
-  setAsbestosCkecklistPage,
-  setElectromagneticFieldsCkecklistPage,
-  setManualHandlingChecklistPage,
-  setSharpToolsChecklistPage,
-  setOpticalRadiationChecklistPage,
-  setExtremeTemperaturesChecklistPage,
-  setVibrationChecklistPage,
-  setNoiseChecklistPage,
-  setInternalAuditChecklistPage,
-  setMaintenanceChecklistPage,
-  setManualHandlingOfLoadsAuditChecklistPage,
-  setWorkEquipmentChecklistPage,
-  setLoadHandlingUsingStackerTruckChecklistPage,
-  setLotoChecklistPage,
-  setLoadHandlingUsingManualPalletTruckChecklistPage,
-  setElectricalChecklistPage,
-  setWorkAtHeightChecklistPage,
-  setWorkUsingLaddersChecklistPage,
-  setMetalRackingChecklistPage,
-  setChemicalSubstanceChecklistPage,
-  setAdministrativeAreasChecklistPage,
-  setOfficeChecklistPage,
-  setOfficeEquipmentChecklistPage,
-  setHazardousAreasChecklistPage,
-  initChecklistQuestions,
-}: Props) {
+  const {
+    currentRoute,
+    setWorkshopChecklistPage,
+    setWorkplaceChecklistPage,
+    setBiologicalAgentsChecklistPage,
+    setCancerousAgentsChecklistPage,
+    setChemicalAgentsChecklistPage,
+    setAtexChecklistPage,
+    setAsbestosCkecklistPage,
+    setElectromagneticFieldsCkecklistPage,
+    setManualHandlingChecklistPage,
+    setSharpToolsChecklistPage,
+    setOpticalRadiationChecklistPage,
+    setExtremeTemperaturesChecklistPage,
+    setVibrationChecklistPage,
+    setNoiseChecklistPage,
+    setInternalAuditChecklistPage,
+    setMaintenanceChecklistPage,
+    setManualHandlingOfLoadsAuditChecklistPage,
+    setWorkEquipmentChecklistPage,
+    setLoadHandlingUsingStackerTruckChecklistPage,
+    setLotoChecklistPage,
+    setLoadHandlingUsingManualPalletTruckChecklistPage,
+    setElectricalChecklistPage,
+    setWorkAtHeightChecklistPage,
+    setWorkUsingLaddersChecklistPage,
+    setMetalRackingChecklistPage,
+    setChemicalSubstanceChecklistPage,
+    setAdministrativeAreasChecklistPage,
+    setOfficeChecklistPage,
+    setOfficeEquipmentChecklistPage,
+    setHazardousAreasChecklistPage,
+    initChecklistQuestions,
+  } = complianceVerificationContext;
+
   if (currentRoute !== "verificationChecklists") {
     return null;
   }
