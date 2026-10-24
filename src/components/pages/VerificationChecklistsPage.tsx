@@ -50,9 +50,9 @@ export function VerificationChecklistsPage() {
           Selectează lista de verificare
         </h1>
 
-        <p className="mt-2 text-lg text-slate-500">
-          Alege categoria pentru care dorești să efectuezi verificarea SSM:
-        </p>
+        <h2 className="mt-10 mb-5 text-2xl font-semibold text-slate-500 col-span-2">
+          Liste de verificare (de ce fel???)
+        </h2>
 
         <ul className="mt-5 space-y-4">
           <li>
@@ -223,12 +223,13 @@ export function VerificationChecklistsPage() {
               checklistSelectionName={"zone periculoase"}
             />
           </li>
+        </ul>
 
-          <li>
-            <h2 className="mt-15 mb-5 text-lg text-slate-500">
-              Verificare generală SSM a riscurilor specifice:
-            </h2>
-          </li>
+        <h2 className="mt-15 mb-5 text-2xl font-semibold text-slate-500 col-span-2">
+          Liste de verificare a riscurilor specifice
+        </h2>
+
+        <ul className="space-y-4">
           <li>
             <ChecklistSelectionButton
               handleClick={() => {

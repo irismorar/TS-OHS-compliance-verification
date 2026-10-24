@@ -1,6 +1,10 @@
 import { createPortal } from "react-dom";
 import { useState } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
+import {
+  PROBABILITY_LABELS,
+  SEVERITY_LABELS,
+} from "../RiskTable/RISK_TABLE_LABELS";
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
@@ -113,6 +117,9 @@ export function OfficeEquipmentChecklistPage() {
                 const measuresPriorityLevel =
                   getMeasuresPriorityLevel(riskFactor);
 
+                const showAdditionalNotesInput =
+                  riskFactor === "EXTREM" || riskFactor === "MEDIU";
+
                 return (
                   <QuestionCard
                     key={questionIndex}
@@ -196,22 +203,26 @@ export function OfficeEquipmentChecklistPage() {
                     {activeRiskTable === null &&
                       probability !== null &&
                       severity !== null && (
-                        <>
+                        <div className="grid grid-cols-2 gap-4 mt-4">
                           {/* QUESTION RISK ASSESSMENT */}
-                          <div className="flex items-center gap-4 mt-3 p-4">
-                            <div className="w-48">
-                              <span className="mr-2">Gravitate:</span>
-                              <span className="rounded-lg border border-slate-300 bg-white px-3 py-1 font-semibold">
-                                {severity ?? ""}
+                          <div
+                            className={`flex flex-col gap-4 border border-slate-300 p-4 rounded-lg shadow-lg bg-gray-300 ${
+                              showAdditionalNotesInput ? "" : "col-span-2"
+                            }`}
+                          >
+                            <div>
+                              <span>Gravitate: </span>
+                              <span className="rounded-lg font-bold text-blue-700">
+                                {SEVERITY_LABELS[severity]}
                               </span>
                             </div>
-                            <div className="w-48">
-                              <span className="mr-2">Probabilitate:</span>
-                              <span className="rounded-lg border border-slate-300 bg-white px-3 py-1 font-semibold">
-                                {probability ?? ""}
+                            <div>
+                              <span>Probabilitate: </span>
+                              <span className="rounded-lg font-bold text-blue-700">
+                                {PROBABILITY_LABELS[probability]}
                               </span>
                             </div>
-                            <div className="flex-1">
+                            <div>
                               {riskFactor !== null && (
                                 <>
                                   Nivel risc:{" "}
@@ -225,50 +236,43 @@ export function OfficeEquipmentChecklistPage() {
                             </div>
                           </div>
 
-                          {measuresPriorityLevel !== null && (
-                            <>
-                              {/* QUESTION MEASURES*/}
-                              <div
-                                className={`mt-4 rounded-xl p-4 text-sm font-bold shadow-lg ${riskFactorBadgeClass}`}
-                              >
-                                <div>
-                                  <span className="uppercase">
-                                    {measuresPriorityLevel}:
-                                  </span>
-                                  <p className="mt-3 font-medium">
-                                    {questionAnswer
-                                      ? QUESTION_DEFAULT_ANSWER
-                                      : safetyMeasure}
-                                  </p>
-                                </div>
-                              </div>
-                            </>
+                          {/* QUESTION ADDITIONAL NOTE */}
+                          {showAdditionalNotesInput && (
+                            <textarea
+                              id={`additionalNotes-${categoryIndex}-${questionIndex}`}
+                              value={additionalNotes ?? ""}
+                              onChange={(event) => {
+                                setQuestionAdditionalNotes(
+                                  categoryIndex,
+                                  questionIndex,
+                                  event.target.value,
+                                );
+                              }}
+                              placeholder="Adaugă observații..."
+                              className={
+                                "w-full h-37 rounded-lg border border-slate-300 bg-white p-4 text-sm shadow-lg focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                              }
+                            />
                           )}
 
-                          {(riskFactor === "EXTREM" ||
-                            riskFactor === "MEDIU") && (
-                            <>
-                              {/* QUESTION ADDITIONAL NOTE */}
-                              <textarea
-                                id={`additionalNotes-${categoryIndex}-${questionIndex}`}
-                                rows={2}
-                                cols={65}
-                                value={additionalNotes ?? ""}
-                                onChange={(event) => {
-                                  setQuestionAdditionalNotes(
-                                    categoryIndex,
-                                    questionIndex,
-                                    event.target.value,
-                                  );
-                                }}
-                                placeholder="Adaugă observații..."
-                                className={
-                                  "w-full mt-4 rounded-lg border border-slate-300 bg-white p-4 text-sm shadow-lg focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                                }
-                              />
-                            </>
+                          {/* QUESTION MEASURES */}
+                          {measuresPriorityLevel !== null && (
+                            <div
+                              className={`col-span-2 rounded-xl p-4 text-sm font-bold shadow-lg ${riskFactorBadgeClass}`}
+                            >
+                              <div>
+                                <span className="uppercase">
+                                  {measuresPriorityLevel}:
+                                </span>
+                                <p className="mt-3 font-medium">
+                                  {questionAnswer
+                                    ? QUESTION_DEFAULT_ANSWER
+                                    : safetyMeasure}
+                                </p>
+                              </div>
+                            </div>
                           )}
-                        </>
+                        </div>
                       )}
                   </QuestionCard>
                 );
