@@ -25,16 +25,15 @@ export function RiskTableDisplayHeading({
 }
 
 const riskTableDisplayHeadingVariants = cva(
-  ["w-10 h-10 text-center align-middle font-semibold"],
+  ["w-20 h-20 text-center align-middle font-semibold text-xs italic"],
   {
     variants: {
       isHighlighted: {
         false: null,
-        true: ["bg-slate-400/70 text-blue-600"],
       },
       isLockedIn: {
         false: null,
-        true: ["bg-blue-500 text-white"],
+        true: ["bg-slate-700 text-white"],
       },
     },
     compoundVariants: [
@@ -42,6 +41,16 @@ const riskTableDisplayHeadingVariants = cva(
         isHighlighted: false,
         isLockedIn: false,
         className: ["bg-slate-400 text-slate-300 border border-slate-200"],
+      },
+      {
+        isHighlighted: true,
+        isLockedIn: true,
+        className: ["bg-slate-700 text-slate-300 border border-slate-200"],
+      },
+      {
+        isHighlighted: true,
+        isLockedIn: false,
+        className: ["bg-slate-400/70 text-slate-700 border border-slate-200"],
       },
     ],
   },
