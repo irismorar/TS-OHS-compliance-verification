@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export function useCurrentRoute() {
   const [currentRoute, setCurrentRoute] = useState<
+    | "startApp"
     | "home"
     | "verificationChecklists"
     | "workshopChecklist"
@@ -35,7 +36,11 @@ export function useCurrentRoute() {
     | "officeEquipmentChecklist"
     | "hazardousAreasChecklist"
     | "finalDocument"
-  >("home");
+  >("startApp");
+
+  const setHomePage = () => {
+    setCurrentRoute("home");
+  };
 
   const setVerificationChecklistsPage = () => {
     setCurrentRoute("verificationChecklists");
@@ -171,6 +176,7 @@ export function useCurrentRoute() {
 
   return {
     currentRoute,
+    setHomePage,
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,

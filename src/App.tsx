@@ -1,4 +1,5 @@
 import "./App.css";
+import { StartAppPage } from "./components/pages/StartAppPage";
 import { HomePage } from "./components/pages/HomePage";
 import { VerificationChecklistsPage } from "./components/pages/VerificationChecklistsPage";
 import { WorkplaceChecklistPage } from "./components/pages/WorkplaceChecklistPage";
@@ -35,7 +36,8 @@ import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 
 export default function App() {
   return (
-    <main className="max-h-dvh select-none">
+    <main className="min-h-dvh select-none bg-fixed bg-[linear-gradient(to_bottom,#c4d8f0_0%,#96b9e6_25%,#6798d8_50%,#386eb8_75%,#173f76_100%)]">
+      <StartAppPage />
       <HomePage />
       <VerificationChecklistsPage />
       <WorkplaceChecklistPage />
