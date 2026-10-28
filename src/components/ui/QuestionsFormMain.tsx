@@ -14,25 +14,25 @@ export function QuestionsFormMain({
   handleClickForward,
 }: QuestionsFormProps) {
   return (
-    <main className="min-h-screen pb-25 flex items-center justify-center bg-slate-150">
-      <section className="relative mx-auto w-full max-w-6xl">
+    <main className="flex w-full flex-col items-center px-5 pb-16 sm:px-8">
+      <section className="mx-auto w-full max-w-6xl">
         <button
           onClick={handleClickBack}
-          className="absolute flex gap-1 -top-15 right-10 text-md text-slate-300 text-sm mt-5 rounded-xl border border-slate-300 bg-slate-100/10 px-3 py-1 shadow-sm transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium hover:bg-slate-100/80"
+          className="mb-4 flex items-center gap-1 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 shadow-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400/60 hover:bg-blue-600 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300"
         >
           <ChevronsLeft />
-          <span>înapoi</span>
+          <span className="uppercase">înapoi la listele de verificare</span>
         </button>
 
-        <section className="mx-auto w-full max-w-6xl rounded-3xl bg-slate-200 p-10 shadow-xl">
+        <section className="mx-auto w-full max-w-6xl rounded-3xl border border-white/20 bg-linear-to-br from-slate-950/60 via-slate-900/40 to-blue-950/50 px-6 py-8 shadow-2xl shadow-blue-950/20 backdrop-blur-md sm:px-12 sm:py-10">
           {children}
         </section>
 
         <button
           onClick={handleClickForward}
-          className="absolute flex gap-1 -bottom-10 right-10 text-md text-slate-300 text-sm rounded-xl border border-slate-300 bg-slate-100/10 px-3 py-1 shadow-sm transition-all duration-100 hover:text-blue-600 hover:scale-105 hover:font-medium hover:bg-slate-100/80"
+          className="ml-auto mt-6 flex items-center gap-1 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 shadow-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400/60 hover:bg-blue-600 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300"
         >
-          <span>înainte</span>
+          <span className="uppercase">generează raport</span>
           <ChevronsRight />
         </button>
       </section>

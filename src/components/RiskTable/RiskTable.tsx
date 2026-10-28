@@ -54,18 +54,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
   }
 
   return (
-    <div className="relative grid grid-cols-[auto_1fr] w-fit scale-125 rounded-2xl bg-slate-50 p-0 shadow-2xl">
-      <button
-        type="button"
-        aria-label="Închide"
-        onClick={() => {
-          setIsOpen(false);
-          onClose();
-        }}
-        className="absolute -top-7 -right-7 flex items-center justify-center text-white text-3xl bg-transparent border-0 font-bold transition hover:scale-120 hover:text-red-700"
-      >
-        ×
-      </button>
+    <div className="relative grid grid-cols-[auto_1fr] w-fit scale-125 rounded-2xl border border-white/20 bg-linear-to-br from-slate-600 via-slate-600 to-slate-500 p-0 text-slate-100 shadow-2xl shadow-blue-950/30">
       <div className="col-span-2 flex">
         <span className="w-40"></span>
         <div className="w-80 h-10 flex items-center justify-center">
@@ -320,9 +309,12 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
         </tbody>
       </table>
 
-      <div className="col-span-2 flex items-center justify-center gap-4">
+      <div className="col-span-2 flex items-center justify-center gap-3 px-4 py-2">
         <button
+          type="button"
           aria-label="salvează"
+          disabled={!lockedSeverity || !lockedProbability}
+          className="uppercase rounded-lg border border-blue-400/40 bg-blue-600 px-4 py-1.5 text-xs font-semibold tracking-wide text-white shadow-md shadow-blue-950/20 transition-all duration-200 enabled:hover:-translate-y-0.5 enabled:hover:bg-blue-500 enabled:hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-slate-400/30 disabled:text-slate-300 disabled:shadow-none"
           onClick={() => {
             if (lockedSeverity && lockedProbability) {
               onCommitRiskValues(lockedSeverity, lockedProbability);
@@ -334,12 +326,12 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
           salvează
         </button>
         <button
+          type="button"
           aria-label="anulează"
+          className="uppercase rounded-lg border border-red-400/60 bg-red-500/20 px-4 py-1.5 text-xs font-semibold tracking-wide text-red-100 shadow-sm transition-all duration-200 enabled:hover:-translate-y-0.5 enabled:hover:border-red-300 enabled:hover:bg-red-600 enabled:hover:text-white enabled:hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/5 disabled:text-slate-500 disabled:shadow-none"
           onClick={() => {
-            onCommitRiskValues(null, null);
-            setLockedSeverity(null);
-            setLockedProbability(null);
-            setIsOpen(true);
+            setIsOpen(false);
+            onClose();
           }}
         >
           anulează

@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import {
   PROBABILITY_LABELS,
@@ -8,6 +8,7 @@ import {
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
+import { QuestionsProgressBar } from "../ui/QuestionsProgressBar";
 import { RiskTable } from "../RiskTable/RiskTable";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
@@ -33,7 +34,26 @@ export function HazardousAreasChecklistPage() {
   const [activeRiskTable, setActiveRiskTable] = useState<{
     categoryIndex: number;
     questionIndex: number;
+    pendingAnswer: boolean;
   } | null>(null);
+
+  const questionToScrollToRef = useRef<{
+    categoryIndex: number;
+    questionIndex: number;
+  } | null>(null);
+
+  // Runs after the risk table closes, so the card already shows its risk summary
+  useEffect(() => {
+    if (questionToScrollToRef.current === null) {
+      return;
+    }
+
+    const { categoryIndex, questionIndex } = questionToScrollToRef.current;
+    questionToScrollToRef.current = null;
+    document
+      .getElementById(`question-${categoryIndex}-${questionIndex}`)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
   if (currentRoute !== "hazardousAreasChecklist") {
     return null;
@@ -41,6 +61,7 @@ export function HazardousAreasChecklistPage() {
 
   return (
     <>
+      <QuestionsProgressBar questionCategories={questionCategories} />
       <QuestionsFormHeader checklistSelectionName="zone periculoase" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}
@@ -63,7 +84,7 @@ export function HazardousAreasChecklistPage() {
 
           return (
             <section key={categoryIndex} className="mt-10">
-              <h2 className="mb-6 pb-3 text-2xl font-bold text-slate-800">
+              <h2 className="mb-6 border-b border-white/15 pb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-200">
                 {categoryName}
               </h2>
               {questions.map((question, questionIndex) => {
@@ -86,11 +107,11 @@ export function HazardousAreasChecklistPage() {
                 ): string => {
                   switch (risk) {
                     case "SCĂZUT":
-                      return "bg-green-100 text-green-700";
+                      return "border border-green-400/40 bg-green-400/20 text-green-200";
                     case "MEDIU":
-                      return "bg-amber-100 text-amber-500";
+                      return "border border-amber-400/40 bg-amber-400/20 text-amber-200";
                     case "EXTREM":
-                      return "bg-red-100 text-red-700";
+                      return "border border-red-400/40 bg-red-400/20 text-red-200";
                     default:
                       return "";
                   }
@@ -123,6 +144,7 @@ export function HazardousAreasChecklistPage() {
                 return (
                   <QuestionCard
                     key={questionIndex}
+                    id={`question-${categoryIndex}-${questionIndex}`}
                     unansweredQuestionRef={
                       firstUnansweredQuestionCategoryIndex === categoryIndex &&
                       firstUnansweredQuestionIndex === questionIndex
@@ -132,37 +154,29 @@ export function HazardousAreasChecklistPage() {
                   >
                     {/* QUESTION TEXT AND YES/NO BUTTONS */}
                     <div className="flex items-center gap-4">
-                      <p className="flex-1 text-lg font-medium leading-relaxed text-slate-900">
+                      <p className="flex-1 text-base font-medium leading-relaxed text-white sm:text-lg">
                         {questionText}
                       </p>
                       <div className="w-32 flex gap-1">
                         <button
-                          className={`flex-1 rounded-xl py-2.5 font-bold text-white uppercase transition-all duration-200 ${questionAnswer === true ? "bg-green-500 shadow-lg" : "bg-gray-300 hover:text-green-500 "}`}
+                          className={`flex-1 rounded-xl py-2.5 text-sm font-bold uppercase transition-all duration-200 ${questionAnswer === true ? "bg-green-500 text-white shadow-lg" : "border border-white/40 bg-white/30 text-white hover:-translate-y-0.5 hover:border-white/70 hover:bg-white/50"}`}
                           onClick={() => {
-                            setQuestionAnswer(
-                              categoryIndex,
-                              questionIndex,
-                              true,
-                            );
                             setActiveRiskTable({
                               categoryIndex,
                               questionIndex,
+                              pendingAnswer: true,
                             });
                           }}
                         >
                           da
                         </button>
                         <button
-                          className={`flex-1 rounded-xl py-2.5 font-bold text-white uppercase transition-all duration-200 ${questionAnswer === false ? "bg-red-500 shadow-lg" : "bg-gray-300 hover:text-red-500"}`}
+                          className={`flex-1 rounded-xl py-2.5 text-sm font-bold uppercase transition-all duration-200 ${questionAnswer === false ? "bg-red-500 text-white shadow-lg" : "border border-white/40 bg-white/30 text-white hover:-translate-y-0.5 hover:border-white/70 hover:bg-white/50"}`}
                           onClick={() => {
-                            setQuestionAnswer(
-                              categoryIndex,
-                              questionIndex,
-                              false,
-                            );
                             setActiveRiskTable({
                               categoryIndex,
                               questionIndex,
+                              pendingAnswer: false,
                             });
                           }}
                         >
@@ -174,12 +188,24 @@ export function HazardousAreasChecklistPage() {
                     {activeRiskTable?.categoryIndex === categoryIndex &&
                       activeRiskTable?.questionIndex === questionIndex &&
                       createPortal(
-                        <section className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                        <section className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 backdrop-blur-sm">
                           <RiskTable
                             onCommitRiskValues={(
                               newSeverity,
                               newProbability,
                             ) => {
+                              if (
+                                newSeverity === null ||
+                                newProbability === null
+                              ) {
+                                return;
+                              }
+
+                              setQuestionAnswer(
+                                categoryIndex,
+                                questionIndex,
+                                activeRiskTable.pendingAnswer,
+                              );
                               setQuestionSeverity(
                                 categoryIndex,
                                 questionIndex,
@@ -190,11 +216,15 @@ export function HazardousAreasChecklistPage() {
                                 questionIndex,
                                 newProbability,
                               );
+                              questionToScrollToRef.current = {
+                                categoryIndex,
+                                questionIndex,
+                              };
                             }}
                             onClose={() => {
                               setActiveRiskTable(null);
                             }}
-                            userAnswer={questionAnswer}
+                            userAnswer={activeRiskTable.pendingAnswer}
                           />
                         </section>,
                         document.body,
@@ -206,19 +236,19 @@ export function HazardousAreasChecklistPage() {
                         <div className="grid grid-cols-2 gap-4 mt-4">
                           {/* QUESTION RISK ASSESSMENT */}
                           <div
-                            className={`flex flex-col gap-4 border border-slate-300 p-4 rounded-lg shadow-lg bg-gray-300 ${
+                            className={`flex flex-col gap-4 rounded-xl border border-white/10 bg-slate-950/30 p-4 text-slate-200 ${
                               showAdditionalNotesInput ? "" : "col-span-2"
                             }`}
                           >
                             <div>
                               <span>Gravitate: </span>
-                              <span className="rounded-lg font-bold text-blue-700">
+                              <span className="rounded-lg font-bold text-blue-300">
                                 {SEVERITY_LABELS[severity]}
                               </span>
                             </div>
                             <div>
                               <span>Probabilitate: </span>
-                              <span className="rounded-lg font-bold text-blue-700">
+                              <span className="rounded-lg font-bold text-blue-300">
                                 {PROBABILITY_LABELS[probability]}
                               </span>
                             </div>
@@ -227,7 +257,7 @@ export function HazardousAreasChecklistPage() {
                                 <>
                                   Nivel risc:{" "}
                                   <span
-                                    className={`rounded-lg px-3 py-1 text-sm font-bold shadow-md ${riskFactorBadgeClass}`}
+                                    className={`rounded-lg px-3 py-1 text-sm font-bold ${riskFactorBadgeClass}`}
                                   >
                                     {riskFactor}
                                   </span>
@@ -250,7 +280,7 @@ export function HazardousAreasChecklistPage() {
                               }}
                               placeholder="Adaugă observații..."
                               className={
-                                "w-full h-37 rounded-lg border border-slate-300 bg-white p-4 text-sm shadow-lg focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                "h-37 w-full rounded-xl border border-white/20 bg-white/90 p-4 text-sm text-slate-900 shadow-sm transition-all duration-200 placeholder:text-slate-500 hover:bg-white focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-300"
                               }
                             />
                           )}
@@ -258,7 +288,7 @@ export function HazardousAreasChecklistPage() {
                           {/* QUESTION MEASURES */}
                           {measuresPriorityLevel !== null && (
                             <div
-                              className={`col-span-2 rounded-xl p-4 text-sm font-bold shadow-lg ${riskFactorBadgeClass}`}
+                              className={`col-span-2 rounded-xl p-4 text-sm font-bold ${riskFactorBadgeClass}`}
                             >
                               <div>
                                 <span className="uppercase">

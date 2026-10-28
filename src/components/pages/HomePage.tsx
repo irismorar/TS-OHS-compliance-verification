@@ -19,7 +19,7 @@ export function HomePage() {
       label: "Denumire unitate",
       value: unitName,
       onChange: setUnitName,
-      minLength: 6,
+      minLength: 5,
       maxLength: 37,
       placeholder: "Ex.: SC ___ SRL",
     },
@@ -37,7 +37,7 @@ export function HomePage() {
       label: "Adresă sediu",
       value: unitRegisteredOfficeAddress,
       onChange: setUnitRegisteredOfficeAddress,
-      minLength: 8,
+      minLength: 3,
       maxLength: 70,
       placeholder: "Ex.: str. ___ nr. ___ loc. ___ jud. ___",
     },
@@ -63,6 +63,10 @@ export function HomePage() {
 
             <p className="mt-3 text-sm text-slate-200 sm:text-base">
               Introduceți datele de identificare pentru a începe verificarea.
+              <br />
+              <em className="font-semibold">
+                Toate câmpurile sunt obligatorii.
+              </em>
             </p>
           </header>
 
@@ -127,25 +131,10 @@ export function HomePage() {
                   →
                 </span>
               </button>
-
-              <p className="mt-3 text-xs text-slate-300">
-                Toate câmpurile sunt obligatorii.
-              </p>
             </div>
           </form>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 bg-slate-950/15 px-6 py-5 text-center backdrop-blur-sm">
-        <p className="text-sm font-medium tracking-wide text-white/90">
-          Creat de MMS CONSULTING SRL
-        </p>
-
-        <p className="mt-1 text-xs text-white/70">
-          Marcă înregistrată nr. 105743 OSIM
-        </p>
-      </footer>
     </main>
   );
 }
