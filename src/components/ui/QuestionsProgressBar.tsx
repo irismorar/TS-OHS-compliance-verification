@@ -1,10 +1,9 @@
-import type { QuestionCategory } from "../../useQuestions";
+import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
-type Props = {
-  questionCategories: QuestionCategory[];
-};
+export function QuestionsProgressBar() {
+  const complianceVerificationContext = useComplianceVerificationContext();
+  const { questionCategories } = complianceVerificationContext;
 
-export function QuestionsProgressBar({ questionCategories }: Props) {
   const questions = questionCategories.flatMap(({ questions }) => questions);
   const answeredQuestionsCount = questions.filter(
     ({ questionAnswer, severity, probability }) =>

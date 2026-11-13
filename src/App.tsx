@@ -34,6 +34,7 @@ import { VibrationChecklistPage } from "./components/pages/VibrationChecklistPag
 import { NoiseChecklistPage } from "./components/pages/NoiseChecklistPage";
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
 import { Link, Route, Routes } from "react-router";
+import { ChecklistPageLayout } from "./components/ChecklistPageLayout/ChecklistPageLayout";
 
 export default function App() {
   return (
@@ -58,8 +59,13 @@ export default function App() {
         />
         <Route path="verificari">
           <Route index element={<VerificationChecklistsPage />} />
-          <Route path="atelier" element={<WorkshopChecklistPage />} />
-          <Route path="audit-intern" element={<InternalAuditChecklistPage />} />
+          <Route element={<ChecklistPageLayout />}>
+            <Route path="atelier" element={<WorkshopChecklistPage />} />
+            <Route
+              path="audit-intern"
+              element={<InternalAuditChecklistPage />}
+            />
+          </Route>
         </Route>
       </Routes>
       {/* <StartAppPage />
