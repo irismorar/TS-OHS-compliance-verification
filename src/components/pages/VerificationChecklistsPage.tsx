@@ -1,47 +1,12 @@
 import { ChecklistSelectionButton } from "../ui/ChecklistSelectionButton";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { Link, useResolvedPath } from "react-router";
 
 export function VerificationChecklistsPage() {
+  const { pathname } = useResolvedPath("");
   const complianceVerificationContext = useComplianceVerificationContext();
 
-  const {
-    currentRoute,
-    setWorkshopChecklistPage,
-    setWorkplaceChecklistPage,
-    setBiologicalAgentsChecklistPage,
-    setCancerousAgentsChecklistPage,
-    setChemicalAgentsChecklistPage,
-    setAtexChecklistPage,
-    setAsbestosCkecklistPage,
-    setElectromagneticFieldsCkecklistPage,
-    setManualHandlingChecklistPage,
-    setSharpToolsChecklistPage,
-    setOpticalRadiationChecklistPage,
-    setExtremeTemperaturesChecklistPage,
-    setVibrationChecklistPage,
-    setNoiseChecklistPage,
-    setInternalAuditChecklistPage,
-    setMaintenanceChecklistPage,
-    setManualHandlingOfLoadsAuditChecklistPage,
-    setWorkEquipmentChecklistPage,
-    setLoadHandlingUsingStackerTruckChecklistPage,
-    setLotoChecklistPage,
-    setLoadHandlingUsingManualPalletTruckChecklistPage,
-    setElectricalChecklistPage,
-    setWorkAtHeightChecklistPage,
-    setWorkUsingLaddersChecklistPage,
-    setMetalRackingChecklistPage,
-    setChemicalSubstanceChecklistPage,
-    setAdministrativeAreasChecklistPage,
-    setOfficeChecklistPage,
-    setOfficeEquipmentChecklistPage,
-    setHazardousAreasChecklistPage,
-    initChecklistQuestions,
-  } = complianceVerificationContext;
-
-  if (currentRoute !== "verificationChecklists") {
-    return null;
-  }
+  const { initChecklistQuestions } = complianceVerificationContext;
 
   return (
     <main className="flex min-h-dvh w-full flex-col">
@@ -64,24 +29,26 @@ export function VerificationChecklistsPage() {
 
           <ul className="space-y-3">
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("workshop");
-                  setWorkshopChecklistPage();
-                }}
-                checklistSelectionName={"atelier"}
-              />
+              <Link to={`${pathname}/atelier`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("workshop");
+                  }}
+                  checklistSelectionName={"atelier"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("internalAudit");
-                  setInternalAuditChecklistPage();
-                }}
-                checklistSelectionName={"audit intern"}
-              />
+              <Link to={`${pathname}/audit-intern`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("internalAudit");
+                  }}
+                  checklistSelectionName={"audit intern"}
+                />
+              </Link>
             </li>
-            <li>
+            {/* <li>
               <ChecklistSelectionButton
                 handleClick={() => {
                   initChecklistQuestions("manualHandlingOfLoadsAudit");
@@ -351,7 +318,7 @@ export function VerificationChecklistsPage() {
                 }}
                 checklistSelectionName={"risc specific - zgomot"}
               />
-            </li>
+            </li> */}
           </ul>
         </div>
       </section>

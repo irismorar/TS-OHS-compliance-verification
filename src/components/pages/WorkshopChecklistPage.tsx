@@ -16,7 +16,6 @@ export function WorkshopChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
-    currentRoute,
     questionCategories,
     firstUnansweredQuestionCategoryIndex,
     firstUnansweredQuestionIndex,
@@ -54,10 +53,6 @@ export function WorkshopChecklistPage() {
       .getElementById(`question-${categoryIndex}-${questionIndex}`)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
-
-  if (currentRoute !== "workshopChecklist") {
-    return null;
-  }
 
   return (
     <>

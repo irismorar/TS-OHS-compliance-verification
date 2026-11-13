@@ -3,11 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { ComplianceVerificationProvider } from "./ComplianceVerificationProvider.tsx";
+import { BrowserRouter } from "react-router";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ComplianceVerificationProvider>
-      <App />
-    </ComplianceVerificationProvider>
+    <BrowserRouter>
+      <ComplianceVerificationProvider>
+        <App />
+      </ComplianceVerificationProvider>
+    </BrowserRouter>
   </StrictMode>,
 );

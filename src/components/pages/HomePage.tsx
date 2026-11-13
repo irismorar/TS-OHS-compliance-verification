@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
 export function HomePage() {
+  const navigate = useNavigate();
+
   const {
-    currentRoute,
     unitName,
     setUnitName,
     unitIdentificationNumber,
@@ -10,7 +12,6 @@ export function HomePage() {
     unitRegisteredOfficeAddress,
     setUnitRegisteredOfficeAddress,
     areUnitDetailsFilled,
-    setVerificationChecklistsPage,
   } = useComplianceVerificationContext();
 
   const fields = [
@@ -43,10 +44,6 @@ export function HomePage() {
     },
   ];
 
-  if (currentRoute !== "home") {
-    return null;
-  }
-
   return (
     <main className="flex min-h-dvh w-full flex-col">
       <section className="flex flex-1 items-center justify-center px-5 py-8 sm:px-8">
@@ -76,7 +73,7 @@ export function HomePage() {
               event.preventDefault();
 
               if (areUnitDetailsFilled) {
-                setVerificationChecklistsPage();
+                navigate("/informatii-verificare-curenta");
               }
             }}
             className="space-y-5"

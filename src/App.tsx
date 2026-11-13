@@ -33,11 +33,36 @@ import { ExtremeTemperaturesChecklistPage } from "./components/pages/ExtremeTemp
 import { VibrationChecklistPage } from "./components/pages/VibrationChecklistPage";
 import { NoiseChecklistPage } from "./components/pages/NoiseChecklistPage";
 import { FormDocumentPage } from "./components/pages/FormDocumentPage";
+import { Link, Route, Routes } from "react-router";
 
 export default function App() {
   return (
     <main className="min-h-dvh select-none bg-fixed bg-[linear-gradient(to_bottom,#c4d8f0_0%,#96b9e6_25%,#6798d8_50%,#386eb8_75%,#173f76_100%)]">
-      <StartAppPage />
+      <Routes>
+        <Route index element={<StartAppPage />} />
+        <Route path="informatii-unitate-verificata" element={<HomePage />} />
+        <Route
+          path="informatii-verificare-curenta"
+          element={
+            <section>
+              <h1>Informații unitate verificată</h1>
+              <p>
+                Introduceți datele de identificare pentru a începe verificarea.
+              </p>
+              <em className="font-semibold">
+                Toate câmpurile sunt obligatorii.
+              </em>
+              <Link to="/verificari">Către lista de verificări</Link>
+            </section>
+          }
+        />
+        <Route path="verificari">
+          <Route index element={<VerificationChecklistsPage />} />
+          <Route path="atelier" element={<WorkshopChecklistPage />} />
+          <Route path="audit-intern" element={<InternalAuditChecklistPage />} />
+        </Route>
+      </Routes>
+      {/* <StartAppPage />
       <HomePage />
       <VerificationChecklistsPage />
       <WorkplaceChecklistPage />
@@ -70,7 +95,7 @@ export default function App() {
       <ExtremeTemperaturesChecklistPage />
       <VibrationChecklistPage />
       <NoiseChecklistPage />
-      <FormDocumentPage />
+      <FormDocumentPage /> */}
     </main>
   );
 }
