@@ -8,7 +8,6 @@ import {
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
-import { QuestionsProgressBar } from "../ui/QuestionsProgressBar";
 import { RiskTable } from "../RiskTable/RiskTable";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
@@ -16,7 +15,6 @@ export function OfficeEquipmentChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
-    currentRoute,
     questionCategories,
     firstUnansweredQuestionCategoryIndex,
     firstUnansweredQuestionIndex,
@@ -55,13 +53,8 @@ export function OfficeEquipmentChecklistPage() {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  if (currentRoute !== "officeEquipmentChecklist") {
-    return null;
-  }
-
   return (
     <>
-      <QuestionsProgressBar questionCategories={questionCategories} />
       <QuestionsFormHeader checklistSelectionName="birotică" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}

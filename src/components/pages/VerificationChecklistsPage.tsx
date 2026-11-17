@@ -48,112 +48,129 @@ export function VerificationChecklistsPage() {
                 />
               </Link>
             </li>
-            {/* <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("manualHandlingOfLoadsAudit");
-                  setManualHandlingOfLoadsAuditChecklistPage();
-                }}
-                checklistSelectionName={
-                  "audit pentru manipularea manuală a sarcinilor"
-                }
-              />
+            <li>
+              <Link to={`${pathname}/audit-manipulare-manuala-a-sarcinilor`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("manualHandlingOfLoadsAudit");
+                  }}
+                  checklistSelectionName={
+                    "audit pentru manipularea manuală a sarcinilor"
+                  }
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("officeEquipment");
-                  setOfficeEquipmentChecklistPage();
-                }}
-                checklistSelectionName={"birotică"}
-              />
+              <Link to={`${pathname}/birotica`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("officeEquipment");
+                  }}
+                  checklistSelectionName={"birotică"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("office");
-                  setOfficeChecklistPage();
-                }}
-                checklistSelectionName={"birouri"}
-              />
+              <Link to={`${pathname}/birouri`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("office");
+                  }}
+                  checklistSelectionName={"birouri"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("electrical");
-                  setElectricalChecklistPage();
-                }}
-                checklistSelectionName={"electrice"}
-              />
+              <Link to={`${pathname}/electrice`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("electrical");
+                  }}
+                  checklistSelectionName={"electrice"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("workEquipment");
-                  setWorkEquipmentChecklistPage();
-                }}
-                checklistSelectionName={"echipament individual de muncă"}
-              />
+              <Link to={`${pathname}/echipament-individual-de-munca`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("workEquipment");
+                  }}
+                  checklistSelectionName={"echipament individual de muncă"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("loto");
-                  setLotoChecklistPage();
-                }}
-                checklistSelectionName={"LOTO"}
-              />
+              <Link to={`${pathname}/loto`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("loto");
+                  }}
+                  checklistSelectionName={"LOTO"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("workplace");
-                  setWorkplaceChecklistPage();
-                }}
-                checklistSelectionName={"loc de muncă"}
-              />
+              <Link to={`${pathname}/loc-de-munca`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("workplace");
+                  }}
+                  checklistSelectionName={"loc de muncă"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("workAtHeight");
-                  setWorkAtHeightChecklistPage();
-                }}
-                checklistSelectionName={"lucru la înălțime"}
-              />
+              <Link to={`${pathname}/lucru-la-inaltime`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("workAtHeight");
+                  }}
+                  checklistSelectionName={"lucru la înălțime"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("workUsingLadders");
-                  setWorkUsingLaddersChecklistPage();
-                }}
-                checklistSelectionName={"lucru pe scări"}
-              />
+              <Link to={`${pathname}/lucru-pe-scari`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("workUsingLadders");
+                  }}
+                  checklistSelectionName={"lucru pe scări"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("loadHandlingUsingStackerTruck");
-                  setLoadHandlingUsingStackerTruckChecklistPage();
-                }}
-                checklistSelectionName={
-                  "manipulare sarcini folosind transpaleta cu catarg"
-                }
-              />
+              <Link
+                to={`${pathname}/manipulare-sarcini-folosind-transpaleta-cu-catarg`}
+              >
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("loadHandlingUsingStackerTruck");
+                  }}
+                  checklistSelectionName={
+                    "manipulare sarcini folosind transpaleta cu catarg"
+                  }
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("loadHandlingUsingManualPalletTruck");
-                  setLoadHandlingUsingManualPalletTruckChecklistPage();
-                }}
-                checklistSelectionName={
-                  "manipulare sarcini folosind transpaleta mecanică"
-                }
-              />
+              <Link
+                to={`${pathname}/manipulare-sarcini-folosind-transpaleta-mecanica`}
+              >
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions(
+                      "loadHandlingUsingManualPalletTruck",
+                    );
+                  }}
+                  checklistSelectionName={
+                    "manipulare sarcini folosind transpaleta mecanică"
+                  }
+                />
+              </Link>
             </li>
-            <li>
+            {/*<li>
               <ChecklistSelectionButton
                 handleClick={() => {
                   initChecklistQuestions("maintenance");

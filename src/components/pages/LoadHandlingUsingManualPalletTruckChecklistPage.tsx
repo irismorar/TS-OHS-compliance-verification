@@ -8,7 +8,6 @@ import {
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
-import { QuestionsProgressBar } from "../ui/QuestionsProgressBar";
 import { RiskTable } from "../RiskTable/RiskTable";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
@@ -16,7 +15,6 @@ export function LoadHandlingUsingManualPalletTruckChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
-    currentRoute,
     questionCategories,
     firstUnansweredQuestionCategoryIndex,
     firstUnansweredQuestionIndex,
@@ -55,13 +53,8 @@ export function LoadHandlingUsingManualPalletTruckChecklistPage() {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  if (currentRoute !== "loadHandlingUsingManualPalletTruckChecklist") {
-    return null;
-  }
-
   return (
     <>
-      <QuestionsProgressBar questionCategories={questionCategories} />
       <QuestionsFormHeader checklistSelectionName="Manipulare sarcini folosind transpaleta mecanică" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}

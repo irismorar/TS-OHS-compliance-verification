@@ -8,7 +8,6 @@ import {
 import { QuestionCard } from "../ui/QuestionCard";
 import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
-import { QuestionsProgressBar } from "../ui/QuestionsProgressBar";
 import { RiskTable } from "../RiskTable/RiskTable";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
 
@@ -16,7 +15,6 @@ export function WorkEquipmentChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
-    currentRoute,
     questionCategories,
     firstUnansweredQuestionCategoryIndex,
     firstUnansweredQuestionIndex,
@@ -55,13 +53,8 @@ export function WorkEquipmentChecklistPage() {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  if (currentRoute !== "workEquipmentChecklist") {
-    return null;
-  }
-
   return (
     <>
-      <QuestionsProgressBar questionCategories={questionCategories} />
       <QuestionsFormHeader checklistSelectionName="echipament individual de muncă" />
       <QuestionsFormMain
         handleClickBack={setVerificationChecklistsPage}

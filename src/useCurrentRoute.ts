@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 export function useCurrentRoute() {
+  const { pathname } = useLocation();
+
   const [currentRoute, setCurrentRoute] = useState<
     | "startApp"
     | "home"
@@ -172,7 +175,7 @@ export function useCurrentRoute() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, [currentRoute]);
+  }, [pathname]);
 
   return {
     currentRoute,

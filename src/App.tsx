@@ -65,6 +65,38 @@ export default function App() {
               path="audit-intern"
               element={<InternalAuditChecklistPage />}
             />
+            <Route
+              path="audit-manipulare-manuala-a-sarcinilor"
+              element={<ManualHandlingOfLoadsAuditChecklistPage />}
+            ></Route>
+            <Route
+              path="birotica"
+              element={<OfficeEquipmentChecklistPage />}
+            ></Route>
+            <Route path="birouri" element={<OfficeChecklistPage />} />
+            <Route path="electrice" element={<ElectricalChecklistPage />} />
+            <Route
+              path="echipament-individual-de-munca"
+              element={<WorkEquipmentChecklistPage />}
+            />
+            <Route path="loto" element={<LotoChecklistPage />} />
+            <Route path="loc-de-munca" element={<WorkplaceChecklistPage />} />
+            <Route
+              path="lucru-la-inaltime"
+              element={<WorkAtHeightChecklistPage />}
+            />
+            <Route
+              path="lucru-pe-scari"
+              element={<WorkUsingLaddersChecklistPage />}
+            />
+            <Route
+              path="manipulare-sarcini-folosind-transpaleta-cu-catarg"
+              element={<LoadHandlingUsingStackerTruckChecklistPage />}
+            />
+            <Route
+              path="manipulare-sarcini-folosind-transpaleta-mecanica"
+              element={<LoadHandlingUsingManualPalletTruckChecklistPage />}
+            />
           </Route>
         </Route>
       </Routes>
