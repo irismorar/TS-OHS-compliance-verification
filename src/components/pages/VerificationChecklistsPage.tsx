@@ -170,50 +170,55 @@ export function VerificationChecklistsPage() {
                 />
               </Link>
             </li>
-            {/*<li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("maintenance");
-                  setMaintenanceChecklistPage();
-                }}
-                checklistSelectionName={"mentenanță"}
-              />
+            <li>
+              <Link to={`${pathname}/mentenanta`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("maintenance");
+                  }}
+                  checklistSelectionName={"mentenanță"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("metalRacking");
-                  setMetalRackingChecklistPage();
-                }}
-                checklistSelectionName={"rafturi metalice"}
-              />
+              <Link to={`${pathname}/rafturi-metalice`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("metalRacking");
+                  }}
+                  checklistSelectionName={"rafturi metalice"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("administrativeAreas");
-                  setAdministrativeAreasChecklistPage();
-                }}
-                checklistSelectionName={"spații administrative"}
-              />
+              <Link to={`${pathname}/spatii-administrative`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("administrativeAreas");
+                  }}
+                  checklistSelectionName={"spații administrative"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("chemicalSubstance");
-                  setChemicalSubstanceChecklistPage();
-                }}
-                checklistSelectionName={"substanțe chimice"}
-              />
+              <Link to={`${pathname}/substante-chimice`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("chemicalSubstance");
+                  }}
+                  checklistSelectionName={"substanțe chimice"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("hazardousAreas");
-                  setHazardousAreasChecklistPage();
-                }}
-                checklistSelectionName={"zone periculoase"}
-              />
+              <Link to={`${pathname}/zone-periculoase`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("hazardousAreas");
+                  }}
+                  checklistSelectionName={"zone periculoase"}
+                />
+              </Link>
             </li>
           </ul>
 
@@ -223,119 +228,135 @@ export function VerificationChecklistsPage() {
 
           <ul className="space-y-3">
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("biologicalAgents");
-                  setBiologicalAgentsChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - agenți biologici"}
-              />
+              <Link to={`${pathname}/risc-specific-agenti-biologici`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("biologicalAgents");
+                  }}
+                  checklistSelectionName={"risc specific - agenți biologici"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("cancerousAgents");
-                  setCancerousAgentsChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - agenți cancerigeni"}
-              />
+              <Link to={`${pathname}/risc-specific-agenti-cancerigeni`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("cancerousAgents");
+                  }}
+                  checklistSelectionName={"risc specific - agenți cancerigeni"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("chemicalAgents");
-                  setChemicalAgentsChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - agenți chimici"}
-              />
+              <Link to={`${pathname}/risc-specific-agenti-chimici`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("chemicalAgents");
+                  }}
+                  checklistSelectionName={"risc specific - agenți chimici"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("atex");
-                  setAtexChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - atmosferă explozivă"}
-              />
+              <Link to={`${pathname}/risc-specific-atmosfera-exploziva`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("atex");
+                  }}
+                  checklistSelectionName={"risc specific - atmosferă explozivă"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("asbestos");
-                  setAsbestosCkecklistPage();
-                }}
-                checklistSelectionName={"risc specific - azbest"}
-              />
+              <Link to={`${pathname}/risc-specific-azbest`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("asbestos");
+                  }}
+                  checklistSelectionName={"risc specific - azbest"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("electromagneticFields");
-                  setElectromagneticFieldsCkecklistPage();
-                }}
-                checklistSelectionName={
-                  "risc specific - câmpuri electromagnetice"
-                }
-              />
+              <Link to={`${pathname}/risc-specific-campuri-electromagnetice`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("electromagneticFields");
+                  }}
+                  checklistSelectionName={
+                    "risc specific - câmpuri electromagnetice"
+                  }
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("manualHandling");
-                  setManualHandlingChecklistPage();
-                }}
-                checklistSelectionName={
-                  "risc specific - manipulare manuală a maselor"
-                }
-              />
+              <Link
+                to={`${pathname}/risc-specific-manipulare-manuala-a-maselor`}
+              >
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("manualHandling");
+                  }}
+                  checklistSelectionName={
+                    "risc specific - manipulare manuală a maselor"
+                  }
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("sharpTools");
-                  setSharpToolsChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - obiecte ascuțite"}
-              />
+              <Link to={`${pathname}/risc-specific-obiecte-ascutite`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("sharpTools");
+                  }}
+                  checklistSelectionName={"risc specific - obiecte ascuțite"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("opticalRadiation");
-                  setOpticalRadiationChecklistPage();
-                }}
-                checklistSelectionName={
-                  "risc specific - radiații optice artificiale"
-                }
-              />
+              <Link
+                to={`${pathname}/risc-specific-radiatii-optice-artificiale`}
+              >
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("opticalRadiation");
+                  }}
+                  checklistSelectionName={
+                    "risc specific - radiații optice artificiale"
+                  }
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("extremeTemperatures");
-                  setExtremeTemperaturesChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - temperaturi extreme"}
-              />
+              <Link to={`${pathname}/risc-specific-temperaturi-extreme`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("extremeTemperatures");
+                  }}
+                  checklistSelectionName={"risc specific - temperaturi extreme"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("vibration");
-                  setVibrationChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - vibrații"}
-              />
+              <Link to={`${pathname}/risc-specific-vibratii`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("vibration");
+                  }}
+                  checklistSelectionName={"risc specific - vibrații"}
+                />
+              </Link>
             </li>
             <li>
-              <ChecklistSelectionButton
-                handleClick={() => {
-                  initChecklistQuestions("noise");
-                  setNoiseChecklistPage();
-                }}
-                checklistSelectionName={"risc specific - zgomot"}
-              />
-            </li> */}
+              <Link to={`${pathname}/risc-specific-zgomot`}>
+                <ChecklistSelectionButton
+                  handleClick={() => {
+                    initChecklistQuestions("noise");
+                  }}
+                  checklistSelectionName={"risc specific - zgomot"}
+                />
+              </Link>
+            </li>
           </ul>
         </div>
       </section>

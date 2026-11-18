@@ -92,7 +92,7 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
           "Se vor marca și semnaliza căile de acces. Se interzice depozitatea de sarcini pe aceste căi de acces și se va verifica calitatea acestora.",
       },
       {
-        questionText: "Iluminatul este corespunzător, natural/artificial?",
+        questionText: "Iluminatul este corespunzător (natural/artificial)?",
         safetyMeasure:
           "Se va efectua cel puțin anual măsurarea fluxului luminos la locurile de muncă.",
       },
@@ -274,7 +274,7 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
           "Verificarea afițării procedurilor de lucru și a celor de ssm la locurile de muncă.",
       },
       {
-        questionText: "Există suprasolicitare fizică sau psihică?",
+        questionText: "Nu există suprasolicitare fizică sau psihică?",
         safetyMeasure:
           "Efectuarea evaluărilor pentru mânuiri și a celei psihosociale specifice.",
       },
@@ -284,8 +284,7 @@ export const WORKPLACE_QUESTION_DATA: QuestionData = [
           "Stabilirea de catre tehnolog a volumului de muncă în procesul tehnologic.",
       },
       {
-        questionText:
-          "Sarcina implică doar operațiuni autorizate??????????????????????????????????",
+        questionText: "Sarcina nu implică operațiuni neautorizate?",
         safetyMeasure:
           "Verificări a structurii sarcinilor de muncă coroborate cu procedurile de muncă.",
       },

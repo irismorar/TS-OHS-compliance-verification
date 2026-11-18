@@ -15,7 +15,6 @@ export function ElectromagneticFieldsChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
-    currentRoute,
     questionCategories,
     firstUnansweredQuestionCategoryIndex,
     firstUnansweredQuestionIndex,
@@ -34,10 +33,6 @@ export function ElectromagneticFieldsChecklistPage() {
     categoryIndex: number;
     questionIndex: number;
   } | null>(null);
-
-  if (currentRoute !== "electromagneticFieldsChecklist") {
-    return null;
-  }
 
   return (
     <>

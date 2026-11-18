@@ -97,43 +97,75 @@ export default function App() {
               path="manipulare-sarcini-folosind-transpaleta-mecanica"
               element={<LoadHandlingUsingManualPalletTruckChecklistPage />}
             />
+            <Route path="mentenanta" element={<MaintenanceChecklistPage />} />
+            <Route
+              path="rafturi-metalice"
+              element={<MetalRackingChecklistPage />}
+            />
+            <Route
+              path="spatii-administrative"
+              element={<AdministrativeAreasChecklistPage />}
+            />
+            <Route
+              path="substante-chimice"
+              element={<ChemicalSubstanceChecklistPage />}
+            />
+            <Route
+              path="zone-periculoase"
+              element={<HazardousAreasChecklistPage />}
+            />
+            <Route
+              path="risc-specific-agenti-biologici"
+              element={<BiologicalAgentsChecklistPage />}
+            />
+            <Route
+              path="risc-specific-agenti-cancerigeni"
+              element={<CancerousAgentsChecklistPage />}
+            />
+            <Route
+              path="risc-specific-agenti-chimici"
+              element={<ChemicalAgentsChecklistPage />}
+            />
+            <Route
+              path="risc-specific-atmosfera-exploziva"
+              element={<AtexChecklistPage />}
+            />
+            <Route
+              path="risc-specific-azbest"
+              element={<AsbestosChecklistPage />}
+            />
+            <Route
+              path="risc-specific-campuri-electromagnetice"
+              element={<ElectromagneticFieldsChecklistPage />}
+            />
+            <Route
+              path="risc-specific-manipulare-manuala-a-maselor"
+              element={<ManualHandlingChecklistPage />}
+            />
+            <Route
+              path="risc-specific-obiecte-ascutite"
+              element={<SharpToolsChecklistPage />}
+            />
+            <Route
+              path="risc-specific-radiatii-optice-artificiale"
+              element={<OpticalRadiationChecklistPage />}
+            />
+            <Route
+              path="risc-specific-temperaturi-extreme"
+              element={<ExtremeTemperaturesChecklistPage />}
+            />
+            <Route
+              path="risc-specific-vibratii"
+              element={<VibrationChecklistPage />}
+            />
+            <Route
+              path="risc-specific-zgomot"
+              element={<NoiseChecklistPage />}
+            />
           </Route>
         </Route>
+        <Route path="raport-verificare" element={<FormDocumentPage />} />
       </Routes>
-      {/* <StartAppPage />
-      <HomePage />
-      <VerificationChecklistsPage />
-      <WorkplaceChecklistPage />
-      <WorkshopChecklistPage />
-      <InternalAuditChecklistPage />
-      <MaintenanceChecklistPage />
-      <ManualHandlingOfLoadsAuditChecklistPage />
-      <WorkEquipmentChecklistPage />
-      <LoadHandlingUsingStackerTruckChecklistPage />
-      <LotoChecklistPage />
-      <LoadHandlingUsingManualPalletTruckChecklistPage />
-      <ElectricalChecklistPage />
-      <WorkAtHeightChecklistPage />
-      <WorkUsingLaddersChecklistPage />
-      <MetalRackingChecklistPage />
-      <ChemicalSubstanceChecklistPage />
-      <AdministrativeAreasChecklistPage />
-      <OfficeChecklistPage />
-      <OfficeEquipmentChecklistPage />
-      <HazardousAreasChecklistPage />
-      <BiologicalAgentsChecklistPage />
-      <CancerousAgentsChecklistPage />
-      <ChemicalAgentsChecklistPage />
-      <AtexChecklistPage />
-      <AsbestosChecklistPage />
-      <ElectromagneticFieldsChecklistPage />
-      <ManualHandlingChecklistPage />
-      <SharpToolsChecklistPage />
-      <OpticalRadiationChecklistPage />
-      <ExtremeTemperaturesChecklistPage />
-      <VibrationChecklistPage />
-      <NoiseChecklistPage />
-      <FormDocumentPage /> */}
     </main>
   );
 }

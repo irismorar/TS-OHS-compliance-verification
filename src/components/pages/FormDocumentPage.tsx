@@ -6,8 +6,6 @@ export function FormDocumentPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
 
   const {
-    currentRoute,
-
     unitName,
     unitIdentificationNumber,
     unitRegisteredOfficeAddress,
@@ -29,10 +27,6 @@ export function FormDocumentPage() {
 
     computeRiskTotals,
   } = complianceVerificationContext;
-
-  if (currentRoute !== "finalDocument") {
-    return null;
-  }
 
   const reportCurrentDate = new Intl.DateTimeFormat("ro-RO", {
     dateStyle: "medium",
