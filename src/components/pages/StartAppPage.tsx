@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import backgroundImage from "../../assets/OHS-backgroundImage.png";
+import { ChevronsRight } from "lucide-react";
 
 export function StartAppPage() {
   return (
@@ -40,13 +41,8 @@ export function StartAppPage() {
             type="button"
             className="group mt-12 flex items-center justify-center gap-3 rounded-xl border border-blue-400/40 bg-blue-600 px-9 py-4 text-base font-semibold tracking-wide text-white shadow-lg shadow-blue-950/40 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-500/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/70 active:translate-y-0"
           >
-            START APLICAȚIE
-            <span
-              aria-hidden="true"
-              className="text-xl transition-transform duration-300 group-hover:translate-x-1"
-            >
-              →
-            </span>
+            <span className="uppercase">start aplicație</span>
+            <ChevronsRight />
           </button>
         </Link>
       </section>

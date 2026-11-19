@@ -10,9 +10,11 @@ import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 import { RiskTable } from "../RiskTable/RiskTable";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { useNavigate } from "react-router";
 
 export function ExtremeTemperaturesChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
+  const navigate = useNavigate();
 
   const {
     questionCategories,
@@ -20,8 +22,6 @@ export function ExtremeTemperaturesChecklistPage() {
     firstUnansweredQuestionIndex,
     areAllQuestionsAnswered,
     firstUnansweredQuestionRef,
-    setVerificationChecklistsPage,
-    setDocumentPage,
     computeQuestionRiskFactor,
     setQuestionAnswer,
     setQuestionSeverity,
@@ -57,10 +57,9 @@ export function ExtremeTemperaturesChecklistPage() {
     <>
       <QuestionsFormHeader checklistSelectionName="risc specific - temperaturi extreme" />
       <QuestionsFormMain
-        handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {
           if (areAllQuestionsAnswered) {
-            setDocumentPage();
+            navigate("/raport-verificare");
           } else {
             alert(
               "Vă rugăm să răspundeți la toate întrebările înainte de a continua.",

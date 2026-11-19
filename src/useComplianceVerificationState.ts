@@ -5,7 +5,7 @@ import { useQuestions } from "./useQuestions";
 export function useComplianceVerificationState() {
   const {
     currentRoute,
-    setHomePage,
+    setCurrentUnitGeneralDataPage,
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,
@@ -78,7 +78,7 @@ export function useComplianceVerificationState() {
   return {
     // route
     currentRoute,
-    setHomePage,
+    setCurrentUnitGeneralDataPage,
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,

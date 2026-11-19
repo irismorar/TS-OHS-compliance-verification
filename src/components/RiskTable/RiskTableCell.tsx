@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 type Props = {
-  riskLevel: "E" | "M" | "S";
+  riskLevel: "C" | "M" | "S";
   severity: 1 | 2 | 3 | 4;
   probability: 1 | 2 | 3 | 4;
   isHighlighted: boolean;
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const VERBOSE_RISK_LEVELS = {
-  E: "extrem",
+  C: "critic",
   M: "mediu",
   S: "scăzut",
 };
@@ -56,7 +56,7 @@ const riskTableCellVariants = cva(
   {
     variants: {
       riskLevel: {
-        E: null,
+        C: null,
         M: null,
         S: null,
       },
@@ -70,19 +70,19 @@ const riskTableCellVariants = cva(
     },
     compoundVariants: [
       {
-        riskLevel: "E",
+        riskLevel: "C",
         isHighlighted: false,
         isLockedIn: false,
         className: ["bg-red-400"],
       },
       {
-        riskLevel: "E",
+        riskLevel: "C",
         isHighlighted: true,
         isLockedIn: false,
         className: ["bg-red-500"],
       },
       {
-        riskLevel: "E",
+        riskLevel: "C",
         isLockedIn: true,
         className: ["bg-red-600"],
       },

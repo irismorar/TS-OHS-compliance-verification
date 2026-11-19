@@ -106,7 +106,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
               {PROBABILITY_LABELS[1]}
             </RiskTableDisplayHeading>
             <RiskTableCell
-              riskLevel="E"
+              riskLevel="C"
               severity={1}
               probability={1}
               isHighlighted={hoveredSeverity === 1 && hoveredProbability === 1}
@@ -117,7 +117,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
               onLockIn={handleCellClick}
             />
             <RiskTableCell
-              riskLevel="E"
+              riskLevel="C"
               severity={2}
               probability={1}
               isHighlighted={hoveredSeverity === 2 && hoveredProbability === 1}
@@ -128,7 +128,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
               onLockIn={handleCellClick}
             />
             <RiskTableCell
-              riskLevel="E"
+              riskLevel="C"
               severity={3}
               probability={1}
               isHighlighted={hoveredSeverity === 3 && hoveredProbability === 1}
@@ -158,7 +158,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
               {PROBABILITY_LABELS[2]}
             </RiskTableDisplayHeading>
             <RiskTableCell
-              riskLevel="E"
+              riskLevel="C"
               severity={1}
               probability={2}
               isHighlighted={hoveredSeverity === 1 && hoveredProbability === 2}
@@ -169,7 +169,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
               onLockIn={handleCellClick}
             />
             <RiskTableCell
-              riskLevel="E"
+              riskLevel="C"
               severity={2}
               probability={2}
               isHighlighted={hoveredSeverity === 2 && hoveredProbability === 2}
@@ -210,7 +210,7 @@ export function RiskTable({ onCommitRiskValues, onClose, userAnswer }: Props) {
               {PROBABILITY_LABELS[3]}
             </RiskTableDisplayHeading>
             <RiskTableCell
-              riskLevel="E"
+              riskLevel="C"
               severity={1}
               probability={3}
               isHighlighted={hoveredSeverity === 1 && hoveredProbability === 3}

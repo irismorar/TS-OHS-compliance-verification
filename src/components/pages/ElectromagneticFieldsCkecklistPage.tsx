@@ -10,9 +10,11 @@ import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 import { RiskTable } from "../RiskTable/RiskTable";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { useNavigate } from "react-router";
 
 export function ElectromagneticFieldsChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
+  const navigate = useNavigate();
 
   const {
     questionCategories,
@@ -20,8 +22,6 @@ export function ElectromagneticFieldsChecklistPage() {
     firstUnansweredQuestionIndex,
     areAllQuestionsAnswered,
     firstUnansweredQuestionRef,
-    setVerificationChecklistsPage,
-    setDocumentPage,
     computeQuestionRiskFactor,
     setQuestionAnswer,
     setQuestionSeverity,
@@ -38,10 +38,9 @@ export function ElectromagneticFieldsChecklistPage() {
     <>
       <QuestionsFormHeader checklistSelectionName="risc specific - câmpuri electromagnetice" />
       <QuestionsFormMain
-        handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {
           if (areAllQuestionsAnswered) {
-            setDocumentPage();
+            navigate("/raport-verificare");
           } else {
             alert(
               "Vă rugăm să răspundeți la toate întrebările înainte de a continua.",

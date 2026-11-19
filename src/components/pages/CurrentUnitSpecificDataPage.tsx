@@ -1,46 +1,47 @@
 import { useNavigate } from "react-router";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { ChevronsRight } from "lucide-react";
 
-export function HomePage() {
+export function CurrentUnitSpecificDataPage() {
   const navigate = useNavigate();
 
   const {
-    unitName,
-    setUnitName,
-    unitIdentificationNumber,
-    setUnitIdentificationNumber,
-    unitRegisteredOfficeAddress,
-    setUnitRegisteredOfficeAddress,
     areUnitDetailsFilled,
+    verifiedAreaName,
+    setVerifiedAreaName,
+    ssmWorkersNames,
+    setSsmWorkersName,
+    preparedBy,
+    setPreparedBy,
   } = useComplianceVerificationContext();
 
   const fields = [
     {
-      id: "unit-name",
-      label: "Denumire unitate",
-      value: unitName,
-      onChange: setUnitName,
-      minLength: 5,
+      id: "verified-area-name",
+      label: "Sistem verificat",
+      value: verifiedAreaName,
+      onChange: setVerifiedAreaName,
+      minLength: 2,
       maxLength: 37,
-      placeholder: "Ex.: SC ___ SRL",
+      placeholder: "Ex.: Atelierul de croitorie nr.2",
     },
     {
-      id: "unit-identification-number",
-      label: "J / CUI",
-      value: unitIdentificationNumber,
-      onChange: setUnitIdentificationNumber,
+      id: "ssm-workers-name",
+      label: "Reprezentanți SSM unitate",
+      value: ssmWorkersNames,
+      onChange: setSsmWorkersName,
       minLength: 4,
       maxLength: 13,
-      placeholder: "Ex.: J___/___/___",
+      placeholder: "Ex.: Radu Ionescu, Ion Pop",
     },
     {
-      id: "unit-registered-office-address",
-      label: "Adresă sediu",
-      value: unitRegisteredOfficeAddress,
-      onChange: setUnitRegisteredOfficeAddress,
-      minLength: 3,
-      maxLength: 70,
-      placeholder: "Ex.: str. ___ nr. ___ loc. ___ jud. ___",
+      id: "verification-prepared-by",
+      label: "Verificare întocmită de",
+      value: preparedBy,
+      onChange: setPreparedBy,
+      minLength: 2,
+      maxLength: 40,
+      placeholder: "Ex.: Ion Pop",
     },
   ];
 
@@ -55,11 +56,11 @@ export function HomePage() {
             </span>
 
             <h1 className="mt-5 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              Informații unitate verificată
+              Informații specifice unitate verificată
             </h1>
 
             <p className="mt-3 text-sm text-slate-200 sm:text-base">
-              Introduceți datele de identificare pentru a începe verificarea.
+              Introduceți datele cerute pentru a începe verificarea.
               <br />
               <em className="font-semibold">
                 Toate câmpurile sunt obligatorii.
@@ -73,7 +74,7 @@ export function HomePage() {
               event.preventDefault();
 
               if (areUnitDetailsFilled) {
-                navigate("/informatii-verificare-curenta");
+                navigate("/verificari");
               }
             }}
             className="space-y-5"
@@ -120,13 +121,8 @@ export function HomePage() {
                 disabled={!areUnitDetailsFilled}
                 className="group inline-flex items-center justify-center gap-3 rounded-xl border border-blue-400/40 bg-blue-600 px-8 py-3.5 text-sm font-semibold tracking-wide text-white shadow-lg shadow-blue-950/30 transition-all duration-300 enabled:hover:-translate-y-1 enabled:hover:bg-blue-500 enabled:hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-slate-400/30 disabled:text-slate-300 disabled:shadow-none"
               >
-                CĂTRE LISTA DE VERIFICĂRI
-                <span
-                  aria-hidden="true"
-                  className="text-xl transition-transform duration-300 group-enabled:group-hover:translate-x-1"
-                >
-                  →
-                </span>
+                <span className="uppercase">către lista de verificări</span>
+                <ChevronsRight />
               </button>
             </div>
           </form>

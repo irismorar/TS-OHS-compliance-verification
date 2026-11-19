@@ -10,9 +10,11 @@ import { QuestionsFormMain } from "../ui/QuestionsFormMain";
 import { QuestionsFormHeader } from "../ui/QuestionsFormHeader";
 import { RiskTable } from "../RiskTable/RiskTable";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { useNavigate } from "react-router";
 
 export function BiologicalAgentsChecklistPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
+  const navigate = useNavigate();
 
   const {
     questionCategories,
@@ -20,8 +22,6 @@ export function BiologicalAgentsChecklistPage() {
     firstUnansweredQuestionIndex,
     areAllQuestionsAnswered,
     firstUnansweredQuestionRef,
-    setVerificationChecklistsPage,
-    setDocumentPage,
     computeQuestionRiskFactor,
     setQuestionAnswer,
     setQuestionSeverity,
@@ -57,10 +57,9 @@ export function BiologicalAgentsChecklistPage() {
     <>
       <QuestionsFormHeader checklistSelectionName="risc specific - agenți biologici" />
       <QuestionsFormMain
-        handleClickBack={setVerificationChecklistsPage}
         handleClickForward={() => {
           if (areAllQuestionsAnswered) {
-            setDocumentPage();
+            navigate("/raport-verificare");
           } else {
             alert(
               "Vă rugăm să răspundeți la toate întrebările înainte de a continua.",

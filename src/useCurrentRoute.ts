@@ -41,7 +41,7 @@ export function useCurrentRoute() {
     | "finalDocument"
   >("startApp");
 
-  const setHomePage = () => {
+  const setCurrentUnitGeneralDataPage = () => {
     setCurrentRoute("home");
   };
 
@@ -179,7 +179,7 @@ export function useCurrentRoute() {
 
   return {
     currentRoute,
-    setHomePage,
+    setCurrentUnitGeneralDataPage,
     setVerificationChecklistsPage,
     setWorkshopChecklistPage,
     setWorkplaceChecklistPage,

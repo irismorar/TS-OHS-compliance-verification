@@ -1,30 +1,21 @@
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import { RiskPieChart } from "../RiskPieChart/RiskPieChart";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
+import { ChevronsLeft } from "lucide-react";
+import { useNavigate } from "react-router";
 
 export function FormDocumentPage() {
   const complianceVerificationContext = useComplianceVerificationContext();
+  const navigate = useNavigate();
 
   const {
     unitName,
     unitIdentificationNumber,
     unitRegisteredOfficeAddress,
-
     questionCategories,
-    computeQuestionRiskFactor,
-    verifiedAreaName,
-    setVerifiedAreaName,
-    isEditingVerifiedArea,
-    setIsEditingVerifiedArea,
     ssmWorkersNames,
-    setSsmWorkersName,
-    isEditingSsmWorkers,
-    setIsEditingSsmWorkers,
     preparedBy,
-    setPreparedBy,
-    isEditingPreparedBy,
-    setIsEditingPreparedBy,
-
+    computeQuestionRiskFactor,
     computeRiskTotals,
   } = complianceVerificationContext;
 
@@ -78,91 +69,8 @@ export function FormDocumentPage() {
             </div>
 
             <div>
-              <dt className="font-bold text-slate-500">
-                Reprezentanți SSM unitate
-              </dt>
-              <dd>
-                {isEditingSsmWorkers ? (
-                  <input
-                    type="text"
-                    className="w-70 rounded-lg border border-slate-300 bg-white/80 px-2 py-1 shadow-sm placeholder-slate-300 transition-all duration-200 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
-                    value={ssmWorkersNames}
-                    onChange={(event) => {
-                      setSsmWorkersName(event.target.value);
-                    }}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter") {
-                        if (ssmWorkersNames.trim()) {
-                          setIsEditingSsmWorkers(false);
-                        }
-                      }
-                    }}
-                  ></input>
-                ) : (
-                  <span onDoubleClick={() => setIsEditingSsmWorkers(true)}>
-                    {ssmWorkersNames}
-                  </span>
-                )}
-              </dd>
-            </div>
-
-            <div>
               <dt className="font-bold text-slate-500">J/Ro</dt>
               <dd>{unitIdentificationNumber}</dd>
-            </div>
-
-            <div>
-              <dt className="font-bold text-slate-500">Întocmit de</dt>
-              <dd>
-                {isEditingPreparedBy ? (
-                  <input
-                    type="text"
-                    className="w-70 rounded-lg border border-slate-300 bg-white/80 px-2 py-1 shadow-sm placeholder-slate-300 transition-all duration-200 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
-                    value={preparedBy}
-                    onChange={(event) => {
-                      setPreparedBy(event.target.value);
-                    }}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter") {
-                        if (preparedBy.trim()) {
-                          setIsEditingPreparedBy(false);
-                        }
-                      }
-                    }}
-                  ></input>
-                ) : (
-                  <span onDoubleClick={() => setIsEditingPreparedBy(true)}>
-                    {preparedBy}
-                  </span>
-                )}
-              </dd>
-            </div>
-
-            <div>
-              <dt className="font-bold text-slate-500">Sistem verificat</dt>
-              <dd>
-                {isEditingVerifiedArea ? (
-                  <input
-                    type="text"
-                    className="w-70 rounded-lg border border-slate-300 bg-white/80 px-2 py-1 shadow-sm placeholder-slate-300 transition-all duration-200 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-100"
-                    value={verifiedAreaName}
-                    onChange={(event) => {
-                      setVerifiedAreaName(event.target.value);
-                    }}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter") {
-                        if (verifiedAreaName.trim()) {
-                          setIsEditingVerifiedArea(false);
-                        }
-                      }
-                    }}
-                  ></input>
-                ) : (
-                  <span onDoubleClick={() => setIsEditingVerifiedArea(true)}>
-                    {verifiedAreaName}
-                  </span>
-                )}
-              </dd>
             </div>
           </dl>
         </section>
@@ -380,6 +288,14 @@ export function FormDocumentPage() {
             <p className="text-right">{preparedBy || "Nume și semnătură"}</p>
           </div>
         </footer>
+
+        <button
+          onClick={() => navigate("/informatii-verificare-curenta")}
+          className="ml-auto mt-6 flex items-center gap-1 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 shadow-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400/60 hover:bg-blue-600 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300 print:hidden"
+        >
+          <ChevronsLeft />
+          <span className="uppercase">înapoi la datele unității</span>
+        </button>
       </section>
     </main>
   );
