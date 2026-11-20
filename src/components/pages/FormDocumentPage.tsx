@@ -13,6 +13,7 @@ export function FormDocumentPage() {
     unitIdentificationNumber,
     unitRegisteredOfficeAddress,
     questionCategories,
+    verifiedAreaName,
     ssmWorkersNames,
     preparedBy,
     computeQuestionRiskFactor,
@@ -54,18 +55,23 @@ export function FormDocumentPage() {
 
           <dl className="grid grid-cols-2 gap-x-1 gap-y-3 text-sm print:text-xs">
             <div>
-              <dt className="font-bold text-slate-500">Nume unitate</dt>
+              <dt className="font-bold text-slate-500">Denumire unitate</dt>
               <dd>{unitName}</dd>
             </div>
 
             <div>
-              <dt className="font-bold text-slate-500">Data</dt>
-              <dd>{reportCurrentDate}</dd>
+              <dt className="font-bold text-slate-500">Sistem verificat</dt>
+              <dd>{verifiedAreaName}</dd>
             </div>
 
             <div>
               <dt className="font-bold text-slate-500">Adresă sediu</dt>
               <dd>{unitRegisteredOfficeAddress}</dd>
+            </div>
+
+            <div>
+              <dt className="font-bold text-slate-500">Data</dt>
+              <dd>{reportCurrentDate}</dd>
             </div>
 
             <div>
@@ -76,7 +82,7 @@ export function FormDocumentPage() {
         </section>
 
         <section className="mb-10 text-md font-bold text-slate-800 text-justify print:text-md print:text-base">
-          <p className="mb-3 border-b border-slate-400 pb-2 text-xl font-black uppercase text-slate-900 print:text-base">
+          <p className="mb-3 border-b border-slate-400 pb-2 text-xl font-black uppercase text-red-600 print:text-base">
             Atenție!
           </p>
           <p>
@@ -264,7 +270,7 @@ export function FormDocumentPage() {
         </section>
 
         <section>
-          <p className="mb-3 border-b border-slate-400 pb-2 text-xl font-black uppercase text-slate-900 print:text-base">
+          <p className="mb-3 border-b border-slate-400 pb-2 text-xl font-black uppercase text-red-600 print:text-base">
             Atenție!
           </p>
           <p className="mb-20 text-md font-bold text-slate-800 text-justify print:text-md">
