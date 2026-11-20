@@ -16,6 +16,7 @@ export function FormDocumentPage() {
     verifiedSystemName,
     ssmWorkersNames,
     preparedBy,
+    resetVerificationDetails,
     computeQuestionRiskFactor,
     computeRiskTotals,
   } = complianceVerificationContext;
@@ -296,7 +297,10 @@ export function FormDocumentPage() {
         </footer>
 
         <button
-          onClick={() => navigate("/informatii-verificare-curenta")}
+          onClick={() => {
+            resetVerificationDetails();
+            navigate("/informatii-verificare-curenta");
+          }}
           className="ml-auto mt-6 flex items-center gap-1 rounded-xl border border-blue-600 bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-700 hover:bg-blue-700 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600 print:hidden"
         >
           <span className="uppercase">Începe o nouă verificare</span>

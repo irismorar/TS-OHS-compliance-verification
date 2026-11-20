@@ -6,16 +6,20 @@ export function useUnitDetails() {
   const [unitRegisteredOfficeAddress, setUnitRegisteredOfficeAddress] =
     useState("");
   const [verifiedSystemName, setVerifiedSystemName] = useState("");
-  const [isEditingVerifiedSystem, setIsEditingVerifiedSystem] = useState(true);
   const [ssmWorkersNames, setSsmWorkersName] = useState("");
-  const [isEditingSsmWorkers, setIsEditingSsmWorkers] = useState(true);
   const [preparedBy, setPreparedBy] = useState("");
-  const [isEditingPreparedBy, setIsEditingPreparedBy] = useState(true);
 
   const areUnitDetailsFilled =
     unitName.trim() !== "" &&
     unitIdentificationNumber.trim() !== "" &&
     unitRegisteredOfficeAddress.trim() !== "";
+
+  // Clears the current verification's details; the unit details are kept
+  function resetVerificationDetails() {
+    setVerifiedSystemName("");
+    setSsmWorkersName("");
+    setPreparedBy("");
+  }
 
   return {
     unitName,
@@ -27,15 +31,10 @@ export function useUnitDetails() {
     areUnitDetailsFilled,
     verifiedSystemName,
     setVerifiedSystemName,
-    isEditingVerifiedSystem,
-    setIsEditingVerifiedSystem,
     ssmWorkersNames,
     setSsmWorkersName,
-    isEditingSsmWorkers,
-    setIsEditingSsmWorkers,
     preparedBy,
     setPreparedBy,
-    isEditingPreparedBy,
-    setIsEditingPreparedBy,
+    resetVerificationDetails,
   };
 }
