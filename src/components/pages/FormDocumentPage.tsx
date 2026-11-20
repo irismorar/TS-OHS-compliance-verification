@@ -1,7 +1,7 @@
 import { QUESTION_DEFAULT_ANSWER } from "../../data/QUESTION_DEFAULT_ANSWER";
 import { RiskPieChart } from "../RiskPieChart/RiskPieChart";
 import { useComplianceVerificationContext } from "../../ComplianceVerificationContext";
-import { ChevronsLeft } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { useNavigate } from "react-router";
 
 export function FormDocumentPage() {
@@ -291,10 +291,10 @@ export function FormDocumentPage() {
 
         <button
           onClick={() => navigate("/informatii-verificare-curenta")}
-          className="ml-auto mt-6 flex items-center gap-1 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 shadow-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400/60 hover:bg-blue-600 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300 print:hidden"
+          className="ml-auto mt-6 flex items-center gap-1 rounded-xl border border-blue-600 bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-700 hover:bg-blue-700 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600 print:hidden"
         >
-          <ChevronsLeft />
-          <span className="uppercase">înapoi la datele unității</span>
+          <span className="uppercase">Începe o nouă verificare</span>
+          <RotateCcw />
         </button>
       </section>
     </main>
