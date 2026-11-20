@@ -56,7 +56,7 @@ export function CurrentUnitSpecificDataPage() {
             </span>
 
             <h1 className="mt-5 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              Informații specifice unitate verificată
+              Informații specifice sistem verificat
             </h1>
 
             <p className="mt-3 text-sm text-slate-200 sm:text-base">
