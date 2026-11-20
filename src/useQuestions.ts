@@ -387,7 +387,7 @@ export function useQuestions() {
   );
 
   const computeRiskTotals = useCallback(() => {
-    let totalExtremeRisks = 0;
+    let totalCriticalRisks = 0;
     let totalMediumRisks = 0;
     let totalLowRisks = 0;
 
@@ -401,8 +401,8 @@ export function useQuestions() {
             item.severity === question.severity &&
             item.probability === question.probability,
         );
-        if (combination?.riskFactor === "EXTREM") {
-          totalExtremeRisks++;
+        if (combination?.riskFactor === "CRITIC") {
+          totalCriticalRisks++;
         } else if (combination?.riskFactor === "MEDIU") {
           totalMediumRisks++;
         } else if (combination?.riskFactor === "SCĂZUT") {
@@ -411,7 +411,7 @@ export function useQuestions() {
       });
     });
 
-    return { totalExtremeRisks, totalMediumRisks, totalLowRisks };
+    return { totalCriticalRisks, totalMediumRisks, totalLowRisks };
   }, [questionCategories]);
 
   return {

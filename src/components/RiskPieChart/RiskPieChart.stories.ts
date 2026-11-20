@@ -19,7 +19,7 @@ export const Variant1: Story = {
   args: {
     low: 10,
     medium: 20,
-    extreme: 30,
+    critical: 30,
   },
 };
 
@@ -29,6 +29,6 @@ export const Variant2: Story = {
     lineWidth: 80,
     low: 5,
     medium: 15,
-    extreme: 25,
+    critical: 25,
   },
 };

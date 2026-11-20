@@ -2,32 +2,32 @@ export const RISK_FACTOR_COMBINATIONS = [
   {
     probability: 1,
     severity: 1,
-    riskFactor: "EXTREM",
+    riskFactor: "CRITIC",
   },
   {
     probability: 1,
     severity: 2,
-    riskFactor: "EXTREM",
+    riskFactor: "CRITIC",
   },
   {
     probability: 1,
     severity: 3,
-    riskFactor: "EXTREM",
+    riskFactor: "CRITIC",
   },
   {
     probability: 2,
     severity: 1,
-    riskFactor: "EXTREM",
+    riskFactor: "CRITIC",
   },
   {
     probability: 2,
     severity: 2,
-    riskFactor: "EXTREM",
+    riskFactor: "CRITIC",
   },
   {
     probability: 3,
     severity: 1,
-    riskFactor: "EXTREM",
+    riskFactor: "CRITIC",
   },
   {
     probability: 1,

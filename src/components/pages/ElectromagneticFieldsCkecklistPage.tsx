@@ -76,14 +76,14 @@ export function ElectromagneticFieldsChecklistPage() {
                 );
 
                 const getRiskFactorBadgeClass = (
-                  risk: "EXTREM" | "MEDIU" | "SCĂZUT" | null,
+                  risk: "CRITIC" | "MEDIU" | "SCĂZUT" | null,
                 ): string => {
                   switch (risk) {
                     case "SCĂZUT":
                       return "bg-green-100 text-green-700";
                     case "MEDIU":
                       return "bg-amber-100 text-amber-500";
-                    case "EXTREM":
+                    case "CRITIC":
                       return "bg-red-100 text-red-700";
                     default:
                       return "";
@@ -94,14 +94,14 @@ export function ElectromagneticFieldsChecklistPage() {
                   getRiskFactorBadgeClass(riskFactor);
 
                 const getMeasuresPriorityLevel = (
-                  risk: "EXTREM" | "MEDIU" | "SCĂZUT" | null,
+                  risk: "CRITIC" | "MEDIU" | "SCĂZUT" | null,
                 ): string | null => {
                   switch (risk) {
                     case "SCĂZUT":
                       return "Menținerea măsurii";
                     case "MEDIU":
                       return "Măsură prioritară";
-                    case "EXTREM":
+                    case "CRITIC":
                       return "Măsură imediată";
                     default:
                       return null;
@@ -112,7 +112,7 @@ export function ElectromagneticFieldsChecklistPage() {
                   getMeasuresPriorityLevel(riskFactor);
 
                 const showAdditionalNotesInput =
-                  riskFactor === "EXTREM" || riskFactor === "MEDIU";
+                  riskFactor === "CRITIC" || riskFactor === "MEDIU";
 
                 return (
                   <QuestionCard

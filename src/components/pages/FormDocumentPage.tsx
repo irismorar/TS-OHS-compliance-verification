@@ -24,7 +24,7 @@ export function FormDocumentPage() {
     timeStyle: "short",
   }).format(new Date());
 
-  const { totalLowRisks, totalMediumRisks, totalExtremeRisks } =
+  const { totalLowRisks, totalMediumRisks, totalCriticalRisks } =
     computeRiskTotals();
 
   return (
@@ -136,7 +136,7 @@ export function FormDocumentPage() {
                     );
 
                     const riskClass =
-                      riskFactor === "EXTREM"
+                      riskFactor === "CRITIC"
                         ? "text-red-700"
                         : riskFactor === "MEDIU"
                           ? "text-orange-400"
@@ -145,7 +145,7 @@ export function FormDocumentPage() {
                             : "text-slate-500";
 
                     const priority =
-                      riskFactor === "EXTREM"
+                      riskFactor === "CRITIC"
                         ? "Măsură imediată"
                         : riskFactor === "MEDIU"
                           ? "Măsură prioritară"
@@ -216,7 +216,7 @@ export function FormDocumentPage() {
                 className="mx-auto h-80 w-80 print:h-52 print:w-52"
                 low={totalLowRisks}
                 medium={totalMediumRisks}
-                extreme={totalExtremeRisks}
+                critical={totalCriticalRisks}
               />
             </section>
 
@@ -229,11 +229,11 @@ export function FormDocumentPage() {
                 <div className="flex items-center justify-between gap-6">
                   <div className="flex items-center gap-3">
                     <span className="h-5 w-5 rounded-full bg-red-600 print:h-4 print:w-4"></span>
-                    <span>Risc extrem</span>
+                    <span>Risc critic</span>
                   </div>
 
                   <span className="font-bold text-red-700">
-                    {totalExtremeRisks}
+                    {totalCriticalRisks}
                   </span>
                 </div>
 

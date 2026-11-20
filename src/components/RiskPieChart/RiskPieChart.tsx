@@ -5,7 +5,7 @@ type Props = {
   lineWidth?: number;
   low: number;
   medium: number;
-  extreme: number;
+  critical: number;
 };
 
 export function RiskPieChart({
@@ -13,7 +13,7 @@ export function RiskPieChart({
   lineWidth = 60,
   low,
   medium,
-  extreme,
+  critical,
 }: Props) {
   return (
     <PieChart
@@ -21,7 +21,7 @@ export function RiskPieChart({
       data={[
         { title: "Risc scăzut", value: low, color: "#16a34a" },
         { title: "Risc mediu", value: medium, color: "#f59e0b" },
-        { title: "Risc extrem", value: extreme, color: "#dc2626" },
+        { title: "Risc critic", value: critical, color: "#dc2626" },
       ]}
       className={className}
     />

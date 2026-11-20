@@ -95,14 +95,14 @@ export function LotoChecklistPage() {
                 );
 
                 const getRiskFactorBadgeClass = (
-                  risk: "EXTREM" | "MEDIU" | "SCĂZUT" | null,
+                  risk: "CRITIC" | "MEDIU" | "SCĂZUT" | null,
                 ): string => {
                   switch (risk) {
                     case "SCĂZUT":
                       return "border border-green-400/40 bg-green-400/20 text-green-200";
                     case "MEDIU":
                       return "border border-amber-400/40 bg-amber-400/20 text-amber-200";
-                    case "EXTREM":
+                    case "CRITIC":
                       return "border border-red-400/40 bg-red-400/20 text-red-200";
                     default:
                       return "";
@@ -113,14 +113,14 @@ export function LotoChecklistPage() {
                   getRiskFactorBadgeClass(riskFactor);
 
                 const getMeasuresPriorityLevel = (
-                  risk: "EXTREM" | "MEDIU" | "SCĂZUT" | null,
+                  risk: "CRITIC" | "MEDIU" | "SCĂZUT" | null,
                 ): string | null => {
                   switch (risk) {
                     case "SCĂZUT":
                       return "Menținerea măsurii";
                     case "MEDIU":
                       return "Măsură prioritară";
-                    case "EXTREM":
+                    case "CRITIC":
                       return "Măsură imediată";
                     default:
                       return null;
@@ -131,7 +131,7 @@ export function LotoChecklistPage() {
                   getMeasuresPriorityLevel(riskFactor);
 
                 const showAdditionalNotesInput =
-                  riskFactor === "EXTREM" || riskFactor === "MEDIU";
+                  riskFactor === "CRITIC" || riskFactor === "MEDIU";
 
                 return (
                   <QuestionCard

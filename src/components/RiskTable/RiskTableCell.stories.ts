@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    riskLevel: "E",
+    riskLevel: "C",
     isHighlighted: false,
     isLockedIn: false,
     disabled: false,
