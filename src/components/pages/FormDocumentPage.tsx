@@ -13,7 +13,7 @@ export function FormDocumentPage() {
     unitIdentificationNumber,
     unitRegisteredOfficeAddress,
     questionCategories,
-    verifiedAreaName,
+    verifiedSystemName,
     ssmWorkersNames,
     preparedBy,
     computeQuestionRiskFactor,
@@ -61,7 +61,7 @@ export function FormDocumentPage() {
 
             <div>
               <dt className="font-bold text-slate-500">Sistem verificat</dt>
-              <dd>{verifiedAreaName}</dd>
+              <dd>{verifiedSystemName}</dd>
             </div>
 
             <div>

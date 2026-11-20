@@ -7,8 +7,8 @@ export function CurrentUnitSpecificDataPage() {
 
   const {
     areUnitDetailsFilled,
-    verifiedAreaName,
-    setVerifiedAreaName,
+    verifiedSystemName,
+    setVerifiedSystemName,
     ssmWorkersNames,
     setSsmWorkersName,
     preparedBy,
@@ -17,10 +17,10 @@ export function CurrentUnitSpecificDataPage() {
 
   const fields = [
     {
-      id: "verified-area-name",
+      id: "verified-system-name",
       label: "Sistem verificat",
-      value: verifiedAreaName,
-      onChange: setVerifiedAreaName,
+      value: verifiedSystemName,
+      onChange: setVerifiedSystemName,
       minLength: 2,
       maxLength: 37,
       placeholder: "Ex.: Atelierul de croitorie nr.2",
